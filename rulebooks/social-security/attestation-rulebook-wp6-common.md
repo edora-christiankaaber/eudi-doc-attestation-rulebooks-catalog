@@ -597,8 +597,8 @@ extra certificates, compared to the verification of a PID or QEAA.
 
 ### 5.1	Core elements of Trust
 -	Accredited Issuers: Only competent authorities designated under national and EU law may issue PuB-EAA credentials.
-    -	**Credential Format: SD-JWT VC, compliant with sd-jwt-vc and aligned with the revised eIDAS regulation.**
-    -	**mdoc Compatibility: Proximity flow implementations should support the issuance and verification of mobile driving licence (mdoc) credentials, aligned with ISO/IEC 18013-5, to enable offline or near-field scenarios.**
+-	Credential Format: SD-JWT VC, compliant with sd-jwt-vc and aligned with the revised eIDAS regulation.
+-	mdoc Compatibility: Proximity flow implementations should support the issuance and verification of mobile driving licence (mdoc) credentials, aligned with ISO/IEC 18013-5, to enable offline or near-field scenarios.
 -	Wallet Binding: All credentials must be bound to the EUDI Wallet instance to ensure authentic holder identification.
 -	Signature Trust Anchors: Issuers use cryptographic keys listed in EU-level or national trust lists.
 -	Selective Disclosure: Enables minimisation of data while preserving trustworthiness.
