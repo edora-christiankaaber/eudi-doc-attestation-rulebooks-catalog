@@ -108,10 +108,8 @@ Trust anchors for EHIC PuB-EAAs are the same as defined in the common rulebook.
 Revocation patterns for EHIC PuB-EAAs are the same as defined in the common rulebook.
 
 ## 7 Compliance
-*In this section explicitly state how this specific rulebook complies with the 
-general EUDI framework, ARF, and relevant regulations*
 
-[RULEBOOK AUTHOR TO DEFINE] 
+The Compliance follows the same principles as set out in the common rulebook.
 
 ## 8 References
 | **Item Reference** | **Standard name/details**|
