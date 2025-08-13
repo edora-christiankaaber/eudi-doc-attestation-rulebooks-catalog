@@ -2,11 +2,9 @@
 # Attestation Rulebook for attestations of type  "PDA1"
 
 * Author(s): 
-    * Gerd Bauer, DC4EU WP6
+    * Gerd Bauer, DC4EU WP6, dc4eu@sozialversicherung.at
     * Katharina Hilmar, DC4EU WP6
     * Christian Kaaber, DC4EU WP6
-
-*Provide versioning information about the Rulebook in the following form:*
 
 | Version | Date | Description |
 |---------|------------|------------|
@@ -14,12 +12,6 @@
 | 1.0 | 2025-06-27 | 2nd version of the document for comments provided |
 | 1.1 | 2025-07-01 | Template adapted |
 
-
-*Provide a contact email address and/or a link to an issue tracking system that can be used for
-providing feedback, e.g.:* 
-
-**Feedback:**
-  *  https://example.com/tracker 
 
 ## 1 Introduction
 
@@ -119,15 +111,13 @@ The PD A1 adds a number of private namespace attributes to the set inherited fro
 | work_address.postal_code	|	Postal or ZIP code of the workplace.	| string |	20457 |
 
 
-
-
-
 # 3 Attestation encoding 
 
 ## 3.1 ISO/IEC 18013-5-compliant encoding 
 
 | **Data Identifier** | **Attribute identifier** | **Encoding format** |**Namespace**|
 |------------------------|--------------|------------------|------------------|
+| employer.type |employer.type|tstr |urn:dgempl:pubeaas:pda1:v1:attribute:employer:type|
 | employer.id	|	employer.id | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id |
 | employer.name |	employer.name | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name |
 | employer.country	| employer.country | tstr (ISO 3166-1 alpha-2) |urn:dgempl:pubeaas:pda1:v1:attribute:employer:country |
