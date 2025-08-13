@@ -681,10 +681,27 @@ In proximity flows (e.g., offline), wallets or relying party (verifier) instance
 
 
 ## 7 Compliance
-*In this section explicitly state how this specific rulebook complies with the 
-general EUDI framework, ARF, and relevant regulations*
 
-[RULEBOOK AUTHOR TO DEFINE] 
+This Rulebook is designed to ensure full compliance with the overarching European Digital Identity (EUDI) framework, the Architecture Reference Framework (ARF), and the legal requirements set out in the revised eIDAS Regulation (EU 2024/1183). Its alignment can be outlined as follows:
+
+### Alignment with the EUDI Framework
+The Rulebook operationalises the core principles of the EUDI ecosystem—user control, privacy-by-design, and cross-border interoperability—by defining how attestation of attributes in social security coordination are  managed in a citizen-centric way. It enables seamless integration into the EUDI Wallet environment, ensuring that digital credentials are accessible, portable, and verifiable across all Member States.
+
+### Compliance with the Architecture Reference Framework (ARF)
+The Rulebook adopts all technical specifications and standards set out in the ARF, including the use of ARF-compliant credential formats (e.g. SD-JWT, mDL/ISO 18013-5/7), LoA High binding procedures, and interoperable interfaces for issuers and verifiers. It ensures that the lifecycle management of credentials—issuance, revocation, and verification—is handled in accordance with the ARF’s technical and security protocols.
+
+### Conformity with the revised eIDAS Regulation (EU 2024/1183)
+The Rulebook fully reflects the legal obligations defined in the revised eIDAS Regulation, particularly in relation to:
+- Legal equivalence of electronic attestations with paper-based documents (Art. 24),
+- Use of qualified trust services for issuing (qualified electronic seals or signatures),
+- Cross-border recognition and mutual acceptance of credentials,
+- Identity binding through notified eID means at LoA High,
+- Delegation and representation mechanisms,
+- Revocation and proof of verification capabilities, which go beyond traditional practices.
+
+The Attestation Rulebook for attestations of type "Pub-EAA in Social Security Coordination" serves as a practical implementation guide, translating the overarching principles and requirements of the EUDI framework, ARF, and eIDAS Regulation into concrete, interoperable practices tailored to the social security domain and its interacting sectors. This approach ensures both legal certainty and technical coherence, enabling trusted digital interactions between citizens and institutions across the EU.
+
+Each credential type governed by social security coordination—such as the Portable Document A1 (PD A1) or the European Health Insurance Card (EHIC)—inherits the foundational legal, semantic, and technical requirements defined in this rulebook. This guarantees a uniform level of trust, legal validity, and interoperability across all Member States, regardless of the credential’s specific content or intended use.
 
 ## 8 References
 | **Item Reference** | **Standard name/details**|
