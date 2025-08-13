@@ -1,14 +1,12 @@
 
-# Attestation Rulebook for attestations of type  *ADD THE ATTESTATION TYPE HERE*
+# Attestation Rulebook for attestations of type "Pub-EAA in Social Security Coordination"
 
 *Provide information about the author(s) of this Rulebook in the following form:*
 
 * Author(s): 
     * Gerd Bauer, DC4EU WP6
     * Katharina Hilmar, DC4EU WP6
-* Previous Authors
-    * [NAME SURNAME, AFFILIATION (versions)]
-    * [NAME SURNAME, AFFILIATION (versions)]
+    * Christian Kaaber, DC4EU WP6
 
 *Provide versioning information about the Rulebook in the following form:*
 
