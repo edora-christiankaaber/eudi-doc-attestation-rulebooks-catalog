@@ -1,12 +1,10 @@
 
-# Attestation Rulebook for attestations of type  *ADD THE ATTESTATION TYPE HERE*
+# Attestation Rulebook for attestations of type  "PDA1"
 
 * Author(s): 
     * Gerd Bauer, DC4EU WP6
     * Katharina Hilmar, DC4EU WP6
-* Previous Authors
-    * [NAME SURNAME, AFFILIATION (versions)]
-    * [NAME SURNAME, AFFILIATION (versions)]
+    * Christian Kaaber, DC4EU WP6
 
 *Provide versioning information about the Rulebook in the following form:*
 
@@ -59,32 +57,32 @@ This document uses the terminology specified in Annex 1 of the ARF.
 
 ## 2 Attestation attributes and metadata
 
-The European Health Insurance Card (PDA1) credential is a specialised instance of the common PuB-EAAS attribute block defined in the Rulebook `attestation-rulebook-wp6-common.md`. 
+The Portable Document A1 (PD A1) credential is a specialised instance of the common PuB-EAA attribute block defined in the Rulebook `attestation-rulebook-wp6-common.md`. 
 
-The PDA1 adds a number of private namespace attributes to the set inherited from the common.
+The PD A1 adds a number of private namespace attributes to the set inherited from the common.
 
 ### 2.1 Mandatory attributes
 
 | **Data Identifier** | **Definition** |**Data type** |**Example value** |
 |------------------------|--------------|--------------|--------------|
-| employer.id	|	Unique identifier of the employer. | string |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id |
-| employer.name |	Name of the employer. | string |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name |
-| employer.country	| Country where the employer is registered. | string (ISO 3166-1 alpha-2) |urn:dgempl:pubeaas:pda1:v1:attribute:employer:country |
-| work_address.locality |	City, town, or locality of the workplace. | string |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:locality |
-| work_address.country |Country of the workplace. | string (ISO 3166-1 alpha-2) |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:country |
-| legislation_country |	Country whose legislation applies. | string (ISO 3166-1 alpha-2) |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country |
-| status_confirmation	|	Legal status category code applicable to the worker. |string |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation |
+| employer.id	|	Unique identifier of the employer. | string | AT-COMPANY-001 |
+| employer.name |	Name of the employer. | string |	Vienna Logistics GmbH |
+| employer.country	| Country where the employer is registered. | string (ISO 3166-1 alpha-2) | AT |
+| work_address.locality |	City, town, or locality of the workplace. | string | Vienna |
+| work_address.country |Country of the workplace. | string (ISO 3166-1 alpha-2) | AT |
+| legislation_country |	Country whose legislation applies. | string (ISO 3166-1 alpha-2) | DE |
+| status_confirmation	|	Legal status category code applicable to the worker. |string |	01 |
 
 
 ### 2.2 Optional attributes
 
 | **Data Identifier** | **Definition** |**Data type** |**Example value** |
 |------------------------|--------------|--------------|--------------|
-| work_address.region |	Region or state of the workplace. | string |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:region |
-| work_address.formatted | Full formatted workplace address. |string | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:formatted |
-| work_address.street_address	|	Street name of the workplace. | string |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:street_address
-| work_address.building_number | Building number of the workplace. | string	|urn:dgempl:pubeaas:pda1:v1:attribute:work_address:building_number |
-| work_address.postal_code	|	Postal or ZIP code of the workplace.	| string |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:postal_code |
+| work_address.region |	Region or state of the workplace. | string |	Hamburg |
+| work_address.formatted | Full formatted workplace address. |string | Freight Port 5, 20457 Hamburg, Germany |
+| work_address.street_address	|	Street name of the workplace. | string | Freight Port |
+| work_address.building_number | Building number of the workplace. | string	| 5 |
+| work_address.postal_code	|	Postal or ZIP code of the workplace.	| string |	20457 |
 
 
 
@@ -120,18 +118,18 @@ Finally, illustrative examples SHALL be included.
 
 | **Data Identifier** | **Attribute identifier** | **Encoding format** | **Notes** |
 |---------------------|--------------------------|---------------------|-----------|
-| employer.id	|	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id | string |	 |
-| employer.name |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name | string |	 |
+| employer.id	|	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id | string |	See section 2 |
+| employer.name |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name | string | See section 2 |
 | employer.country	| urn:dgempl:pubeaas:pda1:v1:attribute:employer:country | string | (ISO 3166-1 alpha-2) |
-| work_address.locality |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:locality | string |	 |
-| work_address.country | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:country | string | (ISO 3166-1 alpha-2)	 |
+| work_address.locality |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:locality | string | See section 2 |
+| work_address.country | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:country | string | (ISO 3166-1 alpha-2) |
 | legislation_country |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country | string |(ISO 3166-1 alpha-2) |
-| status_confirmation	|	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation | string |	 |
-| work_address.region |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:region | string |	 |
-| work_address.formatted | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:formatted | string |  |
-| work_address.street_address	|	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:street_address | string |	
-| work_address.building_number | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:building_number | string	| |
-| work_address.postal_code	|	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:postal_code	| string |	 |
+| status_confirmation	|	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation | string |	See section 2 |
+| work_address.region |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:region | string | See section 2 |
+| work_address.formatted | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:formatted | string | See section 2 |
+| work_address.street_address	|	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:street_address | string | See section 2 |
+| work_address.building_number | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:building_number | string	| See section 2 |
+| work_address.postal_code	|	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:postal_code	| string | See section 2 |
 
 
 The PD A1 credential implements selective disclosure using the SD-JWT model. This allows a credential holder to disclose only the minimum required claims to a verifier, supporting GDPR-compliant privacy by design.
