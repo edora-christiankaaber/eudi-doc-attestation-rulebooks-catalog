@@ -28,14 +28,14 @@ providing feedback, e.g.:*
 
 ### 1.1 Document scope and purpose
 
-This Rulebook establishes a common framework for the issuance, management, and verification of Public Body Electronic Attribute Attestationss (PuB-EAAs)  within the EUDI wallet ecosystem and in support of social security coordination across the European Union. Its primary objective is to enable the secure, privacy-preserving, and interoperable exchange of digital credentials, such as the European Health Insurance Card (EHIC) and the Portable Document A1 (PD A1), which are developed within the context of the European ESSPASS project.
+This Rulebook establishes a common framework for the issuance, management, and verification of Public Body Electronic Attribute Attestationss (PuB-EAAs)  within the EUDI wallet ecosystem and in support of social security coordination across the European Union. Its primary objective is to enable the secure, privacy-preserving, and interoperable exchange of Electronic Attestations of Attributes, such as the European Health Insurance Card (EHIC) and the Portable Document A1 (PD A1), which are developed within the context of the European ESSPASS project.
 
 The Rulebook is designed to:
 -	Standardise credential issuance in alignment with legal and technical requirements defined under the eIDAS framework.
 -	Enable event-driven verification tailored to specific business contexts and lifecycle triggers.
 -	Promote semantic and syntactic interoperability through harmonised data models, credential schemas, and trust frameworks.
 -	Facilitate cross-border mobility by ensuring that digital credentials are verifiable and legally recognised across Member States and sectors.
--	Implement privacy by design, leveraging Selective Disclosure JWT (SD-JWT) to support data minimisation, unlinkability, and user control in accordance with the revised eIDAS Regulation and the GDPR.
+-	Implement privacy by design, leveraging Selective Disclosure to support data minimisation, unlinkability, and user control in accordance with the revised eIDAS Regulation and the GDPR.
 -	Support governance and trust through clearly defined roles, responsibilities, and quality assurance mechanisms.
 
 This Rulebook is intended for public authorities, service providers, implementers, and governance bodies responsible for delivering and managing digital public services and social security rights in a cross-border, multi-sector EU context
@@ -73,7 +73,7 @@ the following text can be used.*
 This document uses the terminology specified in Annex 1 of the ARF.
 
 ### 1.5 Governance
-This chapter defines the governance structure for the lifecycle management, oversight, and evolution of the PuB-EAA Rulebook and related credential services within the domain of EU social security coordination.
+This chapter suggests a governance structure for the lifecycle management, oversight, and evolution of the Rulebook and related  services within the domain of EU social security coordination.
 #### 1.5.1	 GOVERNANCE OBJECTIVES
 -	Ensure transparent and inclusive oversight of rulebook updates and implementation.
 -	Maintain consistency with EU legislation and cross-border trust frameworks provided by the EUDI wallet ecosystem.
@@ -85,30 +85,30 @@ This chapter defines the governance structure for the lifecycle management, over
 |Entity | Responsibility |
 |-------|----------------|
 | European Commission (DG EMPL)	| Strategic oversight to ensure alignment between eIDAS and the social security coordination framework. |
-|Administrative Commission on the Coordination of Social Security Systems	Periodic review and coordination of legal, operational, and policy frameworks.
+|Administrative Commission on the Coordination of Social Security Systems | Periodic review and coordination of legal, operational, and policy frameworks. |
 | Technical Commission on the Coordination of Social Security Systems |	Technical harmonisation of processes for issuance, revocation, representation and verification of ESSPASS documents implemented as Public Body Electronic Attestations of Attributes (PuB-EAAs), including interaction with digital identity and trust services provided by the EUDI framework. |
-| National Competent Authorities |	PuB-EAA issuance according to rulebook, compliance with national and EU law, and revocation at the Member State level. |
+| National Competent Authorities |	PuB-EAA issuance according to Rulebook, compliance with national and EU law, and revocation at the Member State level. |
 | Social Security  PuB-EAA Technical Maintenance Board | Management of data schemas, versioning, operational guidance, and interoperability updates. |
-| Expert Groups on Social Security Coordination (e.g., Applicable Legislation, Sickness, Pensions)	| Define business requirements, attribute semantics, and operational rules for specific domains within the PuB-EAA framework of eIDAS. |
+| Expert Groups on Social Security Coordination (e.g., Applicable Legislation, Sickness, Pensions)	| Definition of business requirements, attribute semantics, and operational rules for specific domains within the PuB-EAA framework of eIDAS. |
 
 #### 1.5.3 CHANGE MANAGEMENT
--	Rulebook updates shall be proposed via a structured process coordinated by the Technical Maintenance Board.
+-	Rulebook updates shall be proposed via a structured process coordinated by the Social Security PuB-EAA Technical Maintenance   Board.
 -	All changes must undergo consultation and review involving both technical and policy committees.
 -	Final approval lies with a joint governance body composed of representatives from the European Commission, selected Member States, and relevant expert groups.
 #### 1.5.4	VERSIONING AND PUBLICATION
 -	Rulebook versions are identified by a semantic versioning scheme (e.g., v1.0.0).
--    Version identifiers must be reflected in namespace URIs used across the data models (see Section 7.7).
+-	Version identifiers must be reflected in namespace URIs used across the data models (see Section 7.7).
 -	A public registry of approved versions shall be maintained by DG EMPL or a delegated trusted authority.
--	Deprecated versions shall remain accessible for reference but must not be used for new credential issuance.
+-	Deprecated versions shall remain accessible for reference but must not be used for new attestation issuance.
 #### 1.5.5	DISPUTE RESOLUTION AND ESCALATION
--	Disputes regarding compliance, trust breaches, or rule interpretation should first be handled by the national authority.
+-	Disputes regarding compliance, trust breaches, or rule interpretation should first be handled by the National Competent Authority.
 -	Escalation to EU-level governance (e.g., DG EMPL or the Administrative Commission) occurs when bilateral resolution fails.
 -	Independent mediation or expert review may be convened if required.
 
 This governance model ensures continued trust, legal integrity, and interoperability of PuB-EAA credentials in a pan-European context.
 
 ### 1.6 Legal & Regulatory framework
-This chapter outlines the legal and regulatory environment that underpins the issuance and recognition of PuB-EAAS credentials for social security coordination within the European Union and the European Economic Area (EU/EFTA). It provides the foundation for ensuring that all technical and operational specifications are compliant with EU law and Member State obligations.
+This chapter outlines the legal and regulatory environment that underpins the issuance and recognition of PuB-EAA credentials for social security coordination within the European Union and the members of the European Free Trade Association (EU/EFTA). It provides the foundation for ensuring that all technical and operational specifications are compliant with EU law and Member State obligations.
 #### 1.6.1	PRIMARY LEGAL INSTRUMENTS
 | Regulation / Directive | Description |
 |------------------------|-------------|
@@ -116,46 +116,46 @@ This chapter outlines the legal and regulatory environment that underpins the is
 | Implementing Regulation (EC) No 987/2009 |	Details the administrative procedures and data exchange mechanisms for Regulation 883/2004. |
 | Decision No S1 of 12 June 2009 |	Sets general provisions for the “traditional”  EHIC, including its purpose, legal effects, and fallback procedures such as provisional replacement certificates. |
 | Decision No S2 of 12 June 2009 |	Specifies the technical design, visible information, and model for the “traditional” EHIC and its provisional replacement certificate.|
-| Revised eIDAS Regulation (Regulation (EU) 2024/1183) |	Revises and extends the eIDAS framework to support the European Digital Identity Wallet and verifiable credentials framework. Provides legal recognition of electronic attestations of attributes especially the Public Body Electronic Attestations of Attributes (PuB-EAA) regime. |
+| Revised eIDAS Regulation (Regulation (EU) 2024/1183) |	Revises and extends the eIDAS framework to support the EUDI wallet and verifiable credentials framework. Provides legal recognition of electronic attestations of attributes especially the PuB-EAA regime. |
 | GDPR (Regulation (EU) 2016/679) |	Establishes rules on data protection and privacy. Ensures lawful processing of personal data. |
 | Data Governance Act (Regulation (EU) 2022/868) |	Supports data sharing and reuse in the public sector under common European data spaces. | 
-| Interoperable Europe Act (Regulation (EU) 2024/903) |	Laying down measures for a high level of public sector interoperability across the EU. |
+| Interoperable Europe Act (Regulation (EU) 2024/903) |	Lays down measures for a high level of public sector interoperability across the EU. |
 
 #### 1.6.2	LEGAL BASIS FOR CREDENTIAL ISSUANCE
--	The issuance of traditional ESSPASS documents (e.g. EHIC and PD A1) credentials by public authorities is grounded in national implementation of Regulation 883/2004 and 987/2009.
--	The use of digital credentials must comply with trust and identity provisions under the revised eIDAS Regulation foreseen for attestations issued by or behalf of public bodies (PuB-EAAs).
+-	The issuance of traditional ESSPASS documents (e.g. EHIC and PD A1) by public bodies or entities acting on their behalf is grounded in national implementation of Regulation 883/2004 and 987/2009.
+-	The use of electronic attestations must comply with trust and identity provisions under the revised eIDAS Regulation foreseen for attestations issued by or behalf of public bodies (PuB-EAAs).
 -	Each PuB-EAA must carry legal validity across borders in line with mutual recognition principles defined in the revised eIDAS Regulation.
 #### 1.6.3	DATA PROTECTION AND USER RIGHTS
 -	All processing activities must be based on a legal basis (e.g., public interest, legal obligation).
--	The use of SD-JWT supports data minimisation, purpose limitation, and user control.
--	Data subjects have the right to access, rectify, and control the dissemination of their personal information.
+-	The use of Embedded Selective Disclosure supports data minimisation, purpose limitation, and user control.
+-	Citizens have the right to access, rectify, and control the dissemination of their personal information.
 #### 1.6.4	LEGAL INTEROPERABILITY
 -	Legal interoperability is achieved by aligning technical structures (e.g., schemas, namespaces) with recognised standards, legal requirements and responsibilities.
--	Institutions relying on ESSPASS documents must accept valid credentials issued under this rulebook in accordance with the revised eIDAS Regulation.
+-	Institutions relying on ESSPASS documents must accept valid attestations issued under the attestation Rulebook in accordance with the revised eIDAS Regulation.
 
-This framework ensures that all credential-based interactions are both technically robust and legally enforceable across jurisdictio
+This framework ensures that all credential-based interactions are both technically robust and legally enforceable across jurisdictions.
 
 ### 1.7 Pub-EAA Service
-The PuB-EAA service provides a legally valid, privacy-preserving, and interoperable mechanism to digitally attest public attributes related to social security entitlements across the European Union. These credentials, developed in the context of the ESSPASS initiative, support the cross-border and cross-sectoral exchange of verifiable information between national public authorities, citizens, and service providers.
-The PuB-EAA system operates as part of an open trust ecosystem, enabling the use and verification of credentials not only across EU Member States but also across different administrative sectors, in accordance with the revised eIDAS Regulation.
+The PuB-EAA service provides a legally valid, privacy-preserving, and interoperable mechanism to digitally attest attributes related to social security entitlements by public bodies or entities acting on their behalf across the EU. These credentials, developed in the context of the ESSPASS initiative, support the cross-border and cross-sectoral exchange of verifiable information between national public authorities, citizens, and service providers.
+The PuB-EAA system functions within an open, cross-border, and cross-sector trust ecosystem, enabling the use and verification of attestations not only across both EU Member States and different administrative sectors, in line with the revised eIDAS Regulation.
 #### 1.7.1	SUPPORTED CREDENTIALS
-This preliminary version of the Rulebook supports two key credentials central to social security coordination. The framework, however, is designed to be extensible and can be expanded to accommodate additional credentials foreseen in ESSPASS as digital transformation progresses.
--	European Health Insurance Card (EHIC): Proves entitlement to healthcare under the applicable conditions of the host Member State.
+This DC4EU version of the Rulebook supports two key credentials central to social security coordination. The framework, however, is designed to be extensible and can be expanded to accommodate additional credentials foreseen in ESSPASS as digital transformation progresses.
+-	European Health Insurance Card (EHIC): Proves entitlement to necessary healthcare services while temporarily staying in other EU Member States under the applicable conditions of the host Member State.
 -	Portable Document A1 (PD A1): Confirms the applicable social security legislation for posted workers or persons working in multiple countries.
 #### 1.7.2	LIFECYCLE SERVICES
 The PuB-EAA trust framework supports the following credential lifecycle operations:
--	Issuance: Performed by competent national institutions.
--	Selective Disclosure: Holders can share only the necessary attributes with relying parties in a flexible and user-friendly way.
+-	Issuance: Performed by public bodies or mandated institutions on behalf of them.
+-	Selective Disclosure: Holders can, in some use-cases, share only the necessary attributes with relying parties in a flexible and user-friendly way.
 -	Presentation: Credentials can be securely presented to relying parties. This ensures interoperability and trust across different systems.
 -	Verification: Relying parties validate the credential and its digital signature using established trust anchors.
--	Revocation: Revocation mechanisms ensure credentials can be invalidated when no longer applicable.
+-	Revocation: Revocation mechanisms ensure that credentials can be invalidated when no longer applicable.
 #### 1.7.3	INTEGRATION WITH EIDAS AND THE EUDI WALLET
-The PuB-EAA service model is fully aligned with the revised eIDAS Regulation and designed for seamless integration with the European Digital Identity (EUDI) Wallet. This wallet provides users with a secure and trusted interface for managing and 7presenting verifiable credentials, including those used in ESSPASS.
+The PuB-EAA service model is fully aligned with the revised eIDAS Regulation and designed for seamless integration with the EUDI Wallet ecosystem. If offers users a secure and trusted interface for managing and presenting Electronic Attestations of Attributes (EAAs) issued by or on behalf of public bodies—including those used in ESSPASS—in combination with Person Identification Data (PID) issued by national identity providers.
 To ensure legal validity and personal attribution, the use of the electronic identification means embedded in the EUDI Wallet is mandatory at the time of credential issuance. This mechanism supports:
 -	Verification of the holder’s identity
 -	Proof of possession of the digital wallet, ensuring cryptographic binding of the credential to the rightful owner
 
-As a mandatory policy, Person Identification Data (PID) from the EUDI Wallet must be requested and validated before issuing any PuB-EAA credential. This ensures:
+As a mandatory policy, Person Identification Data (PID) from the EUDI Wallet must be requested and validated before issuing any PuB-EAA credential into a valid EUDI wallet. This ensures:
 -	Unique and unambiguous identification of the holder
 -	Credential binding to a verified digital identity
 -	Prevention of identity fraud or mis-issuance
@@ -174,15 +174,15 @@ In use cases which require identity information during credential verification, 
 -	That credential use is protected from fraud, replay, or impersonation
 
 The dual use of PID during both issuance and verification ensures legal certainty, operational integrity, and high assurance across Member States.
-The presentation and verification of the PID is an integral part of the verification policy, which defines how the credential is validated in the context of a specific legal or business use case. This policy includes not only rules for data disclosure but also identity proof requirements that bind the credential to the individual presenting it. Such binding ensures trustworthyness and authentication across borders in accordance with the revised eIDAS framework. It must be highlighted that the (cryptographic) binding of credentials makes the identity information less critical to verify in most business cases.
+The presentation and verification of the PID is an integral part of the verification policy, which defines how the credential is validated in the context of a specific legal or business use case. This policy includes not only rules for data disclosure but also identity proof requirements that bind the credential to the individual presenting it. Such binding ensures trustworthyness and authentication across borders in accordance with the revised eIDAS framework. It must be highlighted that the (cryptographic) binding of attestation to the holder in the EUDI wallet makes the identity information less critical to verify in most business cases.
 #### 1.7.4	BENEFITS FOR STAKEHOLDERS
 | Stakeholder	| Benefits |
 |---------------|----------|
-| Citizens (Holders)	| Seamless access to rights across borders, security, and control over data.|
+| Citizens (Holders)	| Access to rights across borders, security, and control over data with a mobile device.|
 | Issuing Authorities	| Standardised, secure issuance and auditability. |
 | Relying Parties |	Fast, verifiable, and trusted data validation. |
 
-This service related to PuB-EAAs issued under eIDAS underpin the secure and efficient coordination of social security entitlements across Member States, enabling digital mobility and reducing administrative burden.
+This service related to PuB-EAAs issued under eIDAS underpins the secure and efficient coordination of social security entitlements across Member States, enabling digital mobility and reducing administrative burden.
 
 ### 1.8	Authentic Source and Issuer
 In the context of PuB-EAA credential issuance for social security coordination, it is essential to differentiate between the Authentic Source and the Issuer. Both roles are critical to ensuring trust, legal compliance, and semantic clarity across Member States.
@@ -195,7 +195,7 @@ This institution is:
 
 Responsibilities:
 -	Provide verified data about the citizen's entitlement (e.g., EHIC or PD A1 coverage).
--	Maintain accurate and up-to-date information on the insured person's status (c overage, revocation).
+-	Maintain accurate and up-to-date information on the insured person's status (coverage, revocation).
 -	Serve as the legal reference for resolving data disputes or validating claims during verification.
 
 Fields in credentials representing the authentic source include:
@@ -207,7 +207,7 @@ The Issuer is the digital entity that packages and signs the credential using cr
 Responsibilities:
 -	Generate Verifiable Credentials based on business decision data from authentic source.
 -	Bind the credential to the holder's EUDI Wallet, and thereby indirectly to the PID.
--	Ensure compliance with the eIDAS trust framework, the credential rulebook, and versioned namespace definitions.
+-	Ensure compliance with the eIDAS trust framework, this Rulebook, and versioned namespace definitions.
 -	Use cryptographic signing keys that are referenced in national or EU Trusted Lists, establishing recognised trust anchors in accordance with the eIDAS Regulation.
 -	Ensure that the associated Qualified Trust Service Provider (QTSP) and relevant trust services (e.g., electronic seals or signatures) are listed in the EU Trusted List or equivalent national trusted lists.
 
@@ -215,6 +215,7 @@ Fields in credentials representing the issuer include:
 -	iss (Issuer URI)
 -	issuing_authority.id
 -	issuing_authority.name
+-	issuing_authority.country
 
 While the iss URI identifies the issuer at a logical level, trust in the credential is established through the Public Key Infrastructure (PKI) anchored in the Qualified Trust Service Provider certificates published in the trusted lists. The iss URI may resolve to metadata containing key information, but verification must rely on the certificate chain validated against trusted list entries, not on the URI alone.
 Although in many Members States the same institution may serve as both the Authentic Source and the Issuer, these roles are functionally distinct.
@@ -293,7 +294,9 @@ avoid natural language ambiguities.*
 ---
 
 The social security credentials share a set of common business data fields critical for social security coordination. These fields support consistent identification, issuance tracking, and institutional attribution across credential types. The shared fields below are harmonised to facilitate semantic and syntactic interoperability.
+
 These data elements constitute the basic validation block required to validate eligibility of the credential. Together with additional, credential-specific business fields, they form the basis of a localised validation policy defined at the national level. This localised policy may reflect specific regulatory, operational, or contextual requirements, and governs how credentials are verified in real-world scenarios by competent authorities.
+
 To ensure auditability and legal certainty, the verification proof generated during a successful credential verification event must also include the common business data fields. This block serves as a reference, linking the holder, the verified credential, the authentic source responsible for the business decision, and the issuer of the credential. Additionally, it incorporates the two validation periods required for business-level evaluation
 
 The common business data block consist of:
@@ -308,12 +311,13 @@ The common business data block consist of:
 |------------------------|--------------|--------------|--------------|
 | attestation_legal_category | | string | PuB-EAA |
 | personal_administrative_number | Unique personal identifier used by the issuing social security services. | string | 123456789 |
-| issuing_country | Country under whose jurisdiction the credential is issued. | string (ISO 3166-1 alpha-2) | DE |
-| document_number | Unique document identifier. | string | 83e1442d-1e4b-477f-8aeb-632e29d19255 |
 | issuing_authority.id | Identifier of the issuing authority. | string | DE:456789 |
 | issuing_authority.name | Name of the issuing authority. | string | DRVB |
+| issuing_authority.country | Country under whose jurisdiction the credential is issued. | string (ISO 3166-1 alpha-2) | DE |
 | authentic_source.id | ID of the competent institution (EESSI). | string | DE:456789 |
 | authentic_source.name | Name of the competent institution (EESSI). | string | DRVB |
+| document_number | Unique document identifier. | string | 83e1442d-1e4b-477f-8aeb-632e29d19255 |
+
 
 
 ### 2.3 Optional attributes
@@ -557,20 +561,21 @@ The verification proof is of utmost importance in the case of the cost reimburse
 -	Enable provable and non-repudiable proof that a verification occurred.
 -	Support alignment with Member State audit and accountability frameworks.
 -	Build on the shared business data block structure used in social security credentials (see chapter 7).
--	 Ensure compatibility with SD-JWT-based selective disclosure mechanisms.
+-	Ensure compatibility with SD-JWT-based selective disclosure mechanisms.
 #### 4.3.2	STRUCTURE OF A VERIFICATION PROOF
 A verification proof must include the following components:
 -	Verification Metadata: Timestamp
--	Verifier Identity: Identifiers of the authorised verifier institution or entity, traceable to EU or national trust lists.
--	Presented Credential: The common business data fields used in ESSPASS (see chapter 7.2.2) to reference the holder, the authentic source, the issuer and the document.
+-	Identifiers of the authorised verifier or authorised intermediary, traceable to EU or national trusted list.
+-	Presented Attestation Attributes: The common business data fields used in ESSPASS (see chapter 7.2.2) to reference the holder, the authentic source, the issuer and the document.
 -	Cryptographic Signature: A digital signature by the verifier, binding all proof elements together and ensuring integrity and authenticity.
+-	Status: An information on the status of the verification.
 #### 4.3.3	TECHNOLOGICAL CONSIDERATIONS
 -	Verification proofs must be cryptographically verifiable 
 -	The proof can be optionally anchored in a distributed ledger or national registry, depending on Member State implementation choices.
 -	Reuse of existing credential status endpoints may be leveraged for proof retrieval or audit trails, without exposing personal data.
 #### 4.2.4	SECURITY AND PRIVACY
 -	Verification proofs must not contain personal data; instead, they rely on references and pseudonymised elements.
--	Holders must retain local registrations of the interactions in their wallet for self-audit or to dispute resolution purposes. This is mandatory as part of the privacy dashboard according to eIDAS and ARF:
+-	Holders must be able to tetain local registrations of the interactions in their wallet for self-audit or to dispute resolution purposes. This is mandatory as part of the privacy dashboard according to eIDAS and ARF.
 -	All verification proofs must comply with GDPR and relevant national data protection laws.
 #### 4.2.5	INTEGRATION WITH VERIFICATION POLICY
 Verification proofs are policy-bound. They inherit context from the applicable verification policy (see chapter 4.2) and must reference the policy version under which the verification was conducted. This binding ensures clarity on the expected data, verifier roles, and legal basis at the time of execution.
@@ -597,10 +602,10 @@ extra certificates, compared to the verification of a PID or QEAA.
 
 ### 5.1	Core elements of Trust
 -	Accredited Issuers: Only competent authorities designated under national and EU law may issue PuB-EAA credentials.
--	Credential Format: SD-JWT VC, compliant with sd-jwt-vc and aligned with the revised eIDAS regulation.
--	mdoc Compatibility: Proximity flow implementations should support the issuance and verification of mobile driving licence (mdoc) credentials, aligned with ISO/IEC 18013-5, to enable offline or near-field scenarios.
+-	Credential Format: SD-JWT VC (Verifiable Credentials based on Selective Disclosure for JSON Web Token, see https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/), aligned with the revised eIDAS regulation.
+-	mdoc Compatibility: Proximity flow implementations should support the issuance and verification of Electronic Attestation of Attributes aligned with ISO/IEC 18013-5, to enable offline or near-field scenarios.
 -	Wallet Binding: All credentials must be bound to the EUDI Wallet instance to ensure authentic holder identification.
--	Signature Trust Anchors: Issuers use cryptographic keys listed in EU-level or national trust lists.
+-	Signature Trust Anchors: Issuers use cryptographic keys listed in EU-level or national trusted lists.
 -	Selective Disclosure: Enables minimisation of data while preserving trustworthiness.
 -	Revocation and Expiry Handling: Verification flows must support real-time checks of credential status.
 -	Mutual Verification: Builds trust by establishing identity and rights.
@@ -609,10 +614,10 @@ extra certificates, compared to the verification of a PID or QEAA.
 Interoperability is achieved through:
 -	Use of standardised data models and versioned namespaces.
 -	Adherence to eIDAS-ARF, PuB-EAA and EUDI Wallet specifications.
--	Common processes for issuance (OpenID for Verifiable Credential Issuance), verification (OpenID for Verifiable Presentations), and trust list publication.
-### 5.3	TRUST LIST AND METADATA SERVICES
-The trust infrastructure includes two types of trust lists specifically related to the social security domain, which are essential for the validation and interoperability of PuB-EAA credentials:
--	Issuer Trusted List: Lists all entities legally authorised to issue EHIC and PD A1 credentials. Includes their legal basis, credential types, and cryptographic key material.
+-	Common processes for issuance (OpenID for Verifiable Credential Issuance), verification (OpenID for Verifiable Presentations), and trusted list publication.
+### 5.3	TRUSTED LIST AND METADATA SERVICES
+The trust infrastructure includes two types of trusted lists specifically related to the social security domain, which are essential for the validation and interoperability of PuB-EAA credentials:
+-	Issuer Trusted List: A list of all entities legally authorised to issue EHIC resp. PD A1 credentials. Includes their legal basis, credential types, and cryptographic key material.
 -	Verifier Trusted List: Lists entities authorised to request, validate and accept credentials for the purpose of service provision, such as public authorities, healthcare providers, and social security institutions.
 
 These trusted lists not only enable verifiers to check issuer authenticity, but also empower holders to verify that:
@@ -620,6 +625,16 @@ These trusted lists not only enable verifiers to check issuer authenticity, but 
 -	The entity requesting or verifying a credential is authorised to do so
 This bidirectional trust validation is essential to protect users against misuse, fraud, or phishing attempts, and ensures confidence in interactions across the PuB-EAA ecosystem.
 
+In addition to these, other trusted lists relevant to the broader eIDAS trust ecosystem, such as those for PID providers, wallet providers, and qualified trust service providers (QTSPs), also play a critical role in the end-to-end credential lifecycle, particularly for identity verification and cryptographic trust anchors.
+The trusted lists for issuers and verifiers shall be:
+- Maintained by a designated authority (e.g., DG EMPL or delegated national body)
+- Accessible via standard endpoints (e.g., JSON-based well-known URLs)
+- Versioned and timestamped for auditability
+
+Each participating Member State must maintain or reference:
+- A trusted list of authorised issuers and verifiers
+- Public metadata describing schemas, namespaces, and PID requirements
+- Technical endpoints for revocation status, key material, and wallet compatibility
 
 
 
@@ -646,11 +661,11 @@ This chapter defines the requirements and mechanisms for revocation and status v
 -	These revocation processes must align with the Implementing Acts adopted under Articles 24 and 45 of Regulation (EU) 2024/1183 and shall comply with technical specifications defined in the ARF and associated Commission acts on credential status checking mechanisms.
 ### 6.2	REVOCATION REQUIREMENTS
 PuB-EAA credentials in social security must support revocation mechanisms that:
--	Allow issuers or authorised authorities to revoke a credential when it is no longer valid (e.g., due to expiry, change in entitlement or fraud).
--	Are machine-readable, versioned, and aligned with the semantic status codes defined in the rulebook and implementing acts.
+-	Allow the issuing entity (or one acting on behalf of a competent public body) to  to revoke a credential when it is no longer valid (e.g., due to expiry, change in entitlement or fraud).
+-	Are machine-readable, versioned, and aligned with the semantics defined in the implementing acts.
 -	Reflect changes in holder status or institutional authorisation that affect credential validity.
 ### 6.3	SUPPORTED METHODS
-In the social security domain, credential status is limited to binary values, either valid or revoked. While this revocation model is functionally binary, it is implemented using the W3C-compliant StatusListCredential structure. This ensures alignment with the ARF and eIDAS implementing acts, while benefiting from scalable, privacy-preserving design suitable for offline and proximity flows. 
+In the social security domain, the status of a PuB-EAA document on a revocation list is limited to binary values - either valid or revoked. Although the revocation model is functionally binary, it is implemented using the W3C-compliant StatusListCredential structure. This approach ensures complicance with the ARF and eIDAS implementing acts, while offering a scalable and privacy-preserving solution suitable for both offline and proximity-based use cases. 
 The credential must include a credentialStatus claim (or property) that references a revocation list, typically implemented as a W3C-compliant StatusListCredential.
 
     "credentialStatus": {
@@ -663,7 +678,7 @@ The credential must include a credentialStatus claim (or property) that referenc
 
 The credentialStatus is a mandatory metadata field in Verifiable Credentials (when revocation is supported). The use of credentialStatus must also conform to Annex II of the eIDAS 2.0 Regulation, and relevant ARF guidelines on privacy-preserving revocation, including support for proximity/offline flows. It references an external resource (a status list), not the actual status value and it conforms to W3C Verifiable Credentials Data Model (VCDM) and ARF guidance.
 Verifiers must receive only a privacy-preserving proof of validity, and all status checking should be performed internally by the holder’s wallet. Where feasible, issuers may rotate status list indexes or update list structures to further reduce correlation risks. These safeguards are essential to prevent cross-context tracking and uphold GDPR-compliant handling of social security entitlements.
-In proximity flows (e.g., offline), wallets or relying party (Verifier) instances may use pre-fetched revocation lists or signed status snapshots, ensuring validation without connectivity.
+In proximity flows (e.g., offline), wallets or relying party (verifier) instances may use pre-fetched revocation lists or signed status snapshots, ensuring validation without connectivity.
 
 
 
