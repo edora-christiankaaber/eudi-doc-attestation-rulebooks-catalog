@@ -1,26 +1,16 @@
  
 # Attestation Rulebook for attestations of type "Pub-EAA in Social Security Coordination"
 
-*Provide information about the author(s) of this Rulebook in the following form:*
-
 * Author(s): 
-    * Gerd Bauer, DC4EU WP6
+    * Gerd Bauer, DC4EU WP6, dc4eu@sozialversicherung.at
     * Katharina Hilmar, DC4EU WP6
     * Christian Kaaber, DC4EU WP6
-
-*Provide versioning information about the Rulebook in the following form:*
 
 | Version | Date | Description |
 |---------|------------|------------|
 | 0.1 | 2025-06-02 | 1st version of the document for comments provided |
 | 1.0 | 2025-06-27 | 2nd version of the document for comments provided |
 | 1.1 | 2025-07-01 | Template adapted |
-
-*Provide a contact email address and/or a link to an issue tracking system that can be used for
-providing feedback, e.g.:* 
-
-**Feedback:**
-  *  https://example.com/tracker 
 
 ## 1 Introduction
 
@@ -68,9 +58,6 @@ whereas other words, such as 'will', and 'is' or 'are' are intended as
 statements of fact.
 
 ### 1.4 Terminology
-
-*It is recommended to use the terminology defined in Annex 1 of ARF. For example
-the following text can be used.* 
 
 This document uses the terminology specified in Annex 1 of the ARF.
 
@@ -227,73 +214,7 @@ This distinction follows the ARF principle of role separation between legal auth
 
 ## 2 Attestation attributes and metadata
 
-*This section is used for defining all attributes that an
-attestation of the defined type may contain. In this section
-the attributes SHALL be defined in an encoding-independent manner (see ARB_06 in [Topic 12]). 
-Each attribute can be mandatory, optional, or conditional
-and it SHALL be specified in the corresponding section (see ARB_09 in [Topic 12]).*
-
-*When attributes are defined, referring to attributes that
-already exist in a catalogue of attestation attributes 
-SHOULD be considered (see ARB_07 in [Topic 12]).*
-
-*[Topic 12] of Annex 2 of the ARF defines the following High-Level Requirements with
-respect to the Attestation Rulebooks*
-
-**Requirements for PuB-EAA**
-* Αn attribute as meant in  Annex VII point a) of the [European Digital Identity Regulation] 
-SHALL be included (see ARB_11 in [Topic 12]). See also section 2.1.
-* Οne or more attributes or metadata representing the set of data meant in Annex
- VII point b) of the [European Digital Identity Regulation] SHALL be included (see ARB_14 in [Topic 12]).
-* Οne or more attributes representing the set of data meant in Annex VII point c) 
-of the [European Digital Identity Regulation] SHALL be included (see ARB_16 in [Topic 12]).
-* Οne or more attributes or metadata representing the set of data meant in Annex VII point e)
-of the [European Digital Identity Regulation] SHALL be included (see ARB_18 in [Topic 12]).
-* one or more attributes or metadata representing the location meant in Annex VII point h)
-of the [European Digital Identity Regulation] SHALL be included. This location SHALL 
-indicate at least the URL at which a machine-readable version of the qualified 
-certificate that signed the PuB-EAA can be found or looked up. (see ARB_20 in [Topic 12]) 
-
-**Requirements for non-qualified EAA**
-* An attribute indicating that the attestation is an EAA should be included (see ARB_12 in [Topic 12]).
-See also section 2.1.
-* Οne or more attributes or metadata representing the set of data meant in Annex 
-V point b) of the [European Digital Identity Regulation] SHALL be included (see ARB_15 in [Topic 12]).
-* Οne or more attributes representing the set of data meant in Annex V point c) of the 
-[European Digital Identity Regulation] SHOULD be included (see ARB_17 in [Topic 12])
-* Οne or more attributes representing the set of data meant in Annex V point e) of 
-the [European Digital Identity Regulation] SHOULD be defined (see ARB_19 in [Topic 12]).
- * Οne or more attributes or metadata representing the location at which a machine-readable 
-version of the trust anchor to be used for verifying the EAA can be found or
-looked up SHOULD be defined. What this location indicates precisely is dependent 
-on the nature of the mechanism used for distributing trust anchors, detailed in section 
-5 (see ARB_21 in [Topic 12])
-
 ### 2.1 Introduction
-
-*Briefly introduce the overall design and purpose of the specific attestation type 
-defined by this Rulebook, including key decisions regarding its attributes and 
-legal categorization.* 
-
-*According to Annex V point a) and  Annex VII point a) of the [European Digital Identity Regulation]
-an indication, at least in a form suitable for automated processing, that the attestation 
-has been issued as a QEAA or Pub-EAA SHALL be defined. Similarly, according to ARB_12
-of [Topic 12] of Annex 2 of the ARF a similar indication SHOULD be defined for non-qualified EAA.
-This document defines the attribute "attestation_legal_category" which SHALL have
-the value "QEAA" or "PuB-EAA" or "non-qualified-EAA".* 
-
-*In the following subsections define in an encoding independent manner all 
-mandatory, optional, and conditional attributes and metadata. In each subsection
-provide a table of the following form:*
-
-| **Data Identifier** | **Definition** |**Data type** |**Example value** |
-|------------------------|--------------|--------------|--------------|
-| *Provide a unique attribute identifier* | *Briefly describe the semantic of this attribute*|*Provide a type, e.g., integer, string, boolean, date.*|*Give an example value*
-
-*NOTE Data identifiers should be unambiguous, machine-readable where possible, and 
-avoid natural language ambiguities.*
-
----
 
 The social security credentials share a set of common business data fields critical for social security coordination. These fields support consistent identification, issuance tracking, and institutional attribution across credential types. The shared fields below are harmonised to facilitate semantic and syntactic interoperability.
 
@@ -343,7 +264,7 @@ The common business data block consist of:
 | date_of_expiry | Credential expiration date.| date | 2025-08-01 |
 
 
-## 2.2 The three validity layers
+### 2.7 The three validity layers
 
 | Layer | Purpose |	Fields |	Validation Responsibility |
 |-------|---------|--------|------------------------------|
@@ -362,63 +283,6 @@ All attestations of attributes in the social security coordination space are to 
 
 ## 3.1 ISO/IEC 18013-5-compliant encoding 
 
-*Furthermore, in this section a document type SHALL be defined, which SHALL be 
-unique within the scope of the EUDI Wallet ecosystem (see ARB_05 in [Topic 12]).*
-
-[RULEBOOK AUTHOR TO DEFINE THE ATTESTATION TYPE]
-
-*Provide a list of available encoding formats and their specifications (e.g., encoding, maximum lengths, 
-date formats, etc). For example:*
-
-- tstr, uint, bstr, bool and tdate are CDDL representation types defined in
-  [RFC 8610].
-    - Regarding type tstr: this document confirms that, as specified in [RFC
-    8949], a tstr SHALL be encoded in UTF-8 and SHALL support the full Unicode
-    range.
-    - All attributes having encoding type tstr SHALL have a maximum length of
-    150 characters.
-    - This document specifies full-date as full-date = #6.1004(tstr), where tag
-    1004 is specified in [RFC 8943].
-    - In accordance with [RFC 8949], section 3.4.1, a tdate attribute SHALL
-    contain a date-time string as specified in [RFC 3339]. In accordance with
-    [RFC 8943], a full-date attribute SHALL contain a full-date string as
-    specified in [RFC 3339].
-    - The following requirements apply to the representation of dates in
-    attributes, unless otherwise indicated:
-        - Fractions of seconds SHALL NOT be used;
-        - A local offset from UTC SHALL NOT be used; the time-offset defined in
-        [RFC 3339] SHALL be to "Z".
-    - [RFC 8949], section 4.2, describes four rules for canonical CBOR. Three of
-    those rules SHALL be implemented for all CBOR structures, as
-    follows:
-        - integers (major types 0 and 1) SHALL be as small as possible;
-        - the expression of the length in a bstr, tstr, array or map SHALL be as
-        short as possible;
-        - indefinite-length items SHALL be made into definite-length items.
-
-*This section should include a table the data identifier specified in
-Chapter 2,  the corresponding attribute identifier to be used in
-presentation requests and responses according to [ISO/IEC 18013-5] and the encoding 
-of each attribute.*
-
-*Additionally, the following rules should be followed:*
-
-* When specifying new attributes existing conventions 
-for attribute identifier values and attribute syntaxes SHOULD
-be considered (see ARB_07 in [Topic 12]).
-* Each attribute SHALL be defined within an attribute namespace. 
-  * An attribute namespace 
-SHALL fully define the identifier, the syntax, and the semantics of each attribute 
-within that namespace. 
-  * An attribute namespace SHALL have an identifier that is 
-unique within the scope of the EUDI Wallet ecosystem, and each attribute 
-identifier SHALL be unique within that namespace (see ARB_06a in [Topic 12]) 
-  * A domestic namespace MAY defined 
-to specify attributes that are specific to this Rulebook and are not included in 
-the applicable EU-wide or sectoral namespace (see ARB_10 in [Topic 12]). 
-
----------
-
 | **Data Identifier** | **Attribute identifier** | **Encoding format** |**Namespace**|
 |------------------------|--------------|------------------|------------------|
 | attestation_legal_category | attestation_legal_category | tstr | urn:dgempl:pubeaas:v1:attribute:attestation_legal_category | 
@@ -434,37 +298,9 @@ the applicable EU-wide or sectoral namespace (see ARB_10 in [Topic 12]).
 | date_of_issuance | date_of_issuance | tdate | urn:dgempl:pubeaas:v1:attribute:date_of_issuance |
 | date_of_expiry | date_of_expiry | tdate | urn:dgempl:pubeaas:v1:attribute:date_of_expiry |
 
-Finally, illustrative examples SHALL be included. 
-
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF FULL OR PARTIAL mDOC OF THE ATTESTATION]
-
-[RULEBOOK AUTHOR TO PROVIDE THE ATTRIBUTES AND THEIR VALUES INCLUDED IN THE EXAMPLE]
+Examples for social security coordination attestation types can be found in the rulebooks for the specific attestation types.
 
 ### 3.2 SD-JWT VC-based encoding 
-*If the attestation type supports the the format specified in "SD-JWT-based Verifiable 
-Credentials (SD-JWT VC)", then in this section the  SD-JWT VC-compliant encoding 
-of attributes and metadata should be defined. It SHALL be ensured that the attestations 
-comply with the 'SD-JWT VCs' profile specified in [HAIP] (see ARB_01b in [Topic 12]).*
-
-*It is noted that a  Schema Provider  MAY specify in the Attestation 
-Rulebook that that type of attestation must be issued in the [SD-JWT VC]-compliant 
-format, provided the [SD-JWT VC] specification has been approved by an EU standardisation 
-body or by the European Digital Identity Cooperation Group established pursuant to 
-Article 46e(1) of the [European Digital Identity Regulation] (see ARB_03 in [Topic 12]).*
-
-*In this section, a Verifiable Credential Type (`vct`) SHALL be defined,
-which SHALL be unique within the scope of the EUDI Wallet ecosystem (see ARB_05 in [Topic 12]).*
-
-[RULEBOOK AUTHOR TO DEFINE THE ATTESTATION TYPE]
-
-*Additionally,  when specifying new attributes existing conventions 
-for attribute identifier values and attribute syntaxes SHOULD
-be considered (see ARB_07 in [Topic 12]).*
-
-*It SHALL be ensured that each claim name is either included in the IANA registry 
-for JWT claims, or is a Public Name as defined in [RFC 7519] (see ARB_06b in [Topic 12]).* 
-
-----------------
 
 | **Data Identifier** | **Attribute identifier** | **Encoding format** | **Notes** |
 |---------------------|--------------------------|---------------------|-----------|
@@ -481,34 +317,10 @@ for JWT claims, or is a Public Name as defined in [RFC 7519] (see ARB_06b in [To
 | date_of_issuance | urn:dgempl:pubeaas:v1:attribute:date_of_issuance | string | ISO 8601-1 [ISO8601‑1] YYYY-MM-DD format |
 | date_of_expiry | urn:dgempl:pubeaas:v1:attribute:date_of_expiry | string | ISO 8601-1 [ISO8601‑1] YYYY-MM-DD format|
 
-
-Finally, illustrative examples SHALL be included. 
-
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF THE JWT CLAIM SET USED BY THE PROVIDER]
-
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF THE ISSUED SD-JWT (IN base64 ENCODING)]
-
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF A HUMAN READABLE VERSION OF THE SD-JWT PAYLOAD
-AND A DESCRIPTION OF THE DISCLOSURES INCLUDED IN THE EXAMPLE]
-
-
+Examples for social security coordination attestation types can be found in the rulebooks for the specific attestation types.
 
 ## 4 Attestation usage
-*Briefly describe the primary use cases or scenarios for which this attestation 
-type is intended*
 
-*Additionally, in this section it SHOULD  be specified whether a Relying Party receiving the attestation
-must request and verify a PID (see ARB_27 in [Topic 12]). Also beyond PID verification, 
-it SHOULD be defined what other key obligations does a Relying Party have when processing 
-this attestation type (e.g., signature verification, freshness checks)*
-
-*Furthermore, provide potential presentation requirements, e.g., are there specific 
-requirements for how this attestation must be presented (e.g., online, offline, specific protocols)?"*
-
-*Finally, in this section information about potential transactional data
-SHALL be defined (see [Topic 20] of Annex 2 of the ARF).*
-
------------
 The common PuB-EAA structure for social security coordination attestations, provides shared data elements essential for holder binding, institutional auditability, and administrative lifecycle control. These fields are harmonised with the generic namespace structure and enable semantic and syntactic interoperability across systems.
 
 Specific credential types may introduce additional attributes and constraints as fits the specific purposes.
@@ -518,6 +330,7 @@ This modular approach ensures:
 -	Credential-specific validation and rendering policies.
 -	Support for privacy-preserving selective disclosure.
 
+Use cases for social security coordination attestation types can be found in the rulebooks for the specific attestation types.
 
 ### 4.1 Verification Policy and Guidelines
 This chapter defines the principles and structure for verification policies applicable to PuB-EAA credentials, ensuring consistency across Member States while supporting localised implementations. It is agnostic to the specific technology used for policy enforcement.
@@ -586,12 +399,7 @@ Verification proofs are policy-bound. They inherit context from the applicable v
 
 ## 5 Trust anchors
 
-*Mechanisms for the provision of a trust anchor that SHALL
-be used for the verification of an attestation SHALL be defined in this section.*
-
-*It is noted that the ARF specifies the following for QEAAs and Pub-EAAs*
-
-> For PuB-EAAs, the Relying Party Instance verifies a PuB-EAA by first 
+For PuB-EAAs, the Relying Party Instance verifies a PuB-EAA by first 
 verifying the signature of the PuB-EAA Provider over the PuB-EAA, using the 
 PuB-EAA Provider certificate issued by a QTSP. Subsequently, the Relying Party 
 Instance verifies the signature over this certificate, using the corresponding 
@@ -599,8 +407,6 @@ trust anchor from the QTSP Trusted List. Note that both the PuB-EAA Provider
 and the QTSP may use an intermediate signing certificate. All other things 
 being equal, the verification of a PuB-EAA will therefore involve one or more 
 extra certificates, compared to the verification of a PID or QEAA.
-
-----------------------
 
 ### 5.1	Core elements of Trust
 -	Accredited Issuers: Only competent authorities designated under national and EU law may issue PuB-EAA credentials.
@@ -641,21 +447,7 @@ Each participating Member State must maintain or reference:
 
 
 ## 6 Revocation
-(Refer to [Topic 7] of the ARF for a list of High-Level Requirements related to Revocation)
 
-*In this section information about the revocation mechanism used SHALL be defined.* 
-
-*For PID, QEAA, or PuB-EAA it SHALL  be defined whether  only short-lived attestations 
-will be used, having a validity period of 24 hours or less, such that revocation 
-will never be necessary, or that the attestations are revocable.* 
-
-*For revocable attestations it SHALL be defined which of the following methods must be implemented:*
-* Use an Attestation Status List mechanism included in a Technical Specification 
-that will be specified by the Commission.
-* Use an Attestation Revocation List mechanism included in a Technical Specification 
-that will be specified by the Commission.
-
-------------------
 This chapter defines the requirements and mechanisms for revocation and status verification of PuB-EAA credentials, ensuring their trustworthiness and lifecycle integrity in alignment with the eIDAS 2.0 Regulation and its relevant implementing acts.
 ### 6.1	OBJECTIVES
 -	Ensure verifiers can reliably determine the validity status of a credential at the time of presentation.
