@@ -2,11 +2,9 @@
 # Attestation Rulebook for attestations of type  "EHIC"
 
 * Author(s): 
-    * Gerd Bauer, DC4EU WP6
+    * Gerd Bauer, DC4EU WP6, dc4eu@sozialversicherung.at
     * Katharina Hilmar, DC4EU WP6
     * Christian Kaaber, DC4EU WP6
-
-*Provide versioning information about the Rulebook in the following form:*
 
 | Version | Date | Description |
 |---------|------------|------------|
@@ -14,12 +12,6 @@
 | 1.0 | 2025-06-27 | 2nd version of the document for comments provided |
 | 1.1 | 2025-07-01 | Template adapted |
 
-
-*Provide a contact email address and/or a link to an issue tracking system that can be used for
-providing feedback, e.g.:* 
-
-**Feedback:**
-  *  https://example.com/tracker 
 
 ## 1 Introduction
 
@@ -61,7 +53,39 @@ The European Health Insurance Card (EHIC) credential is a specialised instance o
 
 It does *not* introduce additional attributes or metadata.
 
-*we should add the tables with the exemplary values here...*
+### 2.1 Common mandatory attributes
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| attestation_legal_category | | string | PuB-EAA |
+| personal_administrative_number | Unique personal identifier used by the issuing social security services. | string | 123456789 |
+| issuing_authority.id | Identifier of the issuing authority. | string | DE:456789 |
+| issuing_authority.name | Name of the issuing authority. | string | DRVB |
+| issuing_authority.country | Country under whose jurisdiction the credential is issued. | string (ISO 3166-1 alpha-2) | DE |
+| authentic_source.id | ID of the competent institution (EESSI). | string | DE:456789 |
+| authentic_source.name | Name of the competent institution (EESSI). | string | DRVB |
+| document_number | Unique document identifier. | string | 80067899202020289076 |
+
+### 2.2 Common optional attributes
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| starting_date | Start date of coverage/benefit validity. | date | 2025-07-04 |
+| ending_date | End date of coverage/benefit validity. | date | 2025-08-01 |
+
+### 2.3 Common mandatory metadata 
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| date_of_issuance | Credential issuance/start date. | date | 2025-07-01 |
+
+
+### 2.4 Common optional metadata 
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| date_of_expiry | Credential expiration date.| date | 2025-08-01 |
+
 
 # 3 Attestation encoding 
 
