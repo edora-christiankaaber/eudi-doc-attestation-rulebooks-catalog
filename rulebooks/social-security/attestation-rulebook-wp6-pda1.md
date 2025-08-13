@@ -58,10 +58,44 @@ This document uses the terminology specified in Annex 1 of the ARF.
 ## 2 Attestation attributes and metadata
 
 The Portable Document A1 (PD A1) credential is a specialised instance of the common PuB-EAA attribute block defined in the Rulebook `attestation-rulebook-wp6-common.md`. 
+### 2.1 Common mandatory attributes
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| attestation_legal_category | | string | PuB-EAA |
+| personal_administrative_number | Unique personal identifier used by the issuing social security services. | string | 123456789 |
+| issuing_authority.id | Identifier of the issuing authority. | string | DE:456789 |
+| issuing_authority.name | Name of the issuing authority. | string | DRVB |
+| issuing_authority.country | Country under whose jurisdiction the credential is issued. | string (ISO 3166-1 alpha-2) | DE |
+| authentic_source.id | ID of the competent institution (EESSI). | string | DE:456789 |
+| authentic_source.name | Name of the competent institution (EESSI). | string | DRVB |
+| document_number | Unique document identifier. | string | 83e1442d-1e4b-477f-8aeb-632e29d19255 |
+
+
+### 2.2 Common optional attributes
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| starting_date | Start date of coverage/benefit validity. | date | 2025-07-04 |
+| ending_date | End date of coverage/benefit validity. | date | 2025-08-01 |
+
+### 2.3 Common mandatory metadata 
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| date_of_issuance | Credential issuance/start date. | date | 2025-07-01 |
+
+
+### 2.4 Common optional metadata 
+
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| date_of_expiry | Credential expiration date.| date | 2025-08-01 |
+
 
 The PD A1 adds a number of private namespace attributes to the set inherited from the common.
 
-### 2.1 Mandatory attributes
+### 2.5 Mandatory attributes
 
 | **Data Identifier** | **Definition** |**Data type** |**Example value** |
 |------------------------|--------------|--------------|--------------|
@@ -74,7 +108,7 @@ The PD A1 adds a number of private namespace attributes to the set inherited fro
 | status_confirmation	|	Legal status category code applicable to the worker. |string |	01 |
 
 
-### 2.2 Optional attributes
+### 2.6 Optional attributes
 
 | **Data Identifier** | **Definition** |**Data type** |**Example value** |
 |------------------------|--------------|--------------|--------------|
