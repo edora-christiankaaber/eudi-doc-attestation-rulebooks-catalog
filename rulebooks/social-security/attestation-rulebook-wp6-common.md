@@ -1,4 +1,4 @@
-
+ 
 # Attestation Rulebook for attestations of type "Pub-EAA in Social Security Coordination"
 
 *Provide information about the author(s) of this Rulebook in the following form:*
