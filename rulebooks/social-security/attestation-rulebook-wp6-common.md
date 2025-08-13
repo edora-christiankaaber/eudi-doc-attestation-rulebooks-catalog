@@ -28,6 +28,10 @@ providing feedback, e.g.:*
 
 This Rulebook establishes a common framework for the issuance, management, and verification of Public Body Electronic Attribute Attestationss (PuB-EAAs)  within the EUDI wallet ecosystem and in support of social security coordination across the European Union. Its primary objective is to enable the secure, privacy-preserving, and interoperable exchange of Electronic Attestations of Attributes, such as the European Health Insurance Card (EHIC) and the Portable Document A1 (PD A1), which are developed within the context of the European ESSPASS project.
 
+Each attestation type — defined in its dedicated rulebook, such as the Portable Document A1 (PD A1) or the European Health Insurance Card (EHIC) — inherits the foundational legal, semantic, and technical requirements established in this common rulebook. This ensures a consistent level of trust, legal validity, and interoperability across all Member States, irrespective of the credential’s domain-specific content or intended use.
+
+In addition, the rulebooks for specific attestation types introduce supplementary requirements tailored to the attestation’s unique characteristics — particularly regarding the data model and the business context in which the credential is issued and used.
+
 The Rulebook is designed to:
 -	Standardise credential issuance in alignment with legal and technical requirements defined under the eIDAS framework.
 -	Enable event-driven verification tailored to specific business contexts and lifecycle triggers.
