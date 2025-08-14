@@ -1,4 +1,3 @@
-
 # Attestation Rulebook for attestations of type  "EHIC"
 
 * Author(s): 
@@ -101,7 +100,217 @@ Finally, illustrative examples SHALL be included.
 Finally, illustrative examples SHALL be included. 
 
 [RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF THE JWT CLAIM SET USED BY THE PROVIDER]
+#### Schema for an EHIC SD-JWT
+```json
+{
+  "vct": "urn:eudi:ehic:1",
+  "name": "DC4EU EHIC SD-JWT VCTM",
+  "description": "DC4EU European Health Insurance Card (EHIC) SD-JWT Verifiable Credential Type Metadata, based on ietf-oauth-sd-jwt-vc (draft 09), using a single language tag (en-US).",
+  "$comment": "Implementation of the DC4EU VCTM may require Member State-specific clarifications to align with national policies governing the display of included claims.",
+  "display": [
+    {
+      "lang": "en-US",
+      "name": "EHIC SD-JWT VC",
+      "description": "European Health Insurance Card (EHIC) SD-JWT VC",
+      "rendering": {
+        "svg_templates": [
+          {
+            "uri": "https://demo-issuer.wwwallet.org/public/creds/ehic/european-health-insurance-card-svg-dc4eu-01.svg",
+            "uri#integrity": "sha256-kIV+WWH0aFROnkfy5gqx/cRivRNkCrkNBMgHgysNrn0=",
+            "properties": {
+              "orientation": "landscape",
+              "color_scheme": "light",
+              "contrast": "normal"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "claims": [
+    {
+      "path": ["personal_administrative_number"],
+      "sd": "always",
+      "svg_id": "personal_administrative_number_6",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Social Security PIN",
+          "description": "Unique personal identifier used by social security services."
+        }
+      ]
+    },
+    {
+      "path": ["issuing_authority"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Issuing authority"
+        }
+      ]
+    },
+    {
+      "path": ["issuing_authority", "id"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Issuing authority id",
+          "description": "EHIC issuing authority unique identifier."
+        }
+      ]
+    },
+    {
+      "path": ["issuing_authority", "name"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Issuing authority name",
+          "description": "EHIC issuing authority name."
+        }
+      ]
+    },
+    {
+      "path": ["issuing_country"],
+      "sd": "never",
+      "svg_id": "issuing_country_2",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Issuing country",
+          "description": "EHIC issuing country."
+        }
+      ]
+    },
+    {
+      "path": ["date_of_expiry"],
+      "sd": "never",
+      "svg_id": "date_of_expiry_9",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Expiry date",
+          "description": "EHIC expiration date."
+        }
+      ]
+    },
+    {
+      "path": ["date_of_issuance"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Issue date",
+          "description": "EHIC validity start date."
+        }
+      ]
+    },
+    {
+      "path": ["authentic_source"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Competent institution"
+        }
+      ]
+    },
+    {
+      "path": ["authentic_source", "id"],
+      "sd": "never",
+      "svg_id": "authentic_source_id_7a",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Competent institution id",
+          "description": "Identifier of the competent institution as registered in the EESSI Institution Repository."
+        }
+      ]
+    },
+    {
+      "path": ["authentic_source", "name"],
+      "sd": "never",
+      "svg_id": "authentic_source_name_7b",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Competent institution name",
+          "description": "Name of the competent institution as registered in the EESSI Institution Repository."
+        }
+      ]
+    },
+    {
+      "path": ["ending_date"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Ending date",
+          "description": "End date of the insurance coverage."
+        }
+      ]
+    },
+    {
+      "path": ["starting_date"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Starting date",
+          "description": "Start date of the insurance coverage."
+        }
+      ]
+    },
+    {
+      "path": ["document_number"],
+      "sd": "always",
+      "svg_id": "document_number_8",
+      "display": [
+        {
+          "lang": "en-US",
+          "label": "Document number",
+          "description": "EHIC unique document identifier."
+        }
+      ]
+    }
+  ],
+  "schema_uri": "https://demo-issuer.wwwallet.org/public/creds/ehic/european-health-insurance-card-schema-dc4eu-01.json",
+  "schema_uri#integrity": "sha256-lNMpT2YzCPU1AuIpSIjryv6KUgBUBUVs3eNbZQoMJNA="
+}
+```
 
+#### Example SD-JWT Claim Set
+
+The following is an example of a claim set for an EHIC SD-JWT VC:
+
+```json
+{
+  "iss": "https://issuer.example.org",
+  "sub": "did:example:123456789abcdefghi",
+  "iat": 1719907200,
+  "exp": 1722585600,
+  "vc": {
+    "vct": "urn:eudi:ehic:1",
+    "personal_administrative_number": "123456789",
+    "issuing_authority": {
+      "id": "DE:456789",
+      "name": "DRVB",
+      "country": "DE"
+    },
+    "authentic_source": {
+      "id": "DE:456789",
+      "name": "DRVB"
+    },
+    "document_number": "80067899202020289076",
+    "starting_date": "2025-07-04",
+    "ending_date": "2025-08-01",
+    "date_of_issuance": "2025-07-01",
+    "date_of_expiry": "2025-08-01"
+  }
+}
+```
 [RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF THE ISSUED SD-JWT (IN base64 ENCODING)]
 
 [RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF A HUMAN READABLE VERSION OF THE SD-JWT PAYLOAD
@@ -153,12 +362,3 @@ The Compliance follows the same principles as set out in the common rulebook.
 | [Topic 12] | ARF Annex 2 - Topic 12 - Attestation Rulebooks, Available: <https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/latest/annexes/annex-2/annex-2-high-level-requirements/#a2312-topic-12-attestation-rulebooks>|
 | [Topic 20] | ARF Annex 2 - Strong User authentication for electronic payments, Available: <https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/latest/annexes/annex-2/annex-2-high-level-requirements/#a2320-topic-20-strong-user-authentication-for-electronic-payments>|
 | [W3C VCDM v2.0] | Sporny, M. *et al,* Verifiable Credentials Data Model v2.0, W3C Recommendation.  |
-
-
-
-
-
-
-
-
- 
