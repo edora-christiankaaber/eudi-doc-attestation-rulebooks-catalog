@@ -178,14 +178,118 @@ This embedded policy establishes a verifier-agnostic framework for enforcing dis
 
 
 
-Finally, illustrative examples SHALL be included. 
+#### Example SD-JWT Claim Set
 
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF THE JWT CLAIM SET USED BY THE PROVIDER]
+```json
+{
+  "authentic_source": {
+    "id": "DK:DC4EUINST",
+    "name": "DC4EUINST"
+  },
+  "cnf": {
+    "jwk": {
+      "kid": "default_signing_key_id",
+      "crv": "P-256",
+      "kty": "EC",
+      "x": "EPqQJRHlaHBQ6gTNcmb5p04fNu5PwQBuxd1vblB5mqM",
+      "y": "BnF-La22tTbgXqRX_rTagSscVQkOfJiNm4YaZ-u9zmk"
+    }
+  },
+  "date_of_expiry": "",
+  "date_of_issuance": "",
+  "employer": {
+    "country": "",
+    "id": "",
+    "name": ""
+  },
+  "ending_date": "2025-07-01",
+  "exp": 1786793463,
+  "iss": "https://dc4eu.dev-eessi.dk:444",
+  "issuing_authority": {
+    "id": "DK:Playground",
+    "name": "Danish Playground Issuer"
+  },
+  "issuing_country": "DK",
+  "jti": "6005ac36-4b6a-40a1-9973-2b93131ca64d",
+  "legislation_country": "AT",
+  "nbf": 1755257463,
+  "starting_date": "2025-06-01",
+  "status_confirmation": "",
+  "vct": "urn:eudi:pda1:1",
+  "personal_administrative_number": "70",
+  "document_number": "276a060517d94e918657314d095463bc_3",
+  "work_address": {
+    "country": "",
+    "formatted": "",
+    "house_number": "",
+    "locality": "",
+    "postal_code": "",
+    "region": "",
+    "street_address": ""
+  }
+}
+```
+### Example SD-JWT in Base64
+> eyJ0eXAiOiJzZCtqd3QiLCJhbGciOiJFUzI1NiJ9.eyJhdXRoZW50aWNfc291cmNlIjp7ImlkIjoiREs6REM0RVVJTlNUIiwibmFtZSI6IkRDNEVVSU5TVCJ9LCJjbmYiOnsiandrIjp7ImtpZCI6ImRlZmF1bHRfc2lnbmluZ19rZXlfaWQiLCJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkVQcVFKUkhsYUhCUTZnVE5jbWI1cDA0Zk51NVB3UUJ1eGQxdmJsQjVtcU0iLCJ5IjoiQm5GLUxhMjJ0VGJnWHFSWF9yVGFnU3NjVlFrT2ZKaU5tNFlhWi11OXptayJ9fSwiZGF0ZV9vZl9leHBpcnkiOiIiLCJkYXRlX29mX2lzc3VhbmNlIjoiIiwiZW1wbG95ZXIiOnsiY291bnRyeSI6IiIsImlkIjoiIiwibmFtZSI6IiJ9LCJlbmRpbmdfZGF0ZSI6IjIwMjUtMDctMDEiLCJleHAiOjE3ODY3OTM0NjMsImlzcyI6Imh0dHBzOi8vZGM0ZXUuZGV2LWVlc3NpLmRrOjQ0NCIsImlzc3VpbmdfYXV0aG9yaXR5Ijp7ImlkIjoiREs6UGxheWdyb3VuZCIsIm5hbWUiOiJEYW5pc2ggUGxheWdyb3VuZCBJc3N1ZXIifSwiaXNzdWluZ19jb3VudHJ5IjoiREsiLCJqdGkiOiI2MDA1YWMzNi00YjZhLTQwYTEtOTk3My0yYjkzMTMxY2E2NGQiLCJsZWdpc2xhdGlvbl9jb3VudHJ5IjoiQVQiLCJuYmYiOjE3NTUyNTc0NjMsInN0YXJ0aW5nX2RhdGUiOiIyMDI1LTA2LTAxIiwic3RhdHVzX2NvbmZpcm1hdGlvbiI6IiIsInZjdCI6InVybjpldWRpOnBkYTE6MSIsIl9zZCI6WyIyYzExaHdxRUFoZnJvM0YtQ2FIOHg4SmN2SFRfMEF6T3ducG5mVHZwUENJIiwiX01iRmVxb3dEYkJqNUpTZUdteUt1bXFaYjNBTVVmNFhJWlZaaFhIbVpJcyIsImVWQW0xTHRydmY2WFNnSFlnV3VKZFFjdVZPSmZveE9oMVV2eUxOY1pkTjQiXSwiX3NkX2FsZyI6IlNIQS0yNTYifQ.FDX3fKiwDutKrR9-OFHVwIz0ubzA04JyRpk0cmr5OtisgJwosbJR6zeJgZTdkpZkF5Tv-eprI2VoWKuX3Uv3kA~WyI5NWE5MDE4OTljMzQ3ZjBjIiwid29ya19hZGRyZXNzIix7ImNvdW50cnkiOiIiLCJmb3JtYXR0ZWQiOiIiLCJob3VzZV9udW1iZXIiOiIiLCJsb2NhbGl0eSI6IiIsInBvc3RhbF9jb2RlIjoiIiwicmVnaW9uIjoiIiwic3RyZWV0X2FkZHJlc3MiOiIifV0~WyJjNmIyZDdiNjBmNWNiNjVkIiwicGVyc29uYWxfYWRtaW5pc3RyYXRpdmVfbnVtYmVyIiwiNzAiXQ~WyI3MTdiODQ1MzdjMTRmZGIyIiwiZG9jdW1lbnRfbnVtYmVyIiwiMjc2YTA2MDUxN2Q5NGU5MTg2NTczMTRkMDk1NDYzYmNfMyJd~
 
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF THE ISSUED SD-JWT (IN base64 ENCODING)]
+### Example payload for the SD-JWT VC
+```json
+{
+  "authentic_source": {
+    "id": "DK:DC4EUINST",
+    "name": "DC4EUINST"
+  },
+  "cnf": {
+    "jwk": {
+      "kid": "default_signing_key_id",
+      "crv": "P-256",
+      "kty": "EC",
+      "x": "EPqQJRHlaHBQ6gTNcmb5p04fNu5PwQBuxd1vblB5mqM",
+      "y": "BnF-La22tTbgXqRX_rTagSscVQkOfJiNm4YaZ-u9zmk"
+    }
+  },
+  "date_of_expiry": "",
+  "date_of_issuance": "",
+  "employer": {
+    "country": "",
+    "id": "",
+    "name": ""
+  },
+  "ending_date": "2025-07-01",
+  "exp": 1786793463,
+  "iss": "https://dc4eu.dev-eessi.dk:444",
+  "issuing_authority": {
+    "id": "DK:Playground",
+    "name": "Danish Playground Issuer"
+  },
+  "issuing_country": "DK",
+  "jti": "6005ac36-4b6a-40a1-9973-2b93131ca64d",
+  "legislation_country": "AT",
+  "nbf": 1755257463,
+  "starting_date": "2025-06-01",
+  "status_confirmation": "",
+  "vct": "urn:eudi:pda1:1",
+  "_sd": [
+    "2c11hwqEAhfro3F-CaH8x8JcvHT_0AzOwnpnfTvpPCI",
+    "_MbFeqowDbBj5JSeGmyKumqZb3AMUf4XIZVZhXHmZIs",
+    "eVAm1Ltrvf6XSgHYgWuJdQcuVOJfoxOh1UvyLNcZdN4"
+  ],
+  "_sd_alg": "SHA-256"
+}
+```
 
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF A HUMAN READABLE VERSION OF THE SD-JWT PAYLOAD
-AND A DESCRIPTION OF THE DISCLOSURES INCLUDED IN THE EXAMPLE]
+### Disclosures in the SD-JWT VC
+    Salt: 95a901899c347f0c
+    Key: work_address
+    Value: { "country": "", "formatted": "", "house_number": "", "locality": "", "postal_code": "", "region": "", "street_address": "" }
+
+    Salt: c6b2d7b60f5cb65d
+    Key: personal_administrative_number
+    Value: 70
+
+    Salt: 717b84537c14fdb2
+    Key: document_number
+    Value: 276a060517d94e918657314d095463bc_3
 
 
 ## 4 Attestation usage
