@@ -176,120 +176,170 @@ The PD A1 credential implements selective disclosure using the SD-JWT model. Thi
 
 This embedded policy establishes a verifier-agnostic framework for enforcing disclosure behaviour, regardless of wallet implementation.
 
-
-
 #### Example SD-JWT Claim Set
 
 ```json
 {
-  "authentic_source": {
-    "id": "DK:DC4EUINST",
-    "name": "DC4EUINST"
-  },
+  "vct": "urn:eudi:pda1:1",
+  "jti": "urn:uuid:12345678-abcd-ef01-2345-6789abcdef01",
+  "sub": "did:example:abc123",
+  "iss": "https://pda1.issuing-authority.example",
+  "iat": 1721470000,
+  "exp": 1724072000,
+  "nbf": 1721460000,
   "cnf": {
     "jwk": {
-      "kid": "default_signing_key_id",
-      "crv": "P-256",
       "kty": "EC",
-      "x": "EPqQJRHlaHBQ6gTNcmb5p04fNu5PwQBuxd1vblB5mqM",
-      "y": "BnF-La22tTbgXqRX_rTagSscVQkOfJiNm4YaZ-u9zmk"
+      "crv": "P-256",
+      "x": "abc...xyz",
+      "y": "123...789"
     }
   },
-  "date_of_expiry": "",
-  "date_of_issuance": "",
-  "employer": {
-    "country": "",
-    "id": "",
-    "name": ""
-  },
-  "ending_date": "2025-07-01",
-  "exp": 1786793463,
-  "iss": "https://dc4eu.dev-eessi.dk:444",
+  "personal_administrative_number": "1717150699",
   "issuing_authority": {
-    "id": "DK:Playground",
-    "name": "Danish Playground Issuer"
+    "id": "AUTH123",
+    "name": "Austrian Social Insurance",
+    "country": "AT"
   },
-  "issuing_country": "DK",
-  "jti": "6005ac36-4b6a-40a1-9973-2b93131ca64d",
+  "date_of_issuance": "2025-06-01",
+  "date_of_expiry": "2026-06-01",
+  "authentic_source": {
+    "id": "AT:9900",
+    "name": "Austrian Social Insurance Institution"
+  },
+  "starting_date": "2025-05-01",
+  "ending_date": "2026-06-01",
+  "document_number": "PDA1-AT-2025-000123",
+  "employer": [
+    {
+      "type": "01",
+      "id": "AT-COMPANY-001",
+      "name": "Vienna Logistics GmbH",
+      "country": "AT"
+    }
+  ],
+  "work_information": {
+    "work_address": [
+      {
+        "formatted": "Industriestrasse 10, 1200 Wien, Austria",
+        "street_address": "Industriestrasse",
+        "house_number": "10",
+        "postal_code": "1200",
+        "locality": "Wien",
+        "region": "Wien",
+        "country": "AT",
+        "company_name": "Vienna Logistics GmbH",
+        "company_id": "AT-COMPANY-001"
+      },
+      {
+        "formatted": "Freight Port 5, 20457 Hamburg, Germany",
+        "street_address": "Freight Port",
+        "house_number": "5",
+        "postal_code": "20457",
+        "locality": "Hamburg",
+        "region": "Hamburg",
+        "country": "DE",
+        "company_name": "Vienna Logistics GmbH",
+        "company_id": "AT-COMPANY-001"
+      }
+    ]
+  },
   "legislation_country": "AT",
-  "nbf": 1755257463,
-  "starting_date": "2025-06-01",
-  "status_confirmation": "",
-  "vct": "urn:eudi:pda1:1",
-  "personal_administrative_number": "70",
-  "document_number": "276a060517d94e918657314d095463bc_3",
-  "work_address": {
-    "country": "",
-    "formatted": "",
-    "house_number": "",
-    "locality": "",
-    "postal_code": "",
-    "region": "",
-    "street_address": ""
-  }
+  "transitional_rules": false,
+  "status_confirmation": "01"
 }
 ```
 ### Example SD-JWT in Base64
-> eyJ0eXAiOiJzZCtqd3QiLCJhbGciOiJFUzI1NiJ9.eyJhdXRoZW50aWNfc291cmNlIjp7ImlkIjoiREs6REM0RVVJTlNUIiwibmFtZSI6IkRDNEVVSU5TVCJ9LCJjbmYiOnsiandrIjp7ImtpZCI6ImRlZmF1bHRfc2lnbmluZ19rZXlfaWQiLCJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkVQcVFKUkhsYUhCUTZnVE5jbWI1cDA0Zk51NVB3UUJ1eGQxdmJsQjVtcU0iLCJ5IjoiQm5GLUxhMjJ0VGJnWHFSWF9yVGFnU3NjVlFrT2ZKaU5tNFlhWi11OXptayJ9fSwiZGF0ZV9vZl9leHBpcnkiOiIiLCJkYXRlX29mX2lzc3VhbmNlIjoiIiwiZW1wbG95ZXIiOnsiY291bnRyeSI6IiIsImlkIjoiIiwibmFtZSI6IiJ9LCJlbmRpbmdfZGF0ZSI6IjIwMjUtMDctMDEiLCJleHAiOjE3ODY3OTM0NjMsImlzcyI6Imh0dHBzOi8vZGM0ZXUuZGV2LWVlc3NpLmRrOjQ0NCIsImlzc3VpbmdfYXV0aG9yaXR5Ijp7ImlkIjoiREs6UGxheWdyb3VuZCIsIm5hbWUiOiJEYW5pc2ggUGxheWdyb3VuZCBJc3N1ZXIifSwiaXNzdWluZ19jb3VudHJ5IjoiREsiLCJqdGkiOiI2MDA1YWMzNi00YjZhLTQwYTEtOTk3My0yYjkzMTMxY2E2NGQiLCJsZWdpc2xhdGlvbl9jb3VudHJ5IjoiQVQiLCJuYmYiOjE3NTUyNTc0NjMsInN0YXJ0aW5nX2RhdGUiOiIyMDI1LTA2LTAxIiwic3RhdHVzX2NvbmZpcm1hdGlvbiI6IiIsInZjdCI6InVybjpldWRpOnBkYTE6MSIsIl9zZCI6WyIyYzExaHdxRUFoZnJvM0YtQ2FIOHg4SmN2SFRfMEF6T3ducG5mVHZwUENJIiwiX01iRmVxb3dEYkJqNUpTZUdteUt1bXFaYjNBTVVmNFhJWlZaaFhIbVpJcyIsImVWQW0xTHRydmY2WFNnSFlnV3VKZFFjdVZPSmZveE9oMVV2eUxOY1pkTjQiXSwiX3NkX2FsZyI6IlNIQS0yNTYifQ.FDX3fKiwDutKrR9-OFHVwIz0ubzA04JyRpk0cmr5OtisgJwosbJR6zeJgZTdkpZkF5Tv-eprI2VoWKuX3Uv3kA~WyI5NWE5MDE4OTljMzQ3ZjBjIiwid29ya19hZGRyZXNzIix7ImNvdW50cnkiOiIiLCJmb3JtYXR0ZWQiOiIiLCJob3VzZV9udW1iZXIiOiIiLCJsb2NhbGl0eSI6IiIsInBvc3RhbF9jb2RlIjoiIiwicmVnaW9uIjoiIiwic3RyZWV0X2FkZHJlc3MiOiIifV0~WyJjNmIyZDdiNjBmNWNiNjVkIiwicGVyc29uYWxfYWRtaW5pc3RyYXRpdmVfbnVtYmVyIiwiNzAiXQ~WyI3MTdiODQ1MzdjMTRmZGIyIiwiZG9jdW1lbnRfbnVtYmVyIiwiMjc2YTA2MDUxN2Q5NGU5MTg2NTczMTRkMDk1NDYzYmNfMyJd~
+> eyJ0eXAiOiJzZCtqd3QiLCJhbGciOiJFUzI1NiJ9.eyJ2Y3QiOiJ1cm46ZXVkaTpwZGExOjEiLCJqdGkiOiJ1cm46dXVpZDoxMjM0NTY3OC1hYmNkLWVmMDEtMjM0NS02Nzg5YWJjZGVmMDEiLCJzdWIiOiJkaWQ6ZXhhbXBsZTphYmMxMjMiLCJpc3MiOiJodHRwczovL3BkYTEuaXNzdWluZy1hdXRob3JpdHkuZXhhbXBsZSIsImlhdCI6MTcyMTQ3MDAwMCwiZXhwIjoxNzI0MDcyMDAwLCJuYmYiOjE3MjE0NjAwMDAsImNuZiI6eyJqd2siOnsia3R5IjoiRUMiLCJjcnYiOiJQLTI1NiIsIngiOiJhYmMuLi54eXoiLCJ5IjoiMTIzLi4uNzg5In19LCJpc3N1aW5nX2F1dGhvcml0eSI6eyJpZCI6IkFVVEgxMjMiLCJuYW1lIjoiQXVzdHJpYW4gU29jaWFsIEluc3VyYW5jZSIsImNvdW50cnkiOiJBVCJ9LCJkYXRlX29mX2lzc3VhbmNlIjoiMjAyNS0wNi0wMSIsImRhdGVfb2ZfZXhwaXJ5IjoiMjAyNi0wNi0wMSIsImF1dGhlbnRpY19zb3VyY2UiOnsiaWQiOiJBVDo5OTAwIiwibmFtZSI6IkF1c3RyaWFuIFNvY2lhbCBJbnN1cmFuY2UgSW5zdGl0dXRpb24ifSwic3RhcnRpbmdfZGF0ZSI6IjIwMjUtMDUtMDEiLCJlbmRpbmdfZGF0ZSI6IjIwMjYtMDYtMDEiLCJlbXBsb3llciI6W3sidHlwZSI6IjAxIiwiaWQiOiJBVC1DT01QQU5ZLTAwMSIsIm5hbWUiOiJWaWVubmEgTG9naXN0aWNzIEdtYkgiLCJjb3VudHJ5IjoiQVQifV0sIndvcmtfaW5mb3JtYXRpb24iOnsid29ya19hZGRyZXNzIjpbeyJmb3JtYXR0ZWQiOiJJbmR1c3RyaWVzdHJhc3NlIDEwLCAxMjAwIFdpZW4sIEF1c3RyaWEiLCJzdHJlZXRfYWRkcmVzcyI6IkluZHVzdHJpZXN0cmFzc2UiLCJob3VzZV9udW1iZXIiOiIxMCIsInBvc3RhbF9jb2RlIjoiMTIwMCIsImxvY2FsaXR5IjoiV2llbiIsInJlZ2lvbiI6IldpZW4iLCJjb3VudHJ5IjoiQVQiLCJjb21wYW55X25hbWUiOiJWaWVubmEgTG9naXN0aWNzIEdtYkgiLCJjb21wYW55X2lkIjoiQVQtQ09NUEFOWS0wMDEifSx7ImZvcm1hdHRlZCI6IkZyZWlnaHQgUG9ydCA1LCAyMDQ1NyBIYW1idXJnLCBHZXJtYW55Iiwic3RyZWV0X2FkZHJlc3MiOiJGcmVpZ2h0IFBvcnQiLCJob3VzZV9udW1iZXIiOiI1IiwicG9zdGFsX2NvZGUiOiIyMDQ1NyIsImxvY2FsaXR5IjoiSGFtYnVyZyIsInJlZ2lvbiI6IkhhbWJ1cmciLCJjb3VudHJ5IjoiREUiLCJjb21wYW55X25hbWUiOiJWaWVubmEgTG9naXN0aWNzIEdtYkgiLCJjb21wYW55X2lkIjoiQVQtQ09NUEFOWS0wMDEifV19LCJsZWdpc2xhdGlvbl9jb3VudHJ5IjoiQVQiLCJzdGF0dXNfY29uZmlybWF0aW9uIjoiMDEiLCJfc2QiOlsiTlRtSzZ4aWQyYzZSVFhOVnB3bkxhbEtSTnRrV01obWtlMXdpN3RPSWx0RSIsInFNZVFfblBEUHNRTURSLU54NWJBU0J1bGNGWWpMQ3NrY2RZZzBISUdRWFUiLCJ0TmdrYlRBX2lNUExuN0N6RnE1Z2hWM05tb1k1enBzX1Y0NExsZTVXdWRnIl0sIl9zZF9hbGciOiJTSEEtMjU2In0.SPbYtES1lpZPEtopWJDs7cBh2d2PL773hdKJ9sSo1L4BoNQZQL4F4y71E_vVovhTO-iynNaHW9UD7w4Gepj-Lg~WyJlMTM1M2Y3YzllNTZjMGFhIiwicGVyc29uYWxfYWRtaW5pc3RyYXRpdmVfbnVtYmVyIiwiMTcxNzE1MDY5OSJd~WyIwNjMxYjk4YjEyNGU2YzcxIiwiZG9jdW1lbnRfbnVtYmVyIiwiUERBMS1BVC0yMDI1LTAwMDEyMyJd~WyI0ZTE4YjkzZWQ4MWVmNTFlIiwidHJhbnNpdGlvbmFsX3J1bGVzIixmYWxzZV0~
 
 ### Example payload for the SD-JWT VC
 ```json
 {
-  "authentic_source": {
-    "id": "DK:DC4EUINST",
-    "name": "DC4EUINST"
-  },
+  "vct": "urn:eudi:pda1:1",
+  "jti": "urn:uuid:12345678-abcd-ef01-2345-6789abcdef01",
+  "sub": "did:example:abc123",
+  "iss": "https://pda1.issuing-authority.example",
+  "iat": 1721470000,
+  "exp": 1724072000,
+  "nbf": 1721460000,
   "cnf": {
     "jwk": {
-      "kid": "default_signing_key_id",
-      "crv": "P-256",
       "kty": "EC",
-      "x": "EPqQJRHlaHBQ6gTNcmb5p04fNu5PwQBuxd1vblB5mqM",
-      "y": "BnF-La22tTbgXqRX_rTagSscVQkOfJiNm4YaZ-u9zmk"
+      "crv": "P-256",
+      "x": "abc...xyz",
+      "y": "123...789"
     }
   },
-  "date_of_expiry": "",
-  "date_of_issuance": "",
-  "employer": {
-    "country": "",
-    "id": "",
-    "name": ""
-  },
-  "ending_date": "2025-07-01",
-  "exp": 1786793463,
-  "iss": "https://dc4eu.dev-eessi.dk:444",
   "issuing_authority": {
-    "id": "DK:Playground",
-    "name": "Danish Playground Issuer"
+    "id": "AUTH123",
+    "name": "Austrian Social Insurance",
+    "country": "AT"
   },
-  "issuing_country": "DK",
-  "jti": "6005ac36-4b6a-40a1-9973-2b93131ca64d",
+  "date_of_issuance": "2025-06-01",
+  "date_of_expiry": "2026-06-01",
+  "authentic_source": {
+    "id": "AT:9900",
+    "name": "Austrian Social Insurance Institution"
+  },
+  "starting_date": "2025-05-01",
+  "ending_date": "2026-06-01",
+  "employer": [
+    {
+      "type": "01",
+      "id": "AT-COMPANY-001",
+      "name": "Vienna Logistics GmbH",
+      "country": "AT"
+    }
+  ],
+  "work_information": {
+    "work_address": [
+      {
+        "formatted": "Industriestrasse 10, 1200 Wien, Austria",
+        "street_address": "Industriestrasse",
+        "house_number": "10",
+        "postal_code": "1200",
+        "locality": "Wien",
+        "region": "Wien",
+        "country": "AT",
+        "company_name": "Vienna Logistics GmbH",
+        "company_id": "AT-COMPANY-001"
+      },
+      {
+        "formatted": "Freight Port 5, 20457 Hamburg, Germany",
+        "street_address": "Freight Port",
+        "house_number": "5",
+        "postal_code": "20457",
+        "locality": "Hamburg",
+        "region": "Hamburg",
+        "country": "DE",
+        "company_name": "Vienna Logistics GmbH",
+        "company_id": "AT-COMPANY-001"
+      }
+    ]
+  },
   "legislation_country": "AT",
-  "nbf": 1755257463,
-  "starting_date": "2025-06-01",
-  "status_confirmation": "",
-  "vct": "urn:eudi:pda1:1",
+  "status_confirmation": "01",
   "_sd": [
-    "2c11hwqEAhfro3F-CaH8x8JcvHT_0AzOwnpnfTvpPCI",
-    "_MbFeqowDbBj5JSeGmyKumqZb3AMUf4XIZVZhXHmZIs",
-    "eVAm1Ltrvf6XSgHYgWuJdQcuVOJfoxOh1UvyLNcZdN4"
+    "NTmK6xid2c6RTXNVpwnLalKRNtkWMhmke1wi7tOIltE",
+    "qMeQ_nPDPsQMDR-Nx5bASBulcFYjLCskcdYg0HIGQXU",
+    "tNgkbTA_iMPLn7CzFq5ghV3NmoY5zps_V44Lle5Wudg"
   ],
   "_sd_alg": "SHA-256"
 }
 ```
 
 ### Disclosures in the SD-JWT VC
-    Salt: 95a901899c347f0c
-    Key: work_address
-    Value: { "country": "", "formatted": "", "house_number": "", "locality": "", "postal_code": "", "region": "", "street_address": "" }
-
-    Salt: c6b2d7b60f5cb65d
+    Salt: e1353f7c9e56c0aa
     Key: personal_administrative_number
-    Value: 70
+    Value: 1717150699
 
-    Salt: 717b84537c14fdb2
+    Salt: 0631b98b124e6c71
     Key: document_number
-    Value: 276a060517d94e918657314d095463bc_3
+    Value: PDA1-AT-2025-000123
+
+    Salt: 4e18b93ed81ef51e
+    Key: transitional_rules
+    Value: false
 
 
 ## 4 Attestation usage
@@ -338,9 +388,994 @@ The Compliance follows the same principles as set out in the common rulebook.
 | [Topic 20] | ARF Annex 2 - Strong User authentication for electronic payments, Available: <https://eu-digital-identity-wallet.github.io/eudi-doc-architecture-and-reference-framework/latest/annexes/annex-2/annex-2-high-level-requirements/#a2320-topic-20-strong-user-authentication-for-electronic-payments>|
 | [W3C VCDM v2.0] | Sporny, M. *et al,* Verifiable Credentials Data Model v2.0, W3C Recommendation.  |
 
+## Annex 1 - Schema for a PD A1 SD-JWT Credential
+```json
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "DC4EU PDA1 SD-JWT VC Schema",
+ "type": "object",
+ "additionalProperties": false,
+ "properties": {
+ "vct": {
+ "type": "string",
+ "description": "The Verifiable Credential type identifier, as defined in ietf-oauth-sdjwt-vc (draft 09).",
+ "enum": [
+ "urn:eudi:pda1:1"
+ ]
+ },
+ "jti": {
+ "type": "string",
+ "description": "Verifiable Credential unique identifier to prevent replay attacks. It 
+needs to be unique for the JWT effective lifespan.",
+ "minLength": 1,
+ "maxLength": 255
+ },
+ "sub": {
+ "type": "string",
+ "description": "Subject identifier for the JWT, representing the principal that is the 
+subject of the JWT. This is a case-sensitive string containing a unique identifier, as defined 
+in RFC 7519 (JWT)."
+ },
+ "iss": {
+ "type": "string",
+ "format": "uri",
+ "description": "Issuer identifier for the JWT, expressed as a URI, according to RFC 7519 
+(JWT)."
+ },
+ "iat": {
+ "type": "integer",
+ "description": "Issued at time indicating when the JWT was issued, represented as a 
+NumericDate (number of seconds since 1970-01-01T00:00:00Z UTC) according to RFC 7519 (JWT)."
+ },
+ "cnf": {
+ "type": "object",
+ "description": "Contains confirmation key information used to prove possession of a 
+private key, as defined in RFC 7800 (Proof-of-Possession Key Semantics for JWTs).",
+ "properties": {
+ "jwk": {
+ "type": "object",
+ "description": "JSON Web Key (JWK) object. Structure not fully specified here."
+ }
+},
+ "required": [
+ "jwk"
+ ],
+ "additionalProperties": true
+ },
+ "exp": {
+ "type": "integer",
+ "description": "Expiration time on or after which the JWT must not be accepted for 
+processing, represented as a NumericDate (number of seconds since 1970-01-01T00:00:00Z UTC) 
+according to RFC 7519 (JWT)."
+ },
+ "nbf": {
+ "type": "integer",
+ "description": "Not before time before which the JWT must not be accepted for processing, 
+represented as a NumericDate (number of seconds since 1970-01-01T00:00:00Z UTC) according to RFC 
+7519 (JWT)."
+ },
+ "personal_administrative_number": {
+ "type": "string",
+ "minLength": 4,
+ "maxLength": 50,
+ "description": "The unique personal identifier assigned to the natural person for social 
+security services and benefits by the competent institution (Social Security Number). The 
+electronic identification scheme under which the identifier is issued, as well as the policy 
+applied to the values of this attribute including, where applicable, specific conditions for its 
+processing must be defined by the competent institution as part of this schema.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:personal_administrative_number"
+ },
+ "issuing_authority": {
+ "type": "object",
+ "description": "The authority responsible for issuing the PDA1.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority",
+ "properties": {
+ "id": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 20,
+ "description": "The unique identifier of the PDA1 issuing authority.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority:id"
+ },
+ "name": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 100,
+ "description": "The full name of the PDA1 issuing authority.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority:name"
+ },
+ "country": {
+ "type": "string",
+ "pattern": "^[A-Z]{2}$",
+ "description": "Member State code (ISO 3166-1 alpha-2) representing the country under 
+whose jurisdiction the PDA1 is issued.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority:country"
+ }
+ },
+ "required": [
+ "id",
+ "name",
+ "country"
+ ],
+ "additionalProperties": false
+ },
+"date_of_issuance": {
+ "type": "string",
+ "format": "date",
+ "description": "Date determined by the competent institution as either the start of the 
+administrative validity period of the record represented by this PDA1, or the issuance date of 
+the PDA1 credential. The value is expressed as a full-date (YYYY-MM-DD) in accordance with ISO 
+8601-1 and RFC 3339. The exact interpretation is to be defined by the competent institution as 
+part of this schema.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:date_of_issuance"
+},
+"date_of_expiry": {
+ "type": "string",
+ "format": "date",
+ "description": "Date determined by the competent institution as the end of the administrative 
+validity period of the record represented by this PDA1, or the expiration date of the PDA1 
+credential. The value is expressed as a full-date (YYYY-MM-DD) in accordance with ISO 8601-1 and 
+RFC 3339. The exact interpretation is to be defined by the competent institution as part of this 
+schema.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:date_of_expiry"
+},
+"authentic_source": {
+ "type": "object",
+ "description": "The competent institution responsible for the PDA1, as registered in the 
+Electronic Exchange of Social Security Information (EESSI).",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:authentic_source",
+ "properties": {
+ "id": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 20,
+ "description": "The unique identifier of the competent institution responsible for the 
+PDA1, as registered in the Electronic Exchange of Social Security Information (EESSI).",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:authentic_source:id"
+ },
+ "name": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 100,
+ "description": "The full name of the competent institution responsible for the PDA1, as 
+registered in the Electronic Exchange of Social Security Information (EESSI).",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:authentic_source:name"
+ }
+ },
+ "required": [
+ "id",
+ "name"
+ ],
+ "additionalProperties": false
+},
+"starting_date": {
+ "type": "string",
+ "format": "date",
+ "description": "Date determined by the competent institution as the start date of the business 
+decision validity period of the PDA1. The value is expressed as a full-date (YYYY-MM-DD) in 
+accordance with ISO 8601-1 and RFC 3339.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:starting_date"
+},
+"ending_date": {
+ "type": "string",
+ "format": "date",
+ "description": "Date determined by the competent institution as the end date of the business 
+decision validity period of the PDA1. The value is expressed as a full-date (YYYY-MM-DD) in 
+accordance with ISO 8601-1 and RFC 3339.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:ending_date"
+},
+"document_number": {
+ "type": "string",
+ "minLength": 4,
+ "maxLength": 50,
+ "description": "Unique document identifier assigned by the competent institution. This value 
+identifies the specific PDA1 document and may be used for administrative validation.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:document_number"
+},
+"employer": {
+ "type": "array",
+ "minItems": 1,
+ "description": "A list of employer details/details of self-employment, based on EU or Member 
+State registries.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:employer",
+ "items": {
+ "type": "object",
+ "properties": {
+"type": {
+ "type": "string",
+ "enum": [
+ "01",
+ "02"
+ ],
+ "description": "The type of employment. Allowed values: 01 = Employment, 02= SelfEmployment",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:employer:type"
+ },
+ "id": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 20,
+ "description": "The unique identifier of the employer/self-employment, in EU or Member 
+State registries.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:employer:id"
+ },
+ "name": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 100,
+ "description": "The full name of the employer/self-employment, in EU or Member State 
+registries.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:employer:name"
+ },
+ "country": {
+ "type": "string",
+ "pattern": "^[A-Z]{2}$",
+ "description": "Country code (ISO 3166-1 alpha-2) of the country where the 
+employer/self-employed is registered.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:employer:country"
+ }
+ },
+ "required": [
+ "type",
+ "id",
+ "name",
+ "country"
+ ],
+ "additionalProperties": false
+ }
+},
+"work_information": {
+ "type": "object",
+ "description": "Information about the person's work location, either as a fixed address or no 
+fixed place of work.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:work_information",
+ "properties": {
+ "no_fixed_place_of_work": {
+ "type": "string",
+ "pattern": "^[A-Z]{2}$",
+ "description": "Country code (ISO 3166-1 alpha-2) of the country where there is no fixed 
+place of work.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:no_fixed_place_of_work"
+ },
+ "work_address": {
+ "type": "array",
+ "minItems": 1,
+ "description": "Structured address list for fixed places of work, with optional company 
+details.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:work_information:work_address",
+ "items": {
+ "type": "object",
+ "properties": {
+ "formatted": {
+ "type": "string",
+ "minLength": 2,
+ "maxLength": 512,
+ "description": "Full formatted address per UPU S42 / ISO 19160-4 / OIDC standards.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:formatted"
+},
+ "street_address": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 100,
+ "description": "Street name.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:street_address"
+ },
+ "house_number": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 20,
+ "description": "House or building number.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:house_number"
+ },
+ "postal_code": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 20,
+ "description": "Postal or ZIP code.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:postal_code"
+ },
+ "locality": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 100,
+ "description": "City or locality.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:locality"
+ },
+ "region": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 100,
+ "description": "Administrative region.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:region"
+ },
+ "country": {
+ "type": "string",
+ "pattern": "^[A-Z]{2}$",
+ "description": "ISO 3166-1 alpha-2 country code.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:country"
+ },
+ "company_name": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 100,
+ "description": "Name of the company or ship operator.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:company_name"
+ },
+ "company_id": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 20,
+ "description": "Company ID from national or EU registries.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:company_id"
+ },
+ "flag_base_home": {
+ "type": "string",
+ "minLength": 1,
+ "maxLength": 20,
+ "description": " Flag state or home base of the company/ship where you will be 
+employed.",
+ "$comment": "Namespace: 
+urn:dgempl:pubeaas:v1:attribute:work_information:work_address:flag_base_home"
+ }
+},
+ "required": [ "locality", "country" ],
+ "additionalProperties": false
+ }
+ }
+ },
+ "anyOf": [
+ { "required": [ "no_fixed_place_of_work" ] },
+ { "required": [ "work_address" ] }
+ ],
+ "additionalProperties": false
+ },
+ "legislation_country": {
+ "type": "string",
+ "pattern": "^[A-Z]{2}$",
+ "description": "Country code (ISO 3166-1 alpha-2) whose legislation is to be applied 
+during the work abroad.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:legislation_country"
+ },
+ "transitional_rules": {
+ "type": "boolean",
+ "description": "Indication, whether transitional rules apply as provided by the 
+Regulation.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:transitional_rules"
+ },
+ "status_confirmation": {
+ "type": "string",
+ "enum": [
+ "01",
+ "02",
+ "03",
+ "04",
+ "05",
+ "06",
+ "07",
+ "08",
+ "09",
+ "10",
+ "11",
+ "12"
+ ],
+ "description": "Employment or posting legal framework category code applicable to the 
+worker. Allowed values: 01 = Posted employed person, 02 = Employed in 2+ states, 03 = Posted 
+self-employed, 04 = Self-employed in 2+ states, 05 = Civil servant, 06 = Contract staff, 07 = 
+Mariner, 08 = Employed & self-employed in different states, 09 = Civil servant + employed/selfemployed, 10 = Flight crew, 11 = Exception, 12 = Local employment.",
+ "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:status_confirmation"
+ }
+ },
+ "required": [
+ "vct",
+ "jti",
+ "sub",
+ "iss",
+ "iat",
+ "cnf",
+ "personal_administrative_number",
+ "issuing_authority",
+ "date_of_issuance",
+ "authentic_source",
+ "starting_date",
+ "ending_date",
+ "employer",
+ "document_number",
+ "work_information",
+ "legislation_country",
+ "status_confirmation"
+ ]
+}
 
+```
 
-
+## Annex 2 - Schema for PD A1 Credential Display & Disclosures
+```json
+{
+ "vct": "urn:eudi:pda1:1",
+ "name": "DC4EU PDA1 SD-JWT VCTM",
+ "description": "Selective disclosure metadata for Portable Document A1 (PDA1) SD-JWT VC 
+including subclaims.",
+"$comment": "Implementation of the DC4EU VCTM may require Member State-specific clarifications 
+to align with national policies governing the display of included claims.",
+"display": [
+ {
+ "lang": "en-EU",
+ "name": "DC4EU PDA1 SD-JWT VC",
+ "description": " Portable Document A1 (PDA1) SD-JWT VC",
+ "rendering": {
+ "svg_templates": [
+ {
+ "uri": "https://demo-issuer.wwwallet.org/public/creds/pda1/portable-document-a1-svgdc4eu-01.svg",
+ "uri#integrity": "sha256-kIV+WWH0aFROnkfy5gqx/cRivRNkCrkNBMgHgysNrn0=",
+ "properties": {
+ "orientation": "landscape",
+ "color_scheme": "light",
+ "contrast": "normal"
+ }
+ }
+ ]
+ }
+ }
+ ],
+ "claims": [
+ {
+ "path": [
+ "personal_administrative_number"
+ ],
+ "sd": "always",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Social Security PIN",
+ "description": "Unique personal identifier used by social security services."
+ }
+ ]
+ },
+ {
+ "path": [
+ "issuing_authority"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Issuing Authority",
+ "description": "The authority responsible for issuing the PDA1."
+ }
+ ]
+ },
+ {
+ "path": [
+ "issuing_authority",
+ "id"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Issuing Authority ID",
+ "description": "The unique identifier of the PDA1 issuing authority."
+ }
+ ]
+ },
+ {
+"path": [
+ "issuing_authority",
+ "name"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Issuing Authority Name",
+ "description": "The full name of the PDA1 issuing authority."
+ }
+ ]
+ },
+ {
+ "path": [
+ "issuing_authority",
+ "country"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Issuing Country",
+ "description": "Country of the PDA1 issuing authority."
+ }
+ ]
+ },
+ {
+ "path": [
+ "date_of_issuance"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Issuance Date",
+ "description": "Issuance date of the PDA1."
+ }
+ ]
+ },
+ {
+ "path": [
+ "date_of_expiry"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Expiry Date",
+ "description": "PDA1 credential expiry date."
+ }
+ ]
+ },
+ {
+ "path": [
+ "authentic_source"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Authentic Source",
+ "description": "Competent institution as registered in the EESSI Institution 
+Repository."
+ }
+ ]
+ },
+ {
+ "path": [
+ "authentic_source",
+ "id"
+ ],
+ "sd": "never",
+"display": [
+ {
+ "lang": "en-EU",
+ "label": "Source ID",
+ "description": " Identifier of the competent institution as registered in the EESSI 
+Institution Repository."
+ }
+ ]
+ },
+ {
+ "path": [
+ "authentic_source",
+ "name"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Source Name",
+ "description": " Name of the competent institution as registered in the EESSI 
+Institution Repository."
+ }
+ ]
+ },
+ {
+ "path": [
+ "starting_date"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Starting Date",
+ "description": "Start date of the business decision validity period of the PDA1."
+ }
+ ]
+ },
+ {
+ "path": [
+ "ending_date"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Ending Date",
+ "description": "End date of the business decision validity period of the PDA1."
+ }
+ ]
+ },
+ {
+ "path": [
+ "document_number"
+ ],
+ "sd": "always",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Document Number",
+ "description": "Unique PDA1 document identifier."
+ }
+ ]
+ },
+ {
+ "path": [
+ "employer"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Employer",
+ "description": "List of employer details/details of self-employment."
+}
+ ]
+ },
+ {
+ "path": [
+ "employer",
+ "*",
+ "type"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Employment Type",
+ "description": "Type of the employment."
+ }
+ ]
+ },
+ {
+ "path": [
+ "employer",
+ "*",
+ "id"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Employer ID",
+ "description": "Unique identifier of the employer/self-employment in EU or Member 
+State registries."
+ }
+ ]
+ },
+ {
+ "path": [
+ "employer",
+ "*",
+ "name"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Employer Name",
+ "description": "Name of the employer/self-employment in EU or Member State registries
+."
+ }
+ ]
+ },
+ {
+ "path": [
+ "employer",
+ "*",
+ "country"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Employer Country",
+ "description": "Country where the employer/self-employed is registered."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+"label": "Work Info",
+ "description": "Information about the workplace."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information",
+ "no_fixed_place_of_work"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "No Fixed workplace",
+ "description": "Country where there is no fixed place of work ."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information",
+ "work_address"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Place of Work",
+ "description": "List of workplaces."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information",
+ "work_address",
+ "*",
+ "formatted"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Formatted Address",
+ "description": "Full formatted address."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information",
+ "work_address",
+ "*",
+ "street_address"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Street name",
+ "description": "Street name."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information",
+ "work_address",
+ "*",
+ "house_number"
+ ],
+ "sd": "never",
+"display": [
+ 
+{
+ "lang": "en
+-EU"
+,
+ "label": "House 
+number"
+,
+ "description": "House/building number."
+ 
+}
+ 
+]
+ },
+ 
+{
+ "path": [
+ "work_information"
+,
+ "work_address"
+,
+ "*"
+,
+ "postal_code"
+ ],
+ "sd": "never"
+,
+ "display": [
+ 
+{
+ "lang": "en
+-EU"
+,
+ "label": "Postal Code"
+,
+ "description": "ZIP or postal code."
+ 
+}
+ 
+]
+ },
+ 
+{
+ "path": [
+ "work_information"
+,
+ "work_address"
+,
+ "*"
+,
+ "locality"
+ ],
+ "sd": "never"
+,
+ "display": [
+ 
+{
+ "lang": "en
+-EU"
+,
+ "label": "Locality"
+,
+ "description": "City or locality."
+ 
+}
+ 
+]
+ },
+ 
+{
+ "path": [
+ "work_information"
+,
+ "work_address"
+,
+ "*"
+,
+ "region"
+ ],
+ "sd": "never"
+,
+ "display": [
+ 
+{
+ "lang": "en
+-EU"
+,
+ "label": "Region"
+,
+ "description": "Administrative region."
+ 
+}
+ 
+]
+ },
+ 
+{
+ "path": [
+ "work_information"
+,
+ "work_address"
+,
+ "*"
+,
+ "country"
+ ],
+ "sd": "never"
+,
+ "display": [
+ 
+{
+ "lang": "en
+-EU"
+,
+ "label": "Country"
+,
+ "description": "Country code."
+ 
+}
+ 
+]
+ },
+ 
+{
+"path": [
+ "work_information",
+ "work_address",
+ "*",
+ "company_name"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Company Name",
+ "description": "Name of employer company."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information",
+ "work_address",
+ "*",
+ "company_id"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Company ID",
+ "description": "Employer company ID."
+ }
+ ]
+ },
+ {
+ "path": [
+ "work_information",
+ "work_address",
+ "*",
+ "flag_base_home"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Flag State Home Base",
+ "description": "Flag state or home base of the company/ship where you will be 
+employed."
+ }
+ ]
+ },
+ {
+ "path": [
+ "legislation_country"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Legislation Country",
+ "description": "Country of applicable legislation."
+ }
+ ]
+ },
+ {
+ "path": [
+ "transitional_rules"
+ ],
+ "sd": "always",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Transitional Rules",
+ "description": "Indication, whether transitional rules apply."
+ }
+ ]
+},
+ {
+ "path": [
+ "status_confirmation"
+ ],
+ "sd": "never",
+ "display": [
+ {
+ "lang": "en-EU",
+ "label": "Status Confirmation",
+ "description": "Legal status category code applicable to the worker."
+ }
+ ]
+ }
+ ],
+ "schema_uri": "https://demo-issuer.wwwallet.org/public/creds/pda1/portable-document-a1-schemadc4eu-01.json"
+}
+```
 
 
 
