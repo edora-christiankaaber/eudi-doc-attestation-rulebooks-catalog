@@ -104,89 +104,91 @@ The following is an example of a claim set for an EHIC SD-JWT VC:
 
 ```json
 {
-  "authentic_source": {
-    "id": "DK:DC4EUINST",
-    "name": "DC4EUINST"
-  },
+  "vct": "urn:eudi:ehic:1",
+  "jti": "urn:uuid:9b1deb4d-5b1d-47b5-9e3e-2b0e1b123456",
+  "sub": "did:example:1234567890",
+  "iss": "https://ehic.issuer.example.eu",
+  "iat": 1721478000,
+  "exp": 1753014000,
+  "nbf": 1721474400,
   "cnf": {
     "jwk": {
-      "kid": "default_signing_key_id",
-      "crv": "P-256",
       "kty": "EC",
-      "x": "EPqQJRHlaHBQ6gTNcmb5p04fNu5PwQBuxd1vblB5mqM",
-      "y": "BnF-La22tTbgXqRX_rTagSscVQkOfJiNm4YaZ-u9zmk"
+      "crv": "P-256",
+      "x": "4j5_9EF4ac9J6TR2z2eMgN3sZ2mD8X_Pb8hx7rk_F1U",
+      "y": "7FsapV3Z1QGX7YZbVC1Vhqf1rXe6M3sBL0GgQoKlA9U"
     }
   },
-  "date_of_expiry": "2025-10-15",
-  "date_of_issuance": "2023-07-30",
-  "ending_date": "2025-10-15",
-  "exp": 1786782230,
-  "iss": "https://dc4eu.dev-eessi.dk:444",
+  "personal_administrative_number": "DE987654321",
   "issuing_authority": {
-    "id": "DK:Playground",
-    "name": "Danish Playground Issuer"
+    "id": "DVKA",
+    "name": "GKV Spitzenverband - Deutsche Verbindungsstelle Krankenversicherung - Ausland",
+    "country": "DE"
   },
-  "issuing_country": "DK",
-  "jti": "ac709be9-cc43-4c8b-9777-bb6f29679823",
-  "nbf": 1755246230,
-  "starting_date": "2023-07-30",
-  "vct": "urn:eudi:ehic:1",
-  "document_number": "80112233445566778036",
-  "personal_administrative_number": "80854674"
+  "date_of_issuance": "2025-07-15",
+  "date_of_expiry": "2030-07-30",
+  "authentic_source": {
+    "id": "DE: 103411401",
+    "name": "AOK Nordwest"
+  },
+  "starting_date": "2025-07-01",
+  "ending_date": "2030-07-30",
+  "document_number": "80112233445566778043"
 }
 ```
 ### Example SD-JWT in Base64
 
-> eyJ0eXAiOiJzZCtqd3QiLCJhbGciOiJFUzI1NiJ9.eyJhdXRoZW50aWNfc291cmNlIjp7ImlkIjoiREs6REM0RVVJTlNUIiwibmFtZSI6IkRDNEVVSU5TVCJ9LCJjbmYiOnsiandrIjp7ImtpZCI6ImRlZmF1bHRfc2lnbmluZ19rZXlfaWQiLCJjcnYiOiJQLTI1NiIsImt0eSI6IkVDIiwieCI6IkVQcVFKUkhsYUhCUTZnVE5jbWI1cDA0Zk51NVB3UUJ1eGQxdmJsQjVtcU0iLCJ5IjoiQm5GLUxhMjJ0VGJnWHFSWF9yVGFnU3NjVlFrT2ZKaU5tNFlhWi11OXptayJ9fSwiZGF0ZV9vZl9leHBpcnkiOiIyMDI1LTEwLTE1IiwiZGF0ZV9vZl9pc3N1YW5jZSI6IjIwMjMtMDctMzAiLCJlbmRpbmdfZGF0ZSI6IjIwMjUtMTAtMTUiLCJleHAiOjE3ODY3ODIyMzAsImlzcyI6Imh0dHBzOi8vZGM0ZXUuZGV2LWVlc3NpLmRrOjQ0NCIsImlzc3VpbmdfYXV0aG9yaXR5Ijp7ImlkIjoiREs6UGxheWdyb3VuZCIsIm5hbWUiOiJEYW5pc2ggUGxheWdyb3VuZCBJc3N1ZXIifSwiaXNzdWluZ19jb3VudHJ5IjoiREsiLCJqdGkiOiJhYzcwOWJlOS1jYzQzLTRjOGItOTc3Ny1iYjZmMjk2Nzk4MjMiLCJuYmYiOjE3NTUyNDYyMzAsInN0YXJ0aW5nX2RhdGUiOiIyMDIzLTA3LTMwIiwidmN0IjoidXJuOmV1ZGk6ZWhpYzoxIiwiX3NkIjpbIjM2LWtKTXFYbjZzSExhRUJNeHlIVGpKQk4wdlF3RWc1dVFaTkx5T1B5Qk0iLCJfZkxJZUczRy00dDFmaGREdmFWWHZCUUZxc0s2QVNZTm9vdVhRU3NkMjd3Il0sIl9zZF9hbGciOiJTSEEtMjU2In0.kTh205qB8RrqDi-HIgPoBcbx_9u1GyeEyWibr0tSZ1jG28xeJH87-Zw2xEUVdlgu5gsEH3iIStcly-Fg8hjvJQ~WyI2MjRkMTljZjk2Yzg5NzliIiwiZG9jdW1lbnRfbnVtYmVyIiwiODAxMTIyMzM0NDU1NjY3NzgwMzYiXQ~WyJlZTg2MWNjMjg4ZTYzZDNhIiwicGVyc29uYWxfYWRtaW5pc3RyYXRpdmVfbnVtYmVyIiwiODA4NTQ2NzQiXQ~
+> eyJ0eXAiOiJzZCtqd3QiLCJhbGciOiJFUzI1NiJ9.eyJ2Y3QiOiJ1cm46ZXVkaTplaGljOjEiLCJqdGkiOiJ1cm46dXVpZDo5YjFkZWI0ZC01YjFkLTQ3YjUtOWUzZS0yYjBlMWIxMjM0NTYiLCJzdWIiOiJkaWQ6ZXhhbXBsZToxMjM0NTY3ODkwIiwiaXNzIjoiaHR0cHM6Ly9laGljLmlzc3Vlci5leGFtcGxlLmV1IiwiaWF0IjoxNzIxNDc4MDAwLCJleHAiOjE3NTMwMTQwMDAsIm5iZiI6MTcyMTQ3NDQwMCwiY25mIjp7Imp3ayI6eyJrdHkiOiJFQyIsImNydiI6IlAtMjU2IiwieCI6IjRqNV85RUY0YWM5SjZUUjJ6MmVNZ04zc1oybUQ4WF9QYjhoeDdya19GMVUiLCJ5IjoiN0ZzYXBWM1oxUUdYN1laYlZDMVZocWYxclhlNk0zc0JMMEdnUW9LbEE5VSJ9fSwiaXNzdWluZ19hdXRob3JpdHkiOnsiaWQiOiJEVktBIiwibmFtZSI6IkdLViBTcGl0emVudmVyYmFuZCAtIERldXRzY2hlIFZlcmJpbmR1bmdzc3RlbGxlIEtyYW5rZW52ZXJzaWNoZXJ1bmcgLSBBdXNsYW5kIiwiY291bnRyeSI6IkRFIn0sImRhdGVfb2ZfaXNzdWFuY2UiOiIyMDI1LTA3LTE1IiwiZGF0ZV9vZl9leHBpcnkiOiIyMDMwLTA3LTMwIiwiYXV0aGVudGljX3NvdXJjZSI6eyJpZCI6IkRFOiAxMDM0MTE0MDEiLCJuYW1lIjoiQU9LIE5vcmR3ZXN0In0sInN0YXJ0aW5nX2RhdGUiOiIyMDI1LTA3LTAxIiwiZW5kaW5nX2RhdGUiOiIyMDMwLTA3LTMwIiwiX3NkIjpbIlpuOFlYMWo1bkRTb1Z2TFNQUWVBMi04TkRSYjUyNVgtQ0tuejdJQ2d1b1kiLCJqTmcxVmFzREJkdDlNZTFsbTF0N1dPS2JFQU0yaVNjTVlGY0o4eGFUZlc0Il0sIl9zZF9hbGciOiJTSEEtMjU2In0.lIz6T7ooFK90g2LZYOIv3VfVR3VMzeIujPd4mbTuqJty4AgxvPQNJSDKTQ5oZcTNkIdIM91UervHFtOSHKUEkA~WyI5MWQ2OTk0ODc3MGFmOGUyIiwicGVyc29uYWxfYWRtaW5pc3RyYXRpdmVfbnVtYmVyIiwiREU5ODc2NTQzMjEiXQ~WyIwOTVkNWUxYWIyNzFkN2U4IiwiZG9jdW1lbnRfbnVtYmVyIiwiODAxMTIyMzM0NDU1NjY3NzgwNDMiXQ~
 
 Use https://www.sdjwt.co/decode to decode the SD-JWT
 
 ### Example payload for the SD-JWT VC
 ```json
 {
-  "authentic_source": {
-    "id": "DK:DC4EUINST",
-    "name": "DC4EUINST"
-  },
+  "vct": "urn:eudi:ehic:1",
+  "jti": "urn:uuid:9b1deb4d-5b1d-47b5-9e3e-2b0e1b123456",
+  "sub": "did:example:1234567890",
+  "iss": "https://ehic.issuer.example.eu",
+  "iat": 1721478000,
+  "exp": 1753014000,
+  "nbf": 1721474400,
   "cnf": {
     "jwk": {
-      "kid": "default_signing_key_id",
-      "crv": "P-256",
       "kty": "EC",
-      "x": "EPqQJRHlaHBQ6gTNcmb5p04fNu5PwQBuxd1vblB5mqM",
-      "y": "BnF-La22tTbgXqRX_rTagSscVQkOfJiNm4YaZ-u9zmk"
+      "crv": "P-256",
+      "x": "4j5_9EF4ac9J6TR2z2eMgN3sZ2mD8X_Pb8hx7rk_F1U",
+      "y": "7FsapV3Z1QGX7YZbVC1Vhqf1rXe6M3sBL0GgQoKlA9U"
     }
   },
-  "date_of_expiry": "2025-10-15",
-  "date_of_issuance": "2023-07-30",
-  "ending_date": "2025-10-15",
-  "exp": 1786782230,
-  "iss": "https://dc4eu.dev-eessi.dk:444",
   "issuing_authority": {
-    "id": "DK:Playground",
-    "name": "Danish Playground Issuer"
+    "id": "DVKA",
+    "name": "GKV Spitzenverband - Deutsche Verbindungsstelle Krankenversicherung - Ausland",
+    "country": "DE"
   },
-  "issuing_country": "DK",
-  "jti": "ac709be9-cc43-4c8b-9777-bb6f29679823",
-  "nbf": 1755246230,
-  "starting_date": "2023-07-30",
-  "vct": "urn:eudi:ehic:1",
+  "date_of_issuance": "2025-07-15",
+  "date_of_expiry": "2030-07-30",
+  "authentic_source": {
+    "id": "DE: 103411401",
+    "name": "AOK Nordwest"
+  },
+  "starting_date": "2025-07-01",
+  "ending_date": "2030-07-30",
   "_sd": [
-    "36-kJMqXn6sHLaEBMxyHTjJBN0vQwEg5uQZNLyOPyBM",
-    "_fLIeG3G-4t1fhdDvaVXvBQFqsK6ASYNoouXQSsd27w"
+    "Zn8YX1j5nDSoVvLSPQeA2-8NDRb525X-CKnz7ICguoY",
+    "jNg1VasDBdt9Me1lm1t7WOKbEAM2iScMYFcJ8xaTfW4"
   ],
   "_sd_alg": "SHA-256"
 }
 ```
 ### Disclosures in the SD-JWT VC
 
-    Salt: 624d19cf96c8979b
+    Salt: 095d5e1ab271d7e8
     Key: document_number
-    Value: 80112233445566778036
+    Value: 80112233445566778043
 
-    Salt: ee861cc288e63d3a
+    Salt: 91d69948770af8e2
     Key: personal_administrative_number
-    Value: 80854674
+    Value: DE987654321
 
 
 
@@ -237,15 +239,175 @@ The Compliance follows the same principles as set out in the common rulebook.
 | [W3C VCDM v2.0] | Sporny, M. *et al,* Verifiable Credentials Data Model v2.0, W3C Recommendation.  |
 
 ## Annex 1 - Schema for an EHIC SD-JWT
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DC4EU EHIC SD-JWT VC Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "vct": {
+      "type": "string",
+      "description": "The Verifiable Credential type identifier, as defined in ietf-oauth-sd-jwt-vc (draft 09).",
+      "enum": ["urn:eudi:ehic:1"]
+    },
+    "jti": {
+      "type": "string",
+      "description": "Verifiable Credential unique identifier to prevent replay attacks. It needs to be unique for the JWT effective lifespan.",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "sub": {
+      "type": "string",
+      "description": "Subject identifier for the JWT, representing the principal that is the subject of the JWT. This is a case-sensitive string containing a unique identifier, as defined in RFC 7519 (JWT)."
+    },
+    "iss": {
+      "type": "string",
+      "format": "uri",
+      "description": "Issuer identifier for the JWT, expressed as a URI, according to RFC 7519 (JWT)."
+    },
+    "iat": {
+      "type": "integer",
+      "description": "Issued at time indicating when the JWT was issued, represented as a NumericDate (number of seconds since 1970-01-01T00:00:00Z UTC) according to RFC 7519 (JWT)."
+    },
+    "cnf": {
+      "type": "object",
+      "description": "Contains confirmation key information used to prove possession of a private key, as defined in RFC 7800 (Proof-of-Possession Key Semantics for JWTs).",
+      "properties": {
+        "jwk": {
+          "type": "object",
+          "description": "JSON Web Key (JWK) object. Structure not fully specified here."
+        }
+      },
+      "required": ["jwk"],
+      "additionalProperties": true
+    },
+    "exp": {
+      "type": "integer",
+      "description": "Expiration time on or after which the JWT must not be accepted for processing, represented as a NumericDate (number of seconds since 1970-01-01T00:00:00Z UTC) according to RFC 7519 (JWT)."
+    },
+    "nbf": {
+      "type": "integer",
+      "description": "Not before time before which the JWT must not be accepted for processing, represented as a NumericDate (number of seconds since 1970-01-01T00:00:00Z UTC) according to RFC 7519 (JWT)."
+    },
+    "personal_administrative_number": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 50,
+      "description": "The unique personal identifier assigned to the natural person for social security services and benefits by the competent institution (Social Security Number). The electronic identification scheme under which the identifier is issued, as well as the policy applied to the values of this attribute including, where applicable, specific conditions for its processing must be defined by the competent institution as part of this schema.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:personal_administrative_number"
+    },
+    "issuing_authority": {
+      "type": "object",
+      "description": "The authority responsible for issuing the EHIC.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20,
+          "description": "The unique identifier of the EHIC issuing authority.",
+          "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority:id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "The full name of the EHIC issuing authority.",
+          "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority:name"
+        },
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "Member State code (ISO 3166-1 alpha-2) representing the country under whose jurisdiction the EHIC is issued.",
+          "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:issuing_authority:country"
+        }
+      },
+      "required": ["id", "name", "country"],
+      "additionalProperties": false
+    },
+    "date_of_issuance": {
+      "type": "string",
+      "format": "date",
+      "description": "Date determined by the competent institution as either the start of the administrative validity period of the record represented by this EHIC, or the issuance date of the EHIC credential. The value is expressed as a full-date (YYYY-MM-DD) in accordance with ISO 8601-1 and RFC 3339. The exact interpretation is to be defined by the competent institution as part of this schema.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:date_of_issuance"
+    },
+    "date_of_expiry": {
+      "type": "string",
+      "format": "date",
+      "description": "Date determined by the competent institution as the end of the administrative validity period of the record represented by this EHIC, or the expiration date of the EHIC credential. The value is expressed as a full-date (YYYY-MM-DD) in accordance with ISO 8601-1 and RFC 3339. The exact interpretation is to be defined by the competent institution as part of this schema.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:date_of_expiry"
+    },
+    "authentic_source": {
+      "type": "object",
+      "description": "The competent institution responsible for the EHIC, as registered in the Electronic Exchange of Social Security Information (EESSI).",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:authentic_source",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20,
+          "description": "The unique identifier of the competent institution responsible for the EHIC, as registered in the Electronic Exchange of Social Security Information (EESSI).",
+          "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:authentic_source:id"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "The full name of the competent institution responsible for the EHIC, as registered in the Electronic Exchange of Social Security Information (EESSI).",
+          "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:authentic_source:name"
+        }
+      },
+      "required": ["id", "name"],
+      "additionalProperties": false
+    },
+    "starting_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date determined by the competent institution as the start date of the insurance coverage. The value is expressed as a full-date (YYYY-MM-DD) in accordance with ISO 8601-1 and RFC 3339.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:starting_date"
+    },
+    "ending_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date determined by the competent institution as the end date of the insurance coverage. The value is expressed as a full-date (YYYY-MM-DD) in accordance with ISO 8601-1 and RFC 3339.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:ending_date"
+    },
+    "document_number": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 50,
+      "description": "Unique document identifier assigned by the competent institution. This value identifies the specific EHIC document and may be used for administrative validation.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:document_number"
+    }
+  },
+  "required": [
+    "vct",
+    "jti",
+    "sub",
+    "iss",
+    "iat",
+    "cnf",
+    "personal_administrative_number",
+    "issuing_authority",
+    "date_of_issuance",
+    "authentic_source",
+    "document_number"
+  ]
+}
+```
+
+## Annex 2 - Schema for EHIC Credential Display & Disclosures
 ```json
 {
   "vct": "urn:eudi:ehic:1",
   "name": "DC4EU EHIC SD-JWT VCTM",
-  "description": "DC4EU European Health Insurance Card (EHIC) SD-JWT Verifiable Credential Type Metadata, based on ietf-oauth-sd-jwt-vc (draft 09), using a single language tag (en-US).",
+  "description": "Selective disclosure metadata for EHIC SD-JWT VC",
   "$comment": "Implementation of the DC4EU VCTM may require Member State-specific clarifications to align with national policies governing the display of included claims.",
   "display": [
     {
-      "lang": "en-US",
+      "lang": "en-EU",
       "name": "EHIC SD-JWT VC",
       "description": "European Health Insurance Card (EHIC) SD-JWT VC",
       "rendering": {
@@ -267,10 +429,9 @@ The Compliance follows the same principles as set out in the common rulebook.
     {
       "path": ["personal_administrative_number"],
       "sd": "always",
-      "svg_id": "personal_administrative_number_6",
       "display": [
         {
-          "lang": "en-US",
+          "lang": "en-EU",
           "label": "Social Security PIN",
           "description": "Unique personal identifier used by social security services."
         }
@@ -281,8 +442,9 @@ The Compliance follows the same principles as set out in the common rulebook.
       "sd": "never",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Issuing authority"
+          "lang": "en-EU",
+          "label": "Issuing Authority",
+          "description": "The authority responsible for issuing the EHIC."
         }
       ]
     },
@@ -291,9 +453,9 @@ The Compliance follows the same principles as set out in the common rulebook.
       "sd": "never",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Issuing authority id",
-          "description": "EHIC issuing authority unique identifier."
+          "lang": "en-EU",
+          "label": "Issuing Authority ID",
+          "description": "The unique identifier of the EHIC issuing authority."
         }
       ]
     },
@@ -302,33 +464,20 @@ The Compliance follows the same principles as set out in the common rulebook.
       "sd": "never",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Issuing authority name",
-          "description": "EHIC issuing authority name."
+          "lang": "en-EU",
+          "label": "Issuing Authority Name",
+          "description": "The full name of the EHIC issuing authority."
         }
       ]
     },
     {
-      "path": ["issuing_country"],
+      "path": ["issuing_authority", "country"],
       "sd": "never",
-      "svg_id": "issuing_country_2",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Issuing country",
-          "description": "EHIC issuing country."
-        }
-      ]
-    },
-    {
-      "path": ["date_of_expiry"],
-      "sd": "never",
-      "svg_id": "date_of_expiry_9",
-      "display": [
-        {
-          "lang": "en-US",
-          "label": "Expiry date",
-          "description": "EHIC expiration date."
+          "lang": "en-EU",
+          "label": "Issuing Country",
+          "description": "Country of the EHIC issuing authority."
         }
       ]
     },
@@ -337,9 +486,20 @@ The Compliance follows the same principles as set out in the common rulebook.
       "sd": "never",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Issue date",
-          "description": "EHIC validity start date."
+          "lang": "en-EU",
+          "label": "Date of Issuance",
+          "description": "Issuance date of the EHIC."
+        }
+      ]
+    },
+    {
+      "path": ["date_of_expiry"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-EU",
+          "label": "Expiry Date",
+          "description": "EHIC credential expiry date."
         }
       ]
     },
@@ -348,19 +508,19 @@ The Compliance follows the same principles as set out in the common rulebook.
       "sd": "never",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Competent institution"
+          "lang": "en-EU",
+          "label": "Authentic Source",
+          "description": "Competent institution as registered in the EESSI Institution Repository."
         }
       ]
     },
     {
       "path": ["authentic_source", "id"],
       "sd": "never",
-      "svg_id": "authentic_source_id_7a",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Competent institution id",
+          "lang": "en-EU",
+          "label": "Authentic Source ID",
           "description": "Identifier of the competent institution as registered in the EESSI Institution Repository."
         }
       ]
@@ -368,23 +528,11 @@ The Compliance follows the same principles as set out in the common rulebook.
     {
       "path": ["authentic_source", "name"],
       "sd": "never",
-      "svg_id": "authentic_source_name_7b",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Competent institution name",
+          "lang": "en-EU",
+          "label": "Authentic Source Name",
           "description": "Name of the competent institution as registered in the EESSI Institution Repository."
-        }
-      ]
-    },
-    {
-      "path": ["ending_date"],
-      "sd": "never",
-      "display": [
-        {
-          "lang": "en-US",
-          "label": "Ending date",
-          "description": "End date of the insurance coverage."
         }
       ]
     },
@@ -393,26 +541,34 @@ The Compliance follows the same principles as set out in the common rulebook.
       "sd": "never",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Starting date",
+          "lang": "en-EU",
+          "label": "Starting Date",
           "description": "Start date of the insurance coverage."
+        }
+      ]
+    },
+    {
+      "path": ["ending_date"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-EU",
+          "label": "Ending Date",
+          "description": "End date of the insurance coverage."
         }
       ]
     },
     {
       "path": ["document_number"],
       "sd": "always",
-      "svg_id": "document_number_8",
       "display": [
         {
-          "lang": "en-US",
-          "label": "Document number",
-          "description": "EHIC unique document identifier."
+          "lang": "en-EU",
+          "label": "Document Number",
+          "description": "Unique EHIC document identifier."
         }
       ]
     }
-  ],
-  "schema_uri": "https://demo-issuer.wwwallet.org/public/creds/ehic/european-health-insurance-card-schema-dc4eu-01.json",
-  "schema_uri#integrity": "sha256-lNMpT2YzCPU1AuIpSIjryv6KUgBUBUVs3eNbZQoMJNA="
+  ]
 }
 ```
