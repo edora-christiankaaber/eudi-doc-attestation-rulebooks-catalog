@@ -103,8 +103,6 @@ This chapter outlines the legal and regulatory environment that underpins the is
 |------------------------|-------------|
 | Regulation (EC) No 883/2004	| Governs the coordination of social security systems across the EU. Forms the legal basis for EHIC and PD A1 in traditional format. | 
 | Implementing Regulation (EC) No 987/2009 |	Details the administrative procedures and data exchange mechanisms for Regulation 883/2004. |
-| Decision No S1 of 12 June 2009 |	Sets general provisions for the “traditional”  EHIC, including its purpose, legal effects, and fallback procedures such as provisional replacement certificates. |
-| Decision No S2 of 12 June 2009 |	Specifies the technical design, visible information, and model for the “traditional” EHIC and its provisional replacement certificate.|
 | Revised eIDAS Regulation (Regulation (EU) 2024/1183) |	Revises and extends the eIDAS framework to support the EUDI wallet and verifiable credentials framework. Provides legal recognition of electronic attestations of attributes especially the PuB-EAA regime. |
 | GDPR (Regulation (EU) 2016/679) |	Establishes rules on data protection and privacy. Ensures lawful processing of personal data. |
 | Data Governance Act (Regulation (EU) 2022/868) |	Supports data sharing and reuse in the public sector under common European data spaces. | 
