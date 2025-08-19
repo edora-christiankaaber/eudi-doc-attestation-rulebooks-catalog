@@ -120,26 +120,29 @@ The PD A1 adds a number of private namespace attributes to the set inherited fro
 
 ## 3.1 ISO/IEC 18013-5-compliant encoding 
 
-| **Data Identifier** | **Attribute identifier** | **Encoding format** |**Namespace**|
+The common prefix for all *namespace* entries is `urn:dgempl:pubeaas:pda1:v1:attribute:`.  
+All *Attribute Identifiers* are identical to the *Data Identifiers*.
+
+| **Data Identifier** | **Attribute Identifier** | **Encoding format** |**Namespace**|
 |------------------------|--------------|------------------|------------------|
-| employer.type |employer.type|tstr |urn:dgempl:pubeaas:pda1:v1:attribute:employer:type|
-| employer.id	|	employer.id | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id |
-| employer.name |	employer.name | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name |
-| employer.country	| employer.country | tstr (ISO 3166-1 alpha-2) |urn:dgempl:pubeaas:pda1:v1:attribute:employer:country |
-| work_information.no_fixed_place_of_work |  work_information.no_fixed_place_of_work | tstr (ISO 3166-1 alpha-2) | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:no_fixed_place_of_work |
-| work_information.work_address.formatted |  work_information.work_address.formatted | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:formatted |
-| work_information.work_address.street_address | work_information.work_address.street_address | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:street_address |
-| work_information.work_address. house_number | work_information.work_address. house_number | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:house_number |
-| work_information.work_address.postal_code | work_information.work_address.postal_code | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:postal_code |
-| work_information.work_address.locality | work_information.work_address.locality | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:locality |
-| work_information.work_address.region | work_information.work_address.region | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:region|
-| work_information.work_address.country |  work_information.work_address.country | tstr (ISO 3166-1 alpha-2) | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:country |
-| work_information.work_address.company_name | work_information.work_address.company_name | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_name |
-| work_information.work_address.company_id | work_information.work_address.company_id | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_id |
-| work_information.work_address.flag_base_home | work_information.work_address.flag_base_home | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:flag_base_home |
-| legislation_country |	legislation_country | tstr (ISO 3166-1 alpha-2) |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country |
-| transitional_rules | transitional_rules | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:transitional_rules |
-| status_confirmation|	status_confirmation | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation |
+| employer.type | same |tstr | employer:type|
+| employer.id	|	same | tstr | employer:id |
+| employer.name |	same | tstr | employer:name |
+| employer.country	| same | tstr (ISO 3166-1 alpha-2) | employer:country |
+| work_information.no_fixed_place_of_work |  same | tstr (ISO 3166-1 alpha-2) | work_information:no_fixed_place_of_work |
+| work_information.work_address.formatted |  same | tstr | work_information:work_address:formatted |
+| work_information.work_address.street_address | same | tstr | work_information:work_address:street_address |
+| work_information.work_address.house_number | same | tstr | work_information:work_address:house_number |
+| work_information.work_address.postal_code | same | tstr | work_information:work_address:postal_code |
+| work_information.work_address.locality | same | tstr | work_information:work_address:locality |
+| work_information.work_address.region | same | tstr | work_information:work_address:region |
+| work_information.work_address.country |  same | tstr (ISO 3166-1 alpha-2) | work_information:work_address:country |
+| work_information.work_address.company_name | same | tstr | work_information:work_address:company_name |
+| work_information.work_address.company_id | same | tstr | work_information:work_address:company_id |
+| work_information.work_address.flag_base_home | same | tstr | work_information:work_address:flag_base_home |
+| legislation_country |	same | tstr (ISO 3166-1 alpha-2) |	legislation_country |
+| transitional_rules | same | tstr | transitional_rules |
+| status_confirmation|	same | tstr |	status_confirmation |
 
 Finally, illustrative examples SHALL be included. 
 
@@ -148,27 +151,27 @@ Finally, illustrative examples SHALL be included.
 [RULEBOOK AUTHOR TO PROVIDE THE ATTRIBUTES AND THEIR VALUES INCLUDED IN THE EXAMPLE]
 
 ### 3.2 SD-JWT VC-based encoding 
-
-| **Data Identifier** | **Attribute identifier** | **Encoding format** | **Notes** |
+The namespace prefix for the PD A1 credential attribute identifiers is `urn:dgempl:pubeaas:pda1:v1:attribute:`.
+| **Data Identifier** | **Attribute Identifier** | **Encoding format** | **Notes** |
 |---------------------|--------------------------|---------------------|-----------|
-| employer.type | urn:dgempl:pubeaas:pda1:v1:attribute:employer:type | string | See section 2 |
-| employer.id	|	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id | string |	See section 2 |
-| employer.name |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name | string | See section 2 |
-| employer.country | urn:dgempl:pubeaas:pda1:v1:attribute:employer:country | string | (ISO 3166-1 alpha-2) |
-| work_information.no_fixed_place_of_work | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:no_fixed_place_of_work |string | (ISO 3166-1 alpha-2) |
-| work_information.work_address.formatted | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:formatted |string | See section 2 |
-| work_information.work_address.street_address | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:street_address |string | See section 2 |
-| work_information.work_address. house_number | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:house_number |string | See section 2 |
-| work_information.work_address.postal_code | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:postal_code |string | See section 2 |
-| work_information.work_address.locality | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:locality |string | See section 2 |
-| work_information.work_address.region | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:region|string | See section 2 |
-| work_information.work_address.country | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:country |string |  (ISO 3166-1 alpha-2) |
-| work_information.work_address.company_name | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_name |string | See section 2 |
-| work_information.work_address.company_id | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_id |string | See section 2 |
-| work_information.work_address.flag_base_home | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:flag_base_home |string | See section 2 |
-| legislation_country |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country | string |(ISO 3166-1 alpha-2) |
-| transitional_rules | urn:dgempl:pubeaas:pda1:v1:attribute:transitional_rules | string | See section 2 |
-| status_confirmation |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation | string |	See section 2 |
+| employer.type | employer:type | string | See section 2 |
+| employer.id	|	employer:id | string |	See section 2 |
+| employer.name |	employer:name | string | See section 2 |
+| employer.country | employer:country | string | (ISO 3166-1 alpha-2) |
+| work_information.no_fixed_place_of_work | work_information:no_fixed_place_of_work |string | (ISO 3166-1 alpha-2) |
+| work_information.work_address.formatted | work_information:work_address:formatted |string | See section 2 |
+| work_information.work_address.street_address | work_information:work_address:street_address |string | See section 2 |
+| work_information.work_address. house_number | work_information:work_address:house_number |string | See section 2 |
+| work_information.work_address.postal_code | work_information:work_address:postal_code |string | See section 2 |
+| work_information.work_address.locality | work_information:work_address:locality |string | See section 2 |
+| work_information.work_address.region | work_information:work_address:region|string | See section 2 |
+| work_information.work_address.country | work_information:work_address:country |string |  (ISO 3166-1 alpha-2) |
+| work_information.work_address.company_name | work_information:work_address:company_name |string | See section 2 |
+| work_information.work_address.company_id | work_information:work_address:company_id |string | See section 2 |
+| work_information.work_address.flag_base_home | work_information:work_address:flag_base_home |string | See section 2 |
+| legislation_country |	legislation_country | string |(ISO 3166-1 alpha-2) |
+| transitional_rules | transitional_rules | string | See section 2 |
+| status_confirmation |	status_confirmation | string |	See section 2 |
 
 
 The PD A1 credential implements selective disclosure using the SD-JWT model. This allows a credential holder to disclose only the minimum required claims to a verifier, supporting GDPR-compliant privacy by design.
