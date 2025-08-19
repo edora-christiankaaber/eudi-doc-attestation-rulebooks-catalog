@@ -206,6 +206,39 @@ Use https://www.sdjwt.co/decode to decode the SD-JWT
 *Briefly describe the primary use cases or scenarios for which this attestation 
 type is intended*
 
+### 4.1	Primary Use Case Scenario: Requesting Health Care Services during a temporary stay abroad
+#### 4.1.1	The Setup
+Alberto, an Italian musician, performs with an orchestra across multiple EU countries. He seamlessly manages his healthcare documents through modern technology. Through a harmonized digital issuance procedure, he securely stores his digital EHIC in his EUDI Wallet, ensuring he can easily access necessary healthcare services while traveling abroad.
+#### 4.1.2	The Need for Verification
+Alberto arrives in Germany for a concert. After a small accident while jogging the night before the event, he needs to access healthcare services and must present his EHIC to the local healthcare provider. The healthcare provider ensures that the EHIC is authentic, valid, and that Alberto is the rightful owner.
+#### 4.1.3	The Business Context
+Healthcare providers in Germany automatically check the entitlement to healthcare services, ensuring that Alberto gets access to healthcare at the same costs as locals and that the reimbursement process for the provided treatment is efficient and fast.
+#### 4.1.4	The Verification Process
+-	After the accident, Alberto visits a local healthcare provider. The provider, onboarded in the EUDI wallet ecosystem, uses a hardware device with proximity technology such as NFC or Bluetooth to request Alberto’s EHIC and his PID.
+- The request is sent through a secure channel using a standard protocol for digital information exchange between the wallet and the healthcare provider’s device to protect Alberto’s data.
+-	Alberto’s EUDI Wallet receives the request and evaluates it according to the registered and published disclosure policy of social security coordination. This evaluation includes a verification of the relying party (which may be represented by the healthcare provider’s organisation).
+- Alberto reviews the evaluation of the healthcare provider’s device’s request and gives consent to share the requested information.
+-	The wallet ensures the consented information is securely shared using standard protocols, confirming the credential is rightfully owned by the holder of the wallet and that the wallet is a valid EUDI wallet.
+-	The healthcare provider’s device receives the information and signals, that it has been received.
+-	The healthcare provider’s device automatically reviews the document with the necessary information, confirming its authenticity, validity at the time of verification, and possession by Alberto through a reliable verification process.
+- They trust that Alberto is using his own EUDI Wallet, since an attested photo is part of the identity data presented on Alberto’s phone. If a photo is unavailable or insufficient, identity cards can be requested.
+-	The result of the verification process, regardless of whether it is positive or negative, is presented on the healthcare provider’s device as well as on Alberto’s wallet.
+#### 5.1.5	Positive Verification
+-	Alberto receives healthcare services at the same costs as locals.
+-	An information exchange between the healthcare provider and relevant social security institutions in the member state of stay using the information presented is initiated immediately to handle the cost reimbursement process. This requires an interface to the systems of social security institution.
+-	A process is triggered, which automatically creates or updates the patient records in the healthcare provider’s software by using the presented information. This step may be different in other member states.
+- The information transfer is logged in Alberto’s wallet.
+-	The information (verification proof) and the result of the verification are created, signed and stored in the health care provider’s software for further processing (depending on national legislation)..
+#### 4.1.6	Negative Verification
+Negative verification implicates, that Alberto presents a digital EHIC that is not valid (e.g. expired, revoked, or issued by an untrusted source etc.).
+-	Alberto must pay the full amount for the healthcare services himself in case he decides to receive them. Alternatively, he can decide to leave the healthcare provider without receiving treatment.
+-	After the treatment he might be able to get the costs reimbursed by his social insurance company. 
+- The information transfer is logged in Alberto’s wallet.
+- The information and the result of the verification may be stored in the health care provider’s software for further processing (depending on national legislation).
+
+In case Alberto did not download his EHIC credential before travelling to Germany or the information in the credential on his wallet is outdated (e.g. the EHIC was revoked and a new one has been issued), he can just download the latest credential on-site and present it to the health care provider and start the verification process again.
+
+
 *Additionally, in this section it SHOULD  be specified whether a Relying Party receiving the attestation
 must request and verify a PID (see ARB_27 in [Topic 12]). Also beyond PID verification, 
 it SHOULD be defined what other key obligations does a Relying Party have when processing 
