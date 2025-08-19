@@ -46,6 +46,16 @@ statements of fact.
 
 This document uses the terminology specified in Annex 1 of the ARF.
 
+### 1.5 Legal & Regulatory framework
+The basic legal and regulatory environment is defined in the common rulebook `attestation-rulebook-wp6-common.md`.
+
+#### 1.5.1	PRIMARY LEGAL INSTRUMENTS
+In addition to the legal instruments set out in the common rulebook `attestation-rulebook-wp6-common.md` the following specific legal foundations apply to the EHIC:
+| Regulation / Directive | Description |
+|------------------------|-------------|
+| Decision No S1 of 12 June 2009 |	Sets general provisions for the “traditional”  EHIC, including its purpose, legal effects, and fallback procedures such as provisional replacement certificates. |
+| Decision No S2 of 12 June 2009 |	Specifies the technical design, visible information, and model for the “traditional” EHIC and its provisional replacement certificate.|
+
 ## 2 Attestation attributes and metadata
 
 The European Health Insurance Card (EHIC) credential is a specialised instance of the common PuB-EAAS attribute block defined in the Rulebook `attestation-rulebook-wp6-common.md`. 
@@ -209,15 +219,15 @@ SHALL be defined (see [Topic 20] of Annex 2 of the ARF).*
 
 ## 5 Trust anchors
 
-Trust anchors for EHIC PuB-EAAs are the same as defined in the common rulebook.
+Trust anchors for EHIC PuB-EAAs are the same as defined in the common rulebook `attestation-rulebook-wp6-common.md`.
 
 ## 6 Revocation
 
-Revocation patterns for EHIC PuB-EAAs are the same as defined in the common rulebook.
+Revocation patterns for EHIC PuB-EAAs are the same as defined in the common rulebook `attestation-rulebook-wp6-common.md`.
 
 ## 7 Compliance
 
-The Compliance follows the same principles as set out in the common rulebook.
+The Compliance follows the same principles as set out in the common rulebook `attestation-rulebook-wp6-common.md`.
 
 ## 8 References
 | **Item Reference** | **Standard name/details**|
