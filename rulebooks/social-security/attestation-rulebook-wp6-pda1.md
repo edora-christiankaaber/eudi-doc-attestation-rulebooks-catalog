@@ -364,6 +364,37 @@ This embedded policy establishes a verifier-agnostic framework for enforcing dis
 ## 4 Attestation usage
 *Briefly describe the primary use cases or scenarios for which this attestation 
 type is intended*
+### 4.1 Primary Use Case Scenario: On-Site verification situation by a public authority in the Member State of Stay
+#### 4.1.1	The Setup
+Emma, a stagehand, works at concerts across multiple EU countries. She needs to maintain her digital social security documents, such as the PD A1, to confirm the social security legislation which is applicable to her.
+#### 4.1.2 The Need for Verification
+While working at a concert in Austria, Emma encounters the financial police who need to verify her legal social security status. The financial police must ensure that the PD A1 is authentic, valid, and that Emma is the rightful owner.
+#### 4.1.3 The Business Context
+Financial authorities must ensure that workers from abroad are equipped with the necessary PD A1 document. An efficient, secure, and reliable verification process is crucial to avoid legal liabilities, fines, and loss of trust.
+#### 4.1.4	The Verification Process
+- The financial police, onboarded in the EUDI wallet ecosystem, use a financial police instance (verification app) to request information about Emma's PD A1 and her PID.
+- According to national regulation, the financial police are allowed to request all information from the PD A1, including the validity period, place of work, and other relevant details.
+- The request is sent through a secure channel using a standard protocol for digital information exchange between the wallet and the financial police instance to protect Emma's data.
+- Emma’s EUDI Wallet receives the request and evaluates it according to the registered and published disclosure policy of social security coordination. This evaluation includes a verification of the relying party.
+- Emma reviews the evaluation of the financial police instance's request and gives consent to share the requested information.
+- The wallet ensures the consented information is securely shared using standard protocols, confirming the credential is rightfully owned by the holder of the wallet and that the wallet is a valid EUDI wallet.
+- The financial police instance receives the information and signals that it has been received.
+- The financial police instance automatically reviews the document with the necessary information, confirming its authenticity, validity at the time of verification, and possession by Emma through a reliable verification process.
+- They trust that Emma is using her own EUDI Wallet, since an attested photo (e.g. Photo ID or photo as part of the PID) is part of the identity data presented on Emma’s phone. If a photo is unavailable or insufficient, identity cards can be requested.
+- The result of the verification process, regardless of whether it is positive or negative, is presented on the financial police instance as well as on Emma’s wallet.
+#### 4.1.5	Positive Verification
+- Emma is acknowledged as compliant with the legal requirements.
+- Emma gains the authorisation to continue her work at the concert venue.
+- The information transfer between wallet and issuer is logged in Emma’s wallet.
+- The information and the result of the verification may be stored in the financial police instance for further processing (depending on national legislation).
+#### 4.1.6	Negative Verification
+Negative verification implicates that Emma presents a digital PD A1 that is not valid (e.g. expired, revoked, or issued by an untrusted source etc.).
+- Emma will receive a police report from the financial police for presenting an invalid PD A1 document during an inspection situation
+- The information transfer is logged in Emma’s wallet.
+- The information and the result of the verification may be stored in the financial police instance for further processing (depending on national legislation).
+
+In case Emma did not download her PD A1 credential before travelling to Austria or the information in the credential on her wallet is outdated (e.g. the PD A1 was revoked and a new one has been issued), she can just download the latest credential on-site and present it to the financial police and start the verification process again.
+
 
 *Additionally, in this section it SHOULD  be specified whether a Relying Party receiving the attestation
 must request and verify a PID (see ARB_27 in [Topic 12]). Also beyond PID verification, 
