@@ -138,7 +138,7 @@ The PD A1 adds a number of private namespace attributes to the set inherited fro
 | work_information.work_address.company_id | work_information.work_address.company_id | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_id |
 | work_information.work_address.flag_base_home | work_information.work_address.flag_base_home | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:flag_base_home |
 | legislation_country |	legislation_country | tstr (ISO 3166-1 alpha-2) |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country |
-| transitional_rules | transitional_rules | tstr | urn:dgempl:pubeaas:v1:attribute:transitional_rules |
+| transitional_rules | transitional_rules | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:transitional_rules |
 | status_confirmation|	status_confirmation | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation |
 
 Finally, illustrative examples SHALL be included. 
@@ -167,7 +167,7 @@ Finally, illustrative examples SHALL be included.
 | work_information.work_address.company_id | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_id |string | See section 2 |
 | work_information.work_address.flag_base_home | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:flag_base_home |string | See section 2 |
 | legislation_country |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country | string |(ISO 3166-1 alpha-2) |
-| transitional_rules | urn:dgempl:pubeaas:v1:attribute:transitional_rules | string | See section 2 |
+| transitional_rules | urn:dgempl:pubeaas:pda1:v1:attribute:transitional_rules | string | See section 2 |
 | status_confirmation |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation | string |	See section 2 |
 
 
@@ -765,7 +765,7 @@ during the work abroad.",
  "type": "boolean",
  "description": "Indication, whether transitional rules apply as provided by the 
 Regulation.",
- "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:transitional_rules"
+ "$comment": "Namespace: urn:dgempl:pubeaas:pda1:v1:attribute:transitional_rules"
  },
  "status_confirmation": {
  "type": "string",
