@@ -91,11 +91,13 @@ The PD A1 adds a number of private namespace attributes to the set inherited fro
 
 | **Data Identifier** | **Definition** |**Data type** |**Example value** |
 |------------------------|--------------|--------------|--------------|
-| employer.id	|	Unique identifier of the employer. | string | AT-COMPANY-001 |
-| employer.name |	Name of the employer. | string |	Vienna Logistics GmbH |
-| employer.country	| Country where the employer is registered. | string (ISO 3166-1 alpha-2) | AT |
-| work_address.locality |	City, town, or locality of the workplace. | string | Vienna |
-| work_address.country |Country of the workplace. | string (ISO 3166-1 alpha-2) | AT |
+| employer.type	|	Type of the employment (employment or self-employment). | string | 01 |
+| employer.id	|	Unique identifier of the employer/self-employment. | string | AT-COMPANY-001 |
+| employer.name |	Name of the employer/self-employment. | string |	Vienna Logistics GmbH |
+| employer.country	| Country where the employer/self-employed is registered. | string (ISO 3166-1 alpha-2) | AT |
+| work_information.no_fixed_place_of_work | Country code of the country where there is no fixed place of work (conditionally mandatory). | string (ISO 3166-1 alpha-2) | DE |
+| work_information.work_address.locality | City, town, or locality of the workplace (conditionally mandatory). | string | Vienna |
+| work_information.work_address.country | Country of the workplace (conditionally mandatory). | string (ISO 3166-1 alpha-2) | Vienna |
 | legislation_country |	Country whose legislation applies. | string (ISO 3166-1 alpha-2) | DE |
 | status_confirmation	|	Legal status category code applicable to the worker. |string |	01 |
 
@@ -104,12 +106,15 @@ The PD A1 adds a number of private namespace attributes to the set inherited fro
 
 | **Data Identifier** | **Definition** |**Data type** |**Example value** |
 |------------------------|--------------|--------------|--------------|
-| work_address.region |	Region or state of the workplace. | string |	Hamburg |
-| work_address.formatted | Full formatted workplace address. |string | Freight Port 5, 20457 Hamburg, Germany |
-| work_address.street_address	|	Street name of the workplace. | string | Freight Port |
-| work_address.building_number | Building number of the workplace. | string	| 5 |
-| work_address.postal_code	|	Postal or ZIP code of the workplace.	| string |	20457 |
-
+| work_information.work_address.formatted | Full formatted workplace address. | string | Freight Port 5, 20457 Hamburg, Germany  |
+| work_information.work_address.street_address | Street name of the workplace. | string | Freight Port |
+| work_information.work_address. house_number | House or building number of the workplace. | string | 5 |
+| work_information.work_address.postal_code | Postal or ZIP code of the workplace. | string | 20457 |
+| work_information.work_address.region | Region or state of the workplace. | string | Hamburg |
+| work_information.work_address.company_name | Name of the company or ship operator. | string | Vienna Logistics GmbH |
+| work_information.work_address.company_id | Company ID from national or EU registries. | string | AT-COMPANY-001 |
+| work_information.work_address.flag_base_home | Flag state or home base of the company/ship where you will be employed. | string | AT |
+| transitional_rules | Indication, if transitional rules apply as provided by the Regulation. | boolean | false |
 
 # 3 Attestation encoding 
 
@@ -121,16 +126,20 @@ The PD A1 adds a number of private namespace attributes to the set inherited fro
 | employer.id	|	employer.id | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id |
 | employer.name |	employer.name | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name |
 | employer.country	| employer.country | tstr (ISO 3166-1 alpha-2) |urn:dgempl:pubeaas:pda1:v1:attribute:employer:country |
-| work_address.locality |	work_address.locality | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:locality |
-| work_address.country |work_address.country | tstr (ISO 3166-1 alpha-2) |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:country |
+| work_information.no_fixed_place_of_work |  work_information.no_fixed_place_of_work | tstr (ISO 3166-1 alpha-2) | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:no_fixed_place_of_work |
+| work_information.work_address.formatted |  work_information.work_address.formatted | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:formatted |
+| work_information.work_address.street_address | work_information.work_address.street_address | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:street_address |
+| work_information.work_address. house_number | work_information.work_address. house_number | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:house_number |
+| work_information.work_address.postal_code | work_information.work_address.postal_code | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:postal_code |
+| work_information.work_address.locality | work_information.work_address.locality | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:locality |
+| work_information.work_address.region | work_information.work_address.region | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:region|
+| work_information.work_address.country |  work_information.work_address.country | tstr (ISO 3166-1 alpha-2) | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:country |
+| work_information.work_address.company_name | work_information.work_address.company_name | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_name |
+| work_information.work_address.company_id | work_information.work_address.company_id | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_id |
+| work_information.work_address.flag_base_home | work_information.work_address.flag_base_home | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:flag_base_home |
 | legislation_country |	legislation_country | tstr (ISO 3166-1 alpha-2) |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country |
-| status_confirmation	|	status_confirmation | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation |
-| work_address.region |	work_address.region | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:region |
-| work_address.formatted | work_address.formatted | tstr | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:formatted |
-| work_address.street_address	|	work_address.street_address | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:street_address
-| work_address.building_number | work_address.building_number | tstr	|urn:dgempl:pubeaas:pda1:v1:attribute:work_address:building_number |
-| work_address.postal_code	|	work_address.postal_code	| tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:postal_code |
-
+| transitional_rules | transitional_rules | tstr | urn:dgempl:pubeaas:v1:attribute:transitional_rules |
+| status_confirmation|	status_confirmation | tstr |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation |
 
 Finally, illustrative examples SHALL be included. 
 
@@ -142,18 +151,24 @@ Finally, illustrative examples SHALL be included.
 
 | **Data Identifier** | **Attribute identifier** | **Encoding format** | **Notes** |
 |---------------------|--------------------------|---------------------|-----------|
+| employer.type | urn:dgempl:pubeaas:pda1:v1:attribute:employer:type | string | See section 2 |
 | employer.id	|	urn:dgempl:pubeaas:pda1:v1:attribute:employer:id | string |	See section 2 |
 | employer.name |	urn:dgempl:pubeaas:pda1:v1:attribute:employer:name | string | See section 2 |
-| employer.country	| urn:dgempl:pubeaas:pda1:v1:attribute:employer:country | string | (ISO 3166-1 alpha-2) |
-| work_address.locality |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:locality | string | See section 2 |
-| work_address.country | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:country | string | (ISO 3166-1 alpha-2) |
+| employer.country | urn:dgempl:pubeaas:pda1:v1:attribute:employer:country | string | (ISO 3166-1 alpha-2) |
+| work_information.no_fixed_place_of_work | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:no_fixed_place_of_work |string | (ISO 3166-1 alpha-2) |
+| work_information.work_address.formatted | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:formatted |string | See section 2 |
+| work_information.work_address.street_address | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:street_address |string | See section 2 |
+| work_information.work_address. house_number | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:house_number |string | See section 2 |
+| work_information.work_address.postal_code | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:postal_code |string | See section 2 |
+| work_information.work_address.locality | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:locality |string | See section 2 |
+| work_information.work_address.region | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:region|string | See section 2 |
+| work_information.work_address.country | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:country |string |  (ISO 3166-1 alpha-2) |
+| work_information.work_address.company_name | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_name |string | See section 2 |
+| work_information.work_address.company_id | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_id |string | See section 2 |
+| work_information.work_address.flag_base_home | urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:flag_base_home |string | See section 2 |
 | legislation_country |	urn:dgempl:pubeaas:pda1:v1:attribute:legislation_country | string |(ISO 3166-1 alpha-2) |
-| status_confirmation	|	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation | string |	See section 2 |
-| work_address.region |	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:region | string | See section 2 |
-| work_address.formatted | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:formatted | string | See section 2 |
-| work_address.street_address	|	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:street_address | string | See section 2 |
-| work_address.building_number | urn:dgempl:pubeaas:pda1:v1:attribute:work_address:building_number | string	| See section 2 |
-| work_address.postal_code	|	urn:dgempl:pubeaas:pda1:v1:attribute:work_address:postal_code	| string | See section 2 |
+| transitional_rules | urn:dgempl:pubeaas:v1:attribute:transitional_rules | string | See section 2 |
+| status_confirmation |	urn:dgempl:pubeaas:pda1:v1:attribute:status_confirmation | string |	See section 2 |
 
 
 The PD A1 credential implements selective disclosure using the SD-JWT model. This allows a credential holder to disclose only the minimum required claims to a verifier, supporting GDPR-compliant privacy by design.
@@ -169,9 +184,10 @@ The PD A1 credential implements selective disclosure using the SD-JWT model. Thi
 | issuing_country	| never	| Jurisdiction and national policy context |
 | date_of_expiry, date_of_issuance |	never |	Credential administrative validity |
 | starting_date, ending_date	| never	| Coverage period for social security |
-| employer (and subfields id, name, country) | never |	Workplace identification; mandatory for entitlement verification |
-| work_address (all fields)	| never |	Location of work; mandatory for coverage assessment |
+| employer (and subfields type, id, name, country) | never | Employment  identification; mandatory for entitlement verification |
+| work_information (all fields)	| never |	Location of work; mandatory for coverage assessment |
 | legislation_country |	never |	Applicable legal framework |
+| transitional_rules | always	| Information about transitional rules; disclosed only when required. |
 | status_confirmation |	never |	Legal status code determining applicable law |
 
 This embedded policy establishes a verifier-agnostic framework for enforcing disclosure behaviour, regardless of wallet implementation.
@@ -635,14 +651,14 @@ fixed place of work.",
  "description": "Country code (ISO 3166-1 alpha-2) of the country where there is no fixed 
 place of work.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:no_fixed_place_of_work"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:no_fixed_place_of_work"
  },
  "work_address": {
  "type": "array",
  "minItems": 1,
  "description": "Structured address list for fixed places of work, with optional company 
 details.",
- "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:work_information:work_address",
+ "$comment": "Namespace: urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address",
  "items": {
  "type": "object",
  "properties": {
@@ -652,7 +668,7 @@ details.",
  "maxLength": 512,
  "description": "Full formatted address per UPU S42 / ISO 19160-4 / OIDC standards.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:formatted"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:formatted"
 },
  "street_address": {
  "type": "string",
@@ -660,7 +676,7 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:formatted"
  "maxLength": 100,
  "description": "Street name.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:street_address"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:street_address"
  },
  "house_number": {
  "type": "string",
@@ -668,7 +684,7 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:street_address"
  "maxLength": 20,
  "description": "House or building number.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:house_number"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:house_number"
  },
  "postal_code": {
  "type": "string",
@@ -676,7 +692,7 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:house_number"
  "maxLength": 20,
  "description": "Postal or ZIP code.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:postal_code"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:postal_code"
  },
  "locality": {
  "type": "string",
@@ -684,7 +700,7 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:postal_code"
  "maxLength": 100,
  "description": "City or locality.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:locality"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:locality"
  },
  "region": {
  "type": "string",
@@ -692,14 +708,14 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:locality"
  "maxLength": 100,
  "description": "Administrative region.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:region"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:region"
  },
  "country": {
  "type": "string",
  "pattern": "^[A-Z]{2}$",
  "description": "ISO 3166-1 alpha-2 country code.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:country"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:country"
  },
  "company_name": {
  "type": "string",
@@ -707,7 +723,7 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:country"
  "maxLength": 100,
  "description": "Name of the company or ship operator.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:company_name"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_name"
  },
  "company_id": {
  "type": "string",
@@ -715,7 +731,7 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:company_name"
  "maxLength": 20,
  "description": "Company ID from national or EU registries.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:company_id"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:company_id"
  },
  "flag_base_home": {
  "type": "string",
@@ -724,7 +740,7 @@ urn:dgempl:pubeaas:v1:attribute:work_information:work_address:company_id"
  "description": " Flag state or home base of the company/ship where you will be 
 employed.",
  "$comment": "Namespace: 
-urn:dgempl:pubeaas:v1:attribute:work_information:work_address:flag_base_home"
+urn:dgempl:pubeaas:pda1:v1:attribute:work_information:work_address:flag_base_home"
  }
 },
  "required": [ "locality", "country" ],
