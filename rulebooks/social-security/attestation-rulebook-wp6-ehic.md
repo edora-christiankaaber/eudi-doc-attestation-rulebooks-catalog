@@ -201,9 +201,6 @@ Use https://www.sdjwt.co/decode to decode the SD-JWT
 
 
 ## 4 Attestation usage
-*Briefly describe the primary use cases or scenarios for which this attestation 
-type is intended*
-
 ### 4.1	Primary Use Case Scenario: Requesting Health Care Services during a temporary stay abroad
 #### 4.1.1	The Setup
 Alberto, an Italian musician, performs with an orchestra across multiple EU countries. He seamlessly manages his healthcare documents through modern technology. Through a harmonized digital issuance procedure, he securely stores his digital EHIC in his EUDI Wallet, ensuring he can easily access necessary healthcare services while traveling abroad.
@@ -237,9 +234,6 @@ Negative verification implicates, that Alberto presents a digital EHIC that is n
 In case Alberto did not download his EHIC credential before travelling to Germany or the information in the credential on his wallet is outdated (e.g. the EHIC was revoked and a new one has been issued), he can just download the latest credential on-site and present it to the health care provider and start the verification process again.
 
 Verification processes may utilize proximity or non-proximity technologies, thereby supporting both offline and online operational contexts.
-
-*Finally, in this section information about potential transactional data
-SHALL be defined (see [Topic 20] of Annex 2 of the ARF).*
 
 ## 5 Trust anchors
 
