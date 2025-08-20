@@ -360,8 +360,6 @@ This embedded policy establishes a verifier-agnostic framework for enforcing dis
 
 
 ## 4 Attestation usage
-*Briefly describe the primary use cases or scenarios for which this attestation 
-type is intended*
 ### 4.1 Primary Use Case Scenario: On-Site verification situation by a public authority in the Member State of Stay
 #### 4.1.1	The Setup
 Emma, a stagehand, works at concerts across multiple EU countries. She needs to maintain her digital social security documents, such as the PD A1, to confirm the social security legislation which is applicable to her.
@@ -394,9 +392,6 @@ Negative verification implicates that Emma presents a digital PD A1 that is not 
 In case Emma did not download her PD A1 credential before travelling to Austria or the information in the credential on her wallet is outdated (e.g. the PD A1 was revoked and a new one has been issued), she can just download the latest credential on-site and present it to the financial police and start the verification process again.
 
 Verification processes may utilize proximity or non-proximity technologies, thereby supporting both offline and online operational contexts.
-
-*Finally, in this section information about potential transactional data
-SHALL be defined (see [Topic 20] of Annex 2 of the ARF).*
 
 ## 5 Trust anchors
 
