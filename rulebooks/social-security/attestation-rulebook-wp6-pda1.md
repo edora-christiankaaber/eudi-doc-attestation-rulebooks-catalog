@@ -144,11 +144,9 @@ All *Attribute Identifiers* are identical to the *Data Identifiers*.
 | transitional_rules | same | tstr | transitional_rules |
 | status_confirmation|	same | tstr |	status_confirmation |
 
-Finally, illustrative examples SHALL be included. 
-
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF FULL OR PARTIAL mDOC OF THE ATTESTATION]
-
-[RULEBOOK AUTHOR TO PROVIDE THE ATTRIBUTES AND THEIR VALUES INCLUDED IN THE EXAMPLE]
+ FULL OR PARTIAL mDOC OF THE ATTESTATION: to be done
+ 
+ ATTRIBUTES AND THEIR VALUES INCLUDED IN THE EXAMPLE: to be done
 
 ### 3.2 SD-JWT VC-based encoding 
 The namespace prefix for the PD A1 credential attribute identifiers is `urn:dgempl:pubeaas:pda1:v1:attribute:`.
@@ -372,7 +370,7 @@ While working at a concert in Austria, Emma encounters the financial police who 
 #### 4.1.3 The Business Context
 Financial authorities must ensure that workers from abroad are equipped with the necessary PD A1 document. An efficient, secure, and reliable verification process is crucial to avoid legal liabilities, fines, and loss of trust.
 #### 4.1.4	The Verification Process
-- The financial police, onboarded in the EUDI wallet ecosystem, use a financial police instance (verification app) to request information about Emma's PD A1 and her PID.
+- The financial police, onboarded in the EUDI wallet ecosystem, use a financial police instance (verification app) with proximity (e.g. NFC or Bluetooth) or non-proximity (e.g. internet endpoint) technology to request information about Emma's PD A1 and her PID.
 - According to national regulation, the financial police are allowed to request all information from the PD A1, including the validity period, place of work, and other relevant details.
 - The request is sent through a secure channel using a standard protocol for digital information exchange between the wallet and the financial police instance to protect Emma's data.
 - Emma’s EUDI Wallet receives the request and evaluates it according to the registered and published disclosure policy of social security coordination. This evaluation includes a verification of the relying party.
@@ -395,14 +393,7 @@ Negative verification implicates that Emma presents a digital PD A1 that is not 
 
 In case Emma did not download her PD A1 credential before travelling to Austria or the information in the credential on her wallet is outdated (e.g. the PD A1 was revoked and a new one has been issued), she can just download the latest credential on-site and present it to the financial police and start the verification process again.
 
-
-*Additionally, in this section it SHOULD  be specified whether a Relying Party receiving the attestation
-must request and verify a PID (see ARB_27 in [Topic 12]). Also beyond PID verification, 
-it SHOULD be defined what other key obligations does a Relying Party have when processing 
-this attestation type (e.g., signature verification, freshness checks)*
-
-*Furthermore, provide potential presentation requirements, e.g., are there specific 
-requirements for how this attestation must be presented (e.g., online, offline, specific protocols)?"*
+Verification processes may utilize proximity or non-proximity technologies, thereby supporting both offline and online operational contexts.
 
 *Finally, in this section information about potential transactional data
 SHALL be defined (see [Topic 20] of Annex 2 of the ARF).*
