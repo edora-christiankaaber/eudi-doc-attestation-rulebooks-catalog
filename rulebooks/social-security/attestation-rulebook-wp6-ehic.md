@@ -99,11 +99,9 @@ It does *not* introduce additional attributes or metadata.
 # 3 Attestation encoding 
 
 ## 3.1 ISO/IEC 18013-5-compliant encoding 
-Finally, illustrative examples SHALL be included. 
-
-[RULEBOOK AUTHOR TO PROVIDE AN EXAMPLE OF FULL OR PARTIAL mDOC OF THE ATTESTATION]
-
-[RULEBOOK AUTHOR TO PROVIDE THE ATTRIBUTES AND THEIR VALUES INCLUDED IN THE EXAMPLE]
+ FULL OR PARTIAL mDOC OF THE ATTESTATION: to be done
+ 
+ ATTRIBUTES AND THEIR VALUES INCLUDED IN THE EXAMPLE: to be done
 
 ### 3.2 SD-JWT VC-based encoding 
 Below, an example of a verifiable credential, issued during the DC4EU Pilot.
@@ -214,7 +212,7 @@ Alberto arrives in Germany for a concert. After a small accident while jogging t
 #### 4.1.3	The Business Context
 Healthcare providers in Germany automatically check the entitlement to healthcare services, ensuring that Alberto gets access to healthcare at the same costs as locals and that the reimbursement process for the provided treatment is efficient and fast.
 #### 4.1.4	The Verification Process
--	After the accident, Alberto visits a local healthcare provider. The provider, onboarded in the EUDI wallet ecosystem, uses a hardware device with proximity technology such as NFC or Bluetooth to request Alberto’s EHIC and his PID.
+-	After the accident, Alberto visits a local healthcare provider. The provider, onboarded in the EUDI wallet ecosystem, uses a hardware device with proximity (e.g. NFC or Bluetooth) or non-proximity (e.g. internet endpoint) technology to request Alberto’s EHIC and his PID.
 - The request is sent through a secure channel using a standard protocol for digital information exchange between the wallet and the healthcare provider’s device to protect Alberto’s data.
 -	Alberto’s EUDI Wallet receives the request and evaluates it according to the registered and published disclosure policy of social security coordination. This evaluation includes a verification of the relying party (which may be represented by the healthcare provider’s organisation).
 - Alberto reviews the evaluation of the healthcare provider’s device’s request and gives consent to share the requested information.
@@ -238,14 +236,7 @@ Negative verification implicates, that Alberto presents a digital EHIC that is n
 
 In case Alberto did not download his EHIC credential before travelling to Germany or the information in the credential on his wallet is outdated (e.g. the EHIC was revoked and a new one has been issued), he can just download the latest credential on-site and present it to the health care provider and start the verification process again.
 
-
-*Additionally, in this section it SHOULD  be specified whether a Relying Party receiving the attestation
-must request and verify a PID (see ARB_27 in [Topic 12]). Also beyond PID verification, 
-it SHOULD be defined what other key obligations does a Relying Party have when processing 
-this attestation type (e.g., signature verification, freshness checks)*
-
-*Furthermore, provide potential presentation requirements, e.g., are there specific 
-requirements for how this attestation must be presented (e.g., online, offline, specific protocols)?"*
+Verification processes may utilize proximity or non-proximity technologies, thereby supporting both offline and online operational contexts.
 
 *Finally, in this section information about potential transactional data
 SHALL be defined (see [Topic 20] of Annex 2 of the ARF).*
