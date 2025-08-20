@@ -208,7 +208,13 @@ While the iss URI identifies the issuer at a logical level, trust in the credent
 Although in many Members States the same institution may serve as both the Authentic Source and the Issuer, these roles are functionally distinct.
 This distinction follows the ARF principle of role separation between legal authority and cryptographic authority, ensuring auditability, traceability and accountability.
 
+## 1.9 Representation and Delegation
 
+Representation and delegation are explicitly recognised within the revised eIDAS Regulation (EU 2024/1183). Article 3(1)(10) extends the scope of electronic identification beyond natural persons to include those acting on behalf of others, such as legal representatives or authorised proxies of legal persons. 
+This provides the legal foundation for delegated digital interactions, which are highly relevant in the social security domain where employers, family members, or legal guardians may need to exercise rights or present entitlements on behalf of individuals. 
+
+However, while the Regulation affirms this principle, detailed operational provisions remain underdeveloped. Standardised processes, assurance requirements, and technical specifications for managing representation and delegation — such as how mandates are issued, validated, and revoked across Member States — are not yet established through a dedicated Implementing Act. 
+Consequently, further governance, semantic alignment, and technical standardisation will be necessary to ensure secure, interoperable, and user-friendly delegation mechanisms within the PuB-EAA framework.
 
 ## 2 Attestation attributes and metadata
 
