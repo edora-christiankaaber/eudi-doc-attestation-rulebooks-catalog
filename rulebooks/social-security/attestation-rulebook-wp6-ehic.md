@@ -82,7 +82,8 @@ It does *not* introduce additional attributes or metadata.
 | starting_date | Start date of coverage/benefit validity. | date | 2025-07-04 |
 | ending_date | End date of coverage/benefit validity. | date | 2025-08-01 |
 ------------------------------------
-For the representation scenario, additional information about the represented individual is required. This additional information should match a *physical* identification means for manual verification. See section 1.9.
+In representation scenarios where an EHIC credential is issued to a representative rather than the entitled individual, additional information about the represented individual is required. This additional information should match a *physical* identification means for manual verification. See chapter 1.9. and 4.1.2 in the Rulebook `attestation-rulebook-wp6-common.md`.
+
 | **Data Identifier** | **Definition** |**Data type** |**Example value** |
 |------------------------|--------------|--------------|--------------|
 | subject.forenames |List of names| string | Sabrina|
