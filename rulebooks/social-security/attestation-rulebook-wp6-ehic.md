@@ -81,6 +81,14 @@ It does *not* introduce additional attributes or metadata.
 |------------------------|--------------|--------------|--------------|
 | starting_date | Start date of coverage/benefit validity. | date | 2025-07-04 |
 | ending_date | End date of coverage/benefit validity. | date | 2025-08-01 |
+------------------------------------
+For the representation scenario, additional information about the represented individual is required. This additional information should match a *physical* identification means for manual verification. See section 1.9.
+| **Data Identifier** | **Definition** |**Data type** |**Example value** |
+|------------------------|--------------|--------------|--------------|
+| subject.forenames |List of names| string | Sabrina|
+| subject.familynames | List of names | string | Superwoman |
+| subject.date_of_birth | Date of Birth | date | 2018-01-28 |
+
 
 ### 2.3 Common mandatory metadata 
 
@@ -99,12 +107,30 @@ It does *not* introduce additional attributes or metadata.
 # 3 Attestation encoding 
 
 ## 3.1 ISO/IEC 18013-5-compliant encoding 
+
+The common prefix for all *namespace* entries is `urn:dgempl:pubeaas:ehic:v1:attribute:`.  
+All *Attribute Identifiers* are identical to the *Data Identifiers*.
+
+| **Data Identifier** | **Attribute Identifier** | **Encoding format** |**Namespace**|
+|------------------------|--------------|------------------|------------------|
+| subject.forenames | same |tstr | subject:forenames|
+| subject.familynames	|	same | tstr | subject:familynames |
+| subject.date_of_birth |	same | tdate | subject:date_of_birth |
+
+
  FULL OR PARTIAL mDOC OF THE ATTESTATION: to be done
  
  ATTRIBUTES AND THEIR VALUES INCLUDED IN THE EXAMPLE: to be done
 
 ### 3.2 SD-JWT VC-based encoding 
-Below, an example of a verifiable credential, issued during the DC4EU Pilot.
+
+| **Data Identifier** | **Attribute Identifier** | **Encoding format** | **Notes** |
+|---------------------|--------------------------|---------------------|-----------|
+| subject.forenames | subject:forenames | string | List of names |
+| subject.familynames	|	subject:familynames | string |	List of names |
+| subject.date_of_birth |	subject:date_of_birth | string | ISO 8601-1 [ISO8601‑1] YYYY-MM-DD format |
+
+
 
 #### Example SD-JWT Claim Set
 
@@ -197,6 +223,109 @@ Use https://www.sdjwt.co/decode to decode the SD-JWT
     Salt: 91d69948770af8e2
     Key: personal_administrative_number
     Value: DE987654321
+
+
+### 3.3 SD-JWT VC-based encoding - Representation Scenario
+Below, an example of a verifiable credential, issued during the DC4EU Pilot.
+
+#### Example SD-JWT Claim Set
+
+The following is an example of a claim set for an EHIC SD-JWT VC:
+
+```json
+{
+  "vct": "urn:eudi:ehic:1",
+  "jti": "urn:uuid:9b1deb4d-5b1d-47b5-9e3e-2b0e1b123456",
+  "sub": "did:example:1234567890",
+  "iss": "https://ehic.issuer.example.eu",
+  "iat": 1721478000,
+  "exp": 1753014000,
+  "nbf": 1721474400,
+  "cnf": {
+    "jwk": {
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "4j5_9EF4ac9J6TR2z2eMgN3sZ2mD8X_Pb8hx7rk_F1U",
+      "y": "7FsapV3Z1QGX7YZbVC1Vhqf1rXe6M3sBL0GgQoKlA9U"
+    }
+  },
+  "personal_administrative_number": "DE987654321",
+  "issuing_authority": {
+    "id": "DVKA",
+    "name": "GKV Spitzenverband - Deutsche Verbindungsstelle Krankenversicherung - Ausland",
+    "country": "DE"
+  },
+  "date_of_issuance": "2025-07-15",
+  "date_of_expiry": "2030-07-30",
+  "authentic_source": {
+    "id": "DE: 103411401",
+    "name": "AOK Nordwest"
+  },
+  "subject": {
+    "forenames": "Sabrina",
+    "familynames": "Superwoman",
+    "date_of_birth": "2018-01-28"
+  },
+  "starting_date": "2025-07-01",
+  "ending_date": "2030-07-30",
+  "document_number": "80112233445566778043"
+}
+```
+### Example SD-JWT in Base64
+
+> eyJ0eXAiOiJzZCtqd3QiLCJhbGciOiJFUzI1NiJ9.eyJ2Y3QiOiJ1cm46ZXVkaTplaGljOjEiLCJqdGkiOiJ1cm46dXVpZDo5YjFkZWI0ZC01YjFkLTQ3YjUtOWUzZS0yYjBlMWIxMjM0NTYiLCJzdWIiOiJkaWQ6ZXhhbXBsZToxMjM0NTY3ODkwIiwiaXNzIjoiaHR0cHM6Ly9laGljLmlzc3Vlci5leGFtcGxlLmV1IiwiaWF0IjoxNzIxNDc4MDAwLCJleHAiOjE3NTMwMTQwMDAsIm5iZiI6MTcyMTQ3NDQwMCwiY25mIjp7Imp3ayI6eyJrdHkiOiJFQyIsImNydiI6IlAtMjU2IiwieCI6IjRqNV85RUY0YWM5SjZUUjJ6MmVNZ04zc1oybUQ4WF9QYjhoeDdya19GMVUiLCJ5IjoiN0ZzYXBWM1oxUUdYN1laYlZDMVZocWYxclhlNk0zc0JMMEdnUW9LbEE5VSJ9fSwiaXNzdWluZ19hdXRob3JpdHkiOnsiaWQiOiJEVktBIiwibmFtZSI6IkdLViBTcGl0emVudmVyYmFuZCAtIERldXRzY2hlIFZlcmJpbmR1bmdzc3RlbGxlIEtyYW5rZW52ZXJzaWNoZXJ1bmcgLSBBdXNsYW5kIiwiY291bnRyeSI6IkRFIn0sImRhdGVfb2ZfaXNzdWFuY2UiOiIyMDI1LTA3LTE1IiwiZGF0ZV9vZl9leHBpcnkiOiIyMDMwLTA3LTMwIiwiYXV0aGVudGljX3NvdXJjZSI6eyJpZCI6IkRFOiAxMDM0MTE0MDEiLCJuYW1lIjoiQU9LIE5vcmR3ZXN0In0sInN1YmplY3QiOnsiZm9yZW5hbWVzIjoiU2FicmluYSIsImZhbWlseW5hbWVzIjoiU3VwZXJ3b21hbiIsImRhdGVfb2ZfYmlydGgiOiIyMDE4LTAxLTI4In0sInN0YXJ0aW5nX2RhdGUiOiIyMDI1LTA3LTAxIiwiZW5kaW5nX2RhdGUiOiIyMDMwLTA3LTMwIiwiX3NkIjpbIjYyU01sUENqTDRJVk1XZEdkblBzRUJtRzdDbWFtaEQtdkdUcG8tMDJNdTQiLCJySldyaUUzcFpSSmZFRDRPbFB5NWtCWGxlYVRKcEdQbVA4YkREb2U2Ry13Il0sIl9zZF9hbGciOiJTSEEtMjU2In0.pJ2kLuIo8EV1K0SR2TRLbW6ONbabZ_KdJguVZxARhI4pwq2y8gmBaYXiyhKzfcR_q-sd0-Zu18eoD1_v3428jg~WyIyMWUwNTQ5ZmE3ZWZlNjQ5IiwicGVyc29uYWxfYWRtaW5pc3RyYXRpdmVfbnVtYmVyIiwiREU5ODc2NTQzMjEiXQ~WyJjMWFkMDE1YTAyOTJiMjliIiwiZG9jdW1lbnRfbnVtYmVyIiwiODAxMTIyMzM0NDU1NjY3NzgwNDMiXQ~
+
+Use https://www.sdjwt.co/decode to decode the SD-JWT
+
+### Example payload for the SD-JWT VC
+```json
+{
+  "vct": "urn:eudi:ehic:1",
+  "jti": "urn:uuid:9b1deb4d-5b1d-47b5-9e3e-2b0e1b123456",
+  "sub": "did:example:1234567890",
+  "iss": "https://ehic.issuer.example.eu",
+  "iat": 1721478000,
+  "exp": 1753014000,
+  "nbf": 1721474400,
+  "cnf": {
+    "jwk": {
+      "kty": "EC",
+      "crv": "P-256",
+      "x": "4j5_9EF4ac9J6TR2z2eMgN3sZ2mD8X_Pb8hx7rk_F1U",
+      "y": "7FsapV3Z1QGX7YZbVC1Vhqf1rXe6M3sBL0GgQoKlA9U"
+    }
+  },
+  "issuing_authority": {
+    "id": "DVKA",
+    "name": "GKV Spitzenverband - Deutsche Verbindungsstelle Krankenversicherung - Ausland",
+    "country": "DE"
+  },
+  "date_of_issuance": "2025-07-15",
+  "date_of_expiry": "2030-07-30",
+  "authentic_source": {
+    "id": "DE: 103411401",
+    "name": "AOK Nordwest"
+  },
+  "subject": {
+    "forenames": "Sabrina",
+    "familynames": "Superwoman",
+    "date_of_birth": "2018-01-28"
+  },
+  "starting_date": "2025-07-01",
+  "ending_date": "2030-07-30",
+  "personal_administrative_number": "DE987654321",
+  "document_number": "80112233445566778043"
+}
+```
+### Disclosures in the SD-JWT VC
+
+    Salt: 21e0549fa7efe649
+    Key: personal_administrative_number
+    Value: DE987654321
+
+    Salt: c1ad015a0292b29b
+    Key: document_number
+    Value: 80112233445566778043
 
 
 
@@ -408,6 +537,36 @@ The Compliance follows the same principles as set out in the common rulebook `at
       "maxLength": 50,
       "description": "Unique document identifier assigned by the competent institution. This value identifies the specific EHIC document and may be used for administrative validation.",
       "$comment": "Namespace: urn:dgempl:pubeaas:v1:attribute:document_number"
+    },    
+    "subject": {
+      "type": "object",
+      "description": "The represented subject for the EHIC, only used in the representation scenario. The information should match a physical identifcation means to be used in verifications along with the digital verification.",
+      "$comment": "Namespace: urn:dgempl:pubeaas:ehic:v1:attribute:subject",
+      "properties": {
+        "forenames": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 155,
+          "description": "All forenames for the subject of the EHIC.",
+          "$comment": "Namespace: urn:dgempl:pubeaas:ehic:v1:attribute:subject:forenames"
+        },
+        "familynames": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 155,
+          "description": "All familynames for the subject of the EHIC.",
+          "$comment": "Namespace: urn:dgempl:pubeaas:ehic:v1:attribute:subject:familynames"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 10,
+          "description": "Date of birth for the subject of the EHIC. Represented as ISO 8601-1 YYYY-MM-DD",
+          "$comment": "Namespace: urn:dgempl:pubeaas:ehic:v1:attribute:subject:date_of_birth"
+        }
+      },
+      "required": ["forenames", "familynames", "date_of_birth"],
+      "additionalProperties": false
     }
   },
   "required": [
@@ -594,6 +753,39 @@ The Compliance follows the same principles as set out in the common rulebook `at
           "lang": "en-EU",
           "label": "Document Number",
           "description": "Unique EHIC document identifier."
+        }
+      ]
+    },
+    {
+      "path": ["subject", "forenames"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-EU",
+          "label": "Forenames",
+          "description": "Forenames for the subject of the EHIC."
+        }
+      ]
+    },
+    {
+      "path": ["subject", "familynames"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-EU",
+          "label": "Familynames",
+          "description": "Familynames for the subject of the EHIC."
+        }
+      ]
+    },
+    {
+      "path": ["subject", "date_of_birth"],
+      "sd": "never",
+      "display": [
+        {
+          "lang": "en-EU",
+          "label": "Date of birth",
+          "description": "Date of birth for the subject of the EHIC."
         }
       ]
     }
