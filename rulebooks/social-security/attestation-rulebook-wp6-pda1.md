@@ -151,24 +151,24 @@ All *Attribute Identifiers* are identical to the *Data Identifiers*.
 The namespace prefix for the PD A1 credential attribute identifiers is `urn:dgempl:pubeaas:pda1:v1:attribute:`.
 | **Data Identifier** | **Attribute Identifier** | **Encoding format** | **Notes** |
 |---------------------|--------------------------|---------------------|-----------|
-| employer.type | employer:type | string | See section 2 |
-| employer.id	|	employer:id | string |	See section 2 |
-| employer.name |	employer:name | string | See section 2 |
+| employer.type | employer:type | string | See chapter 2 |
+| employer.id	|	employer:id | string |	See chapter 2 |
+| employer.name |	employer:name | string | See chapter 2 |
 | employer.country | employer:country | string | (ISO 3166-1 alpha-2) |
 | work_information.no_fixed_place_of_work | work_information:no_fixed_place_of_work |string | (ISO 3166-1 alpha-2) |
-| work_information.work_address.formatted | work_information:work_address:formatted |string | See section 2 |
-| work_information.work_address.street_address | work_information:work_address:street_address |string | See section 2 |
-| work_information.work_address. house_number | work_information:work_address:house_number |string | See section 2 |
-| work_information.work_address.postal_code | work_information:work_address:postal_code |string | See section 2 |
-| work_information.work_address.locality | work_information:work_address:locality |string | See section 2 |
-| work_information.work_address.region | work_information:work_address:region|string | See section 2 |
+| work_information.work_address.formatted | work_information:work_address:formatted |string | See chapter 2 |
+| work_information.work_address.street_address | work_information:work_address:street_address |string | See chapter 2 |
+| work_information.work_address. house_number | work_information:work_address:house_number |string | See chapter 2 |
+| work_information.work_address.postal_code | work_information:work_address:postal_code |string | See chapter 2 |
+| work_information.work_address.locality | work_information:work_address:locality |string | See chapter 2 |
+| work_information.work_address.region | work_information:work_address:region|string | See chapter 2 |
 | work_information.work_address.country | work_information:work_address:country |string |  (ISO 3166-1 alpha-2) |
-| work_information.work_address.company_name | work_information:work_address:company_name |string | See section 2 |
-| work_information.work_address.company_id | work_information:work_address:company_id |string | See section 2 |
-| work_information.work_address.flag_base_home | work_information:work_address:flag_base_home |string | See section 2 |
+| work_information.work_address.company_name | work_information:work_address:company_name |string | See chapter 2 |
+| work_information.work_address.company_id | work_information:work_address:company_id |string | See chapter 2 |
+| work_information.work_address.flag_base_home | work_information:work_address:flag_base_home |string | See chapter 2 |
 | legislation_country |	legislation_country | string |(ISO 3166-1 alpha-2) |
-| transitional_rules | transitional_rules | string | See section 2 |
-| status_confirmation |	status_confirmation | string |	See section 2 |
+| transitional_rules | transitional_rules | string | See chapter 2 |
+| status_confirmation |	status_confirmation | string |	See chapter 2 |
 
 
 The PD A1 credential implements selective disclosure using the SD-JWT model. This allows a credential holder to disclose only the minimum required claims to a verifier, supporting GDPR-compliant privacy by design.
