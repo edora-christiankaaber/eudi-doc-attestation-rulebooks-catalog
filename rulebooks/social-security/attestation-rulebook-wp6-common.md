@@ -86,7 +86,7 @@ This chapter suggests a governance structure for the lifecycle management, overs
 -	Final approval lies with a joint governance body composed of representatives from the European Commission, selected Member States, and relevant expert groups.
 #### 1.5.4	VERSIONING AND PUBLICATION
 -	Rulebook versions are identified by a semantic versioning scheme (e.g., v1.0.0).
--	Version identifiers must be reflected in namespace URIs used across the data models (see Section 7.7).
+-	Version identifiers must be reflected in namespace URIs used across the data models (see chapter 7.7).
 -	A public registry of approved versions shall be maintained by DG EMPL or a delegated trusted authority.
 -	Deprecated versions shall remain accessible for reference but must not be used for new attestation issuance.
 #### 1.5.5	DISPUTE RESOLUTION AND ESCALATION
@@ -189,7 +189,7 @@ Fields in credentials representing the authentic source include:
 -	authentic_source.id
 -	authentic_source.name
 
-The Issuer is the digital entity that packages and signs the credential using cryptographic mechanisms. This entity ensures the technical trustworthiness and interoperability of the credential. While it may also be the authentic source in some implementations, separation of duties is often applied for efficiency, governance, and audit purposes in line with Section 2.2.2.3 of the eIDAS 2.0 Architecture Reference Framework (ARF).
+The Issuer is the digital entity that packages and signs the credential using cryptographic mechanisms. This entity ensures the technical trustworthiness and interoperability of the credential. While it may also be the authentic source in some implementations, separation of duties is often applied for efficiency, governance, and audit purposes in line with chapter 2.2.2.3 of the eIDAS 2.0 Architecture Reference Framework (ARF).
 
 Responsibilities:
 -	Generate Verifiable Credentials based on business decision data from authentic source.
@@ -312,13 +312,13 @@ Examples for social security coordination attestation types can be found in the 
 | **Data Identifier** | **Attribute identifier** | **Encoding format** | **Notes** |
 |---------------------|--------------------------|---------------------|-----------|
 | attestation_legal_category | attestation_legal_category | string | Defined in Attestation Rulebook template |
-| personal_administrative_number | urn:dgempl:pubeaas:v1:attribute:personal_administrative_number | string | See section 2 |
-| issuing_country | urn:dgempl:pubeaas:v1:attribute:issuing_country | string | See section 2 |
-| document_number | urn:dgempl:pubeaas:v1:attribute:document_number | string | See section 2 |
-| issuing_authority.id | urn:dgempl:pubeaas:v1:attribute:issuing_authority:id | string | See section 2 |
-| issuing_authority.name | urn:dgempl:pubeaas:v1:attribute:issuing_authority:name | string | See section 2 |
-| authentic_source.id | urn:dgempl:pubeaas:v1:attribute:authentic_source:id | string | See section 2 |
-| authentic_source.name | urn:dgempl:pubeaas:v1:attribute:authentic_source:name | string | See section 2 |
+| personal_administrative_number | urn:dgempl:pubeaas:v1:attribute:personal_administrative_number | string | See chapter 2 |
+| issuing_country | urn:dgempl:pubeaas:v1:attribute:issuing_country | string | See chapter 2 |
+| document_number | urn:dgempl:pubeaas:v1:attribute:document_number | string | See chapter 2 |
+| issuing_authority.id | urn:dgempl:pubeaas:v1:attribute:issuing_authority:id | string | See chapter 2 |
+| issuing_authority.name | urn:dgempl:pubeaas:v1:attribute:issuing_authority:name | string | See chapter 2 |
+| authentic_source.id | urn:dgempl:pubeaas:v1:attribute:authentic_source:id | string | See chapter 2 |
+| authentic_source.name | urn:dgempl:pubeaas:v1:attribute:authentic_source:name | string | See chapter 2 |
 | starting_date | urn:dgempl:pubeaas:v1:attribute:starting_date | string | ISO 8601-1 [ISO8601‑1] YYYY-MM-DD format |
 | ending_date | urn:dgempl:pubeaas:v1:attribute:ending_date | string | ISO 8601-1 [ISO8601‑1] YYYY-MM-DD format |
 | date_of_issuance | urn:dgempl:pubeaas:v1:attribute:date_of_issuance | string | ISO 8601-1 [ISO8601‑1] YYYY-MM-DD format |
@@ -363,7 +363,7 @@ In representation scenarios where a credential is issued to a representative rat
 
 Such scenarios are particularly relevant in the context of the European Health Insurance Card (EHIC), where credentials may be issued to legal representatives—such as parents acting on behalf of their children or guardians representing dependents. In contrast, the Portable Document A1 (PD A1) is issued exclusively to the insured worker and does not support formal representation. It is inherently linked to the individual's employment and social security affiliation, and must be presented by the holder themselves.
 
-It is important to note that delegation by the subject, whereby another entity is authorised to present a credential on the subject’s behalf, is not addressed in this section and is treated separately (see chapter 1.9).
+It is important to note that delegation by the subject, whereby another entity is authorised to present a credential on the subject’s behalf, is not addressed in this chapter and is treated separately (see chapter 1.9).
 
 This layered, role-sensitive approach supports secure, privacy-preserving, and legally sound credential exchanges, while maintaining consistency across national implementations and ensuring compliance with EU-wide standards.
 
