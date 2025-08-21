@@ -213,8 +213,11 @@ This distinction follows the ARF principle of role separation between legal auth
 Representation and delegation are explicitly recognised within the revised eIDAS Regulation (EU 2024/1183). Article 3(1)(10) extends the scope of electronic identification beyond natural persons to include those acting on behalf of others, such as legal representatives or authorised proxies of legal persons. 
 This provides the legal foundation for delegated digital interactions, which are highly relevant in the social security domain where employers, family members, or legal guardians may need to exercise rights or present entitlements on behalf of individuals. 
 
-However, while the Regulation affirms this principle, detailed operational provisions remain underdeveloped. Standardised processes, assurance requirements, and technical specifications for managing representation and delegation — such as how mandates are issued, validated, and revoked across Member States — are not yet established through a dedicated Implementing Act. 
-Consequently, further governance, semantic alignment, and technical standardisation will be necessary to ensure secure, interoperable, and user-friendly delegation mechanisms within the PuB-EAA framework.
+A concrete example is the European Health Insurance Card (EHIC), where representation can be supported through the issuance of a dedicated representation credential to the authorised representative. Such a credential would take the form of an EHIC PuB-EAA of the subject, enriched with the subject’s identity data but issued to the authorised entity. Issued by the competent Public Body in accordance with national rules on representation, this mechanism ensures that the subject can be identified, the credential can be authenticated, and the representative is duly authorised to present it. The solution for public body–authorised representation is therefore already clear and implementable. 
+
+By contrast, wallet-to-wallet delegation, where an individual or organisation explicitly grants another wallet the mandate to act on their behalf, remains an open topic. Its practical implementation must follow the upcoming specifications, governance models, and interoperability mechanisms of the evolving EUDI Wallet ecosystem. 
+
+While the Regulation affirms the principle, operational provisions for wallet-to-wallet delegation — such as mandate issuance, validation, revocation, and cross-border recognition — are expected to be defined in future updates to the framework.
 
 ## 2 Attestation attributes and metadata
 
