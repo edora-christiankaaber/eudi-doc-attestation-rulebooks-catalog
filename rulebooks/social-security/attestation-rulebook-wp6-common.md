@@ -359,6 +359,14 @@ The foundation for each verification policy is a common business data block that
 
 In addition, the embedded disclosure policy, defined at credential modelling level, captures trans-European requirements that apply uniformly across Member States. This embedded logic ensures that essential attributes are consistently disclosed when needed. At the same time, it allows Member States to build on top of this base with localised rules for verification, adapted to national legislation and implementation practices.
 
+In representation scenarios where a credential is issued to a representative rather than the entitled individual, verification must ensure that the actual subject of the entitlement is correctly identified and authenticated before access to social security services or benefits is granted. This is crucial to preserve legal integrity and ensure that rights are exercised on behalf of the correct individual.
+
+Such scenarios are particularly relevant in the context of the European Health Insurance Card (EHIC), where credentials may be issued to legal representatives—such as parents acting on behalf of their children or guardians representing dependents. In contrast, the Portable Document A1 (PD A1) is issued exclusively to the insured worker and does not support formal representation. It is inherently linked to the individual's employment and social security affiliation, and must be presented by the holder themselves.
+
+It is important to note that delegation by the subject, whereby another entity is authorised to present a credential on the subject’s behalf, is not addressed in this section and is treated separately (see chapter 1.9).
+
+This layered, role-sensitive approach supports secure, privacy-preserving, and legally sound credential exchanges, while maintaining consistency across national implementations and ensuring compliance with EU-wide standards.
+
 #### 4.1.3 Local adaptation and registration
 -	Member States are responsible for defining and maintaining their specific verification policy profiles.
 -	Each profile must be documented, versioned, and registered in a trusted EU-wide or accessible national registry.
